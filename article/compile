@@ -1,0 +1,1 @@
+pdflatex sbc-template.tex && bibtex sbc-template.aux && pdflatex sbc-template.tex && see sbc-template.pdf

@@ -1,6 +1,3 @@
 [submodule "article-coverage-and-defects-private"]
 	path = article-coverage-and-defects-private
 	url = git@github.com:redivo/article-coverage-and-defects-private.git
-[submodule "unisinos-sbc-paper-template"]
-	path = unisinos-sbc-paper-template
-	url = https://github.com/rogerdenisvieira/unisinos-sbc-paper-template.git
