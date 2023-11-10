@@ -1,0 +1,2081 @@
+{
+    "Component_001": {
+        "isComponent": true,
+        "bugs": "7",
+        "reposCoverage": {
+            "Repository_001": {
+                "lines-valid": "1153",
+                "line-rate": "0.919340849957",
+                "lines-covered": "1060"
+            },
+            "Repository_002": {
+                "lines-valid": "1004",
+                "line-rate": "0.7749003984063745",
+                "lines-covered": "778"
+            }
+        }
+    },
+    "Component_002": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {}
+    },
+    "Component_003": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {}
+    },
+    "Component_004": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {}
+    },
+    "Component_005": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {}
+    },
+    "Component_006": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {}
+    },
+    "Component_007": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {}
+    },
+    "Component_008": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_003": {
+                "lines-valid": "187",
+                "line-rate": "0.786096256684492",
+                "lines-covered": "147"
+            }
+        }
+    },
+    "Component_009": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {}
+    },
+    "Component_010": {
+        "isComponent": true,
+        "bugs": "4",
+        "reposCoverage": {}
+    },
+    "Component_011": {
+        "isComponent": true,
+        "bugs": "108",
+        "reposCoverage": {
+            "Repository_004": {
+                "lines-valid": "872",
+                "line-rate": "0.784403669725",
+                "lines-covered": "684"
+            },
+            "Repository_005": {
+                "lines-valid": "4043",
+                "line-rate": "0.8805342567400445",
+                "lines-covered": "3560"
+            },
+            "Repository_006": {
+                "lines-valid": "7428",
+                "line-rate": "0.9231287022078621",
+                "lines-covered": "6857"
+            },
+            "Repository_007": {
+                "lines-valid": "2571",
+                "line-rate": "0.862699338779",
+                "lines-covered": "2218"
+            },
+            "Repository_008": {
+                "lines-valid": "1654",
+                "line-rate": "0.8917775090689238",
+                "lines-covered": "1475"
+            },
+            "Repository_009": {
+                "lines-valid": "2830",
+                "line-rate": "0.7939929328621909",
+                "lines-covered": "2247"
+            },
+            "Repository_010": {
+                "lines-valid": "132",
+                "line-rate": "0.909090909091",
+                "lines-covered": "120"
+            },
+            "Repository_011": {
+                "lines-valid": "2058",
+                "line-rate": "0.884839650146",
+                "lines-covered": "1821"
+            },
+            "Repository_012": {
+                "lines-valid": "1059",
+                "line-rate": "0.71671388101983",
+                "lines-covered": "759"
+            },
+            "Repository_013": {
+                "lines-valid": "29",
+                "line-rate": "1.0",
+                "lines-covered": "29"
+            },
+            "Repository_014": {
+                "lines-valid": "196",
+                "line-rate": "0.841836734694",
+                "lines-covered": "165"
+            },
+            "Repository_015": {
+                "lines-valid": "1574",
+                "line-rate": "0.9161372299872935",
+                "lines-covered": "1442"
+            },
+            "Repository_016": {
+                "lines-valid": "6",
+                "line-rate": "1.0",
+                "lines-covered": "6"
+            },
+            "Repository_017": {
+                "lines-valid": "2162",
+                "line-rate": "0.895467160037",
+                "lines-covered": "1936"
+            },
+            "Repository_018": {
+                "lines-valid": "8897",
+                "line-rate": "0.900078678206",
+                "lines-covered": "8008"
+            },
+            "Repository_019": {
+                "lines-valid": "7148",
+                "line-rate": "0.9040290990486849",
+                "lines-covered": "6462"
+            },
+            "Repository_020": {
+                "lines-valid": "3967",
+                "line-rate": "0.851777161583",
+                "lines-covered": "3379"
+            },
+            "Repository_021": {
+                "lines-valid": "3222",
+                "line-rate": "0.9273743016759777",
+                "lines-covered": "2988"
+            },
+            "Repository_022": {
+                "lines-valid": "6825",
+                "line-rate": "0.9142857142857143",
+                "lines-covered": "6240"
+            },
+            "Repository_023": {
+                "lines-valid": "3440",
+                "line-rate": "0.931976744186",
+                "lines-covered": "3206"
+            },
+            "Repository_024": {
+                "lines-valid": "705",
+                "line-rate": "0.9574468085106383",
+                "lines-covered": "675"
+            },
+            "Repository_025": {
+                "lines-valid": "39",
+                "line-rate": "1.0",
+                "lines-covered": "39"
+            },
+            "Repository_026": {
+                "lines-valid": "112",
+                "line-rate": "0.9375",
+                "lines-covered": "105"
+            },
+            "Repository_027": {
+                "lines-valid": "1329",
+                "line-rate": "0.7434161023325809",
+                "lines-covered": "988"
+            },
+            "Repository_028": {
+                "lines-valid": "73",
+                "line-rate": "0.808219178082",
+                "lines-covered": "59"
+            },
+            "Repository_029": {
+                "lines-valid": "350",
+                "line-rate": "0.911428571429",
+                "lines-covered": "319"
+            }
+        }
+    },
+    "Component_012": {
+        "isComponent": true,
+        "bugs": "8",
+        "reposCoverage": {}
+    },
+    "Component_013": {
+        "isComponent": true,
+        "bugs": "1",
+        "reposCoverage": {}
+    },
+    "Component_014": {
+        "isComponent": true,
+        "bugs": "14",
+        "reposCoverage": {}
+    },
+    "Component_015": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {}
+    },
+    "Component_016": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {}
+    },
+    "Component_017": {
+        "isComponent": true,
+        "bugs": "6",
+        "reposCoverage": {}
+    },
+    "Component_018": {
+        "isComponent": true,
+        "bugs": "4",
+        "reposCoverage": {
+            "Repository_030": {
+                "lines-valid": "664",
+                "line-rate": "0.9894578313253012",
+                "lines-covered": "657"
+            },
+            "Repository_031": {
+                "lines-valid": "54",
+                "line-rate": "1.0",
+                "lines-covered": "54"
+            },
+            "Repository_032": {
+                "lines-valid": "437",
+                "line-rate": "0.901601830664",
+                "lines-covered": "394"
+            },
+            "Repository_033": {
+                "lines-valid": "109",
+                "line-rate": "0.798165137615",
+                "lines-covered": "87"
+            },
+            "Repository_034": {
+                "lines-valid": "686",
+                "line-rate": "0.766763848397",
+                "lines-covered": "526"
+            }
+        }
+    },
+    "Component_019": {
+        "isComponent": true,
+        "bugs": "36",
+        "reposCoverage": {
+            "Repository_035": {
+                "lines-valid": "252",
+                "line-rate": "0.9523809523809523",
+                "lines-covered": "240"
+            },
+            "Repository_036": {
+                "lines-valid": "401",
+                "line-rate": "0.720698254364",
+                "lines-covered": "289"
+            },
+            "Repository_037": {
+                "lines-valid": "297",
+                "line-rate": "0.622895622896",
+                "lines-covered": "185"
+            }
+        }
+    },
+    "Component_020": {
+        "isComponent": true,
+        "bugs": "47",
+        "reposCoverage": {
+            "Repository_038": {
+                "lines-valid": "6240",
+                "line-rate": "0.6875",
+                "lines-covered": "4290"
+            },
+            "Repository_039": {
+                "lines-valid": "543",
+                "line-rate": "0.791896869245",
+                "lines-covered": "430"
+            },
+            "Repository_040": {
+                "lines-valid": "5992",
+                "line-rate": "0.7339786381842457",
+                "lines-covered": "4398"
+            }
+        }
+    },
+    "Component_021": {
+        "isComponent": true,
+        "bugs": "1",
+        "reposCoverage": {
+            "Repository_041": {
+                "lines-valid": "25",
+                "line-rate": "1.0",
+                "lines-covered": "25"
+            }
+        }
+    },
+    "Component_022": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {}
+    },
+    "Component_023": {
+        "isComponent": true,
+        "bugs": "23",
+        "reposCoverage": {}
+    },
+    "Component_024": {
+        "isComponent": true,
+        "bugs": "9",
+        "reposCoverage": {}
+    },
+    "Component_025": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {}
+    },
+    "Component_026": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {}
+    },
+    "Component_027": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {}
+    },
+    "Component_028": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_042": {
+                "lines-valid": "1823",
+                "line-rate": "0.3269336258913878",
+                "lines-covered": "596"
+            },
+            "Repository_043": {
+                "lines-valid": "4",
+                "line-rate": "0.75",
+                "lines-covered": "3"
+            },
+            "Repository_044": {
+                "lines-valid": "113",
+                "line-rate": "0.982300884956",
+                "lines-covered": "111"
+            },
+            "Repository_045": {
+                "lines-valid": "91",
+                "line-rate": "0.923076923077",
+                "lines-covered": "84"
+            },
+            "Repository_046": {
+                "lines-valid": "94",
+                "line-rate": "0.893617021277",
+                "lines-covered": "84"
+            },
+            "Repository_047": {
+                "lines-valid": "55",
+                "line-rate": "0.981818181818",
+                "lines-covered": "54"
+            },
+            "Repository_048": {
+                "lines-valid": "55",
+                "line-rate": "0.981818181818",
+                "lines-covered": "54"
+            },
+            "Repository_049": {
+                "lines-valid": "127",
+                "line-rate": "0.92125984252",
+                "lines-covered": "117"
+            }
+        }
+    },
+    "Component_029": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_050": {
+                "lines-valid": "1986",
+                "line-rate": "0.8942598187311178",
+                "lines-covered": "1776"
+            }
+        }
+    },
+    "Component_030": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_051": {
+                "lines-valid": "270",
+                "line-rate": "0.822222222222",
+                "lines-covered": "222"
+            },
+            "Repository_052": {
+                "lines-valid": "668",
+                "line-rate": "0.9146706586826348",
+                "lines-covered": "611"
+            }
+        }
+    },
+    "Component_031": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_053": {
+                "lines-valid": "395",
+                "line-rate": "0.9341772151898734",
+                "lines-covered": "369"
+            },
+            "Repository_054": {
+                "lines-valid": "2",
+                "line-rate": "1.0",
+                "lines-covered": "2"
+            },
+            "Repository_055": {
+                "lines-valid": "165",
+                "line-rate": "0.878787878788",
+                "lines-covered": "145"
+            },
+            "Repository_056": {
+                "lines-valid": "214",
+                "line-rate": "0.845794392523",
+                "lines-covered": "181"
+            }
+        }
+    },
+    "Component_032": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_057": {
+                "lines-valid": "332",
+                "line-rate": "0.8463855421686747",
+                "lines-covered": "281"
+            }
+        }
+    },
+    "Component_033": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_058": {
+                "lines-valid": "215",
+                "line-rate": "0.855813953488",
+                "lines-covered": "184"
+            },
+            "Repository_059": {
+                "lines-valid": "438",
+                "line-rate": "0.954337899543379",
+                "lines-covered": "418"
+            },
+            "Repository_060": {
+                "lines-valid": "2",
+                "line-rate": "1.0",
+                "lines-covered": "2"
+            },
+            "Repository_061": {
+                "lines-valid": "105",
+                "line-rate": "0.819047619048",
+                "lines-covered": "86"
+            }
+        }
+    },
+    "Component_034": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_062": {
+                "lines-valid": "207",
+                "line-rate": "0.647342995169",
+                "lines-covered": "134"
+            },
+            "Repository_063": {
+                "lines-valid": "372",
+                "line-rate": "0.9543010752688172",
+                "lines-covered": "355"
+            }
+        }
+    },
+    "Component_035": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {}
+    },
+    "Component_036": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_064": {
+                "lines-valid": "849",
+                "line-rate": "0.885747938751",
+                "lines-covered": "752"
+            },
+            "Repository_065": {
+                "lines-valid": "60",
+                "line-rate": "0.966666666667",
+                "lines-covered": "58"
+            }
+        }
+    },
+    "Component_037": {
+        "isComponent": true,
+        "bugs": "12",
+        "reposCoverage": {
+            "Repository_066": {
+                "lines-valid": "2228",
+                "line-rate": "0.670556552962",
+                "lines-covered": "1494"
+            }
+        }
+    },
+    "Component_038": {
+        "isComponent": true,
+        "bugs": "5",
+        "reposCoverage": {
+            "Repository_067": {
+                "lines-valid": "3407",
+                "line-rate": "0.741121221016",
+                "lines-covered": "2525"
+            },
+            "Repository_068": {
+                "lines-valid": "1102",
+                "line-rate": "0.8883847549909256",
+                "lines-covered": "979"
+            },
+            "Repository_069": {
+                "lines-valid": "1804",
+                "line-rate": "0.824833702882",
+                "lines-covered": "1488"
+            }
+        }
+    },
+    "Component_039": {
+        "isComponent": true,
+        "bugs": "1",
+        "reposCoverage": {
+            "Repository_070": {
+                "lines-valid": "367",
+                "line-rate": "0.850136239782",
+                "lines-covered": "312"
+            },
+            "Repository_071": {
+                "lines-valid": "873",
+                "line-rate": "0.7353951890034365",
+                "lines-covered": "642"
+            }
+        }
+    },
+    "Component_040": {
+        "isComponent": true,
+        "bugs": "7",
+        "reposCoverage": {
+            "Repository_072": {
+                "lines-valid": "72",
+                "line-rate": "0.930555555556",
+                "lines-covered": "67"
+            },
+            "Repository_073": {
+                "lines-valid": "484",
+                "line-rate": "0.36983471074380164",
+                "lines-covered": "179"
+            }
+        }
+    },
+    "Component_041": {
+        "isComponent": true,
+        "bugs": "16",
+        "reposCoverage": {
+            "Repository_074": {
+                "lines-valid": "8850",
+                "line-rate": "0.767118644068",
+                "lines-covered": "6789"
+            },
+            "Repository_075": {
+                "lines-valid": "137",
+                "line-rate": "0.9343065693430657",
+                "lines-covered": "128"
+            }
+        }
+    },
+    "Component_042": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {
+            "Repository_076": {
+                "lines-valid": "1724",
+                "line-rate": "0.833526682135",
+                "lines-covered": "1437"
+            },
+            "Repository_077": {
+                "lines-valid": "3060",
+                "line-rate": "0.7830065359477124",
+                "lines-covered": "2396"
+            }
+        }
+    },
+    "Component_043": {
+        "isComponent": true,
+        "bugs": "5",
+        "reposCoverage": {
+            "Repository_078": {
+                "lines-valid": "2545",
+                "line-rate": "0.883300589391",
+                "lines-covered": "2248"
+            },
+            "Repository_079": {
+                "lines-valid": "6846",
+                "line-rate": "0.9513584574934268",
+                "lines-covered": "6513"
+            }
+        }
+    },
+    "Component_044": {
+        "isComponent": true,
+        "bugs": "6",
+        "reposCoverage": {
+            "Repository_080": {
+                "lines-valid": "1189",
+                "line-rate": "0.9192598822539949",
+                "lines-covered": "1093"
+            }
+        }
+    },
+    "Component_045": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_081": {
+                "lines-valid": "801",
+                "line-rate": "0.916354556804",
+                "lines-covered": "734"
+            }
+        }
+    },
+    "Component_046": {
+        "isComponent": true,
+        "bugs": "6",
+        "reposCoverage": {
+            "Repository_082": {
+                "lines-valid": "33",
+                "line-rate": "0.818181818182",
+                "lines-covered": "27"
+            },
+            "Repository_083": {
+                "lines-valid": "448",
+                "line-rate": "0.930803571429",
+                "lines-covered": "417"
+            }
+        }
+    },
+    "Component_047": {
+        "isComponent": true,
+        "bugs": "26",
+        "reposCoverage": {
+            "Repository_084": {
+                "lines-valid": "945",
+                "line-rate": "0.8148148148148148",
+                "lines-covered": "770"
+            },
+            "Repository_085": {
+                "lines-valid": "144",
+                "line-rate": "0.2847222222222222",
+                "lines-covered": "41"
+            },
+            "Repository_086": {
+                "lines-valid": "277",
+                "line-rate": "0.6498194945848376",
+                "lines-covered": "180"
+            },
+            "Repository_087": {
+                "lines-valid": "246",
+                "line-rate": "0.9146341463414634",
+                "lines-covered": "225"
+            }
+        }
+    },
+    "Component_048": {
+        "isComponent": true,
+        "bugs": "5",
+        "reposCoverage": {
+            "Repository_088": {
+                "lines-valid": "360",
+                "line-rate": "0.6083333333333333",
+                "lines-covered": "219"
+            },
+            "Repository_089": {
+                "lines-valid": "516",
+                "line-rate": "0.7151162790697675",
+                "lines-covered": "369"
+            }
+        }
+    },
+    "Component_049": {
+        "isComponent": true,
+        "bugs": "12",
+        "reposCoverage": {
+            "Repository_090": {
+                "lines-valid": "583",
+                "line-rate": "0.789022298456",
+                "lines-covered": "460"
+            },
+            "Repository_091": {
+                "lines-valid": "972",
+                "line-rate": "0.944444444444",
+                "lines-covered": "918"
+            },
+            "Repository_092": {
+                "lines-valid": "3159",
+                "line-rate": "0.8198797087685976",
+                "lines-covered": "2590"
+            }
+        }
+    },
+    "Component_050": {
+        "isComponent": true,
+        "bugs": "4",
+        "reposCoverage": {
+            "Repository_093": {
+                "lines-valid": "563",
+                "line-rate": "0.88809946714",
+                "lines-covered": "500"
+            },
+            "Repository_094": {
+                "lines-valid": "1996",
+                "line-rate": "0.9238476953907816",
+                "lines-covered": "1844"
+            }
+        }
+    },
+    "Component_051": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_095": {
+                "lines-valid": "284",
+                "line-rate": "0.859154929577",
+                "lines-covered": "244"
+            },
+            "Repository_096": {
+                "lines-valid": "2046",
+                "line-rate": "0.8885630498533724",
+                "lines-covered": "1818"
+            }
+        }
+    },
+    "Component_052": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_097": {
+                "lines-valid": "1277",
+                "line-rate": "0.8723570869224746",
+                "lines-covered": "1114"
+            }
+        }
+    },
+    "Component_053": {
+        "isComponent": true,
+        "bugs": "7",
+        "reposCoverage": {
+            "Repository_098": {
+                "lines-valid": "592",
+                "line-rate": "0.89527027027",
+                "lines-covered": "530"
+            },
+            "Repository_099": {
+                "lines-valid": "481",
+                "line-rate": "0.7754677754677755",
+                "lines-covered": "373"
+            },
+            "Repository_100": {
+                "lines-valid": "6",
+                "line-rate": "1.0",
+                "lines-covered": "6"
+            },
+            "Repository_101": {
+                "lines-valid": "200",
+                "line-rate": "0.755",
+                "lines-covered": "151"
+            },
+            "Repository_102": {
+                "lines-valid": "276",
+                "line-rate": "0.6884057971014492",
+                "lines-covered": "190"
+            }
+        }
+    },
+    "Component_054": {
+        "isComponent": true,
+        "bugs": "22",
+        "reposCoverage": {
+            "Repository_103": {
+                "lines-valid": "242",
+                "line-rate": "0.921487603306",
+                "lines-covered": "223"
+            },
+            "Repository_104": {
+                "lines-valid": "2941",
+                "line-rate": "0.828289697382",
+                "lines-covered": "2436"
+            },
+            "Repository_105": {
+                "lines-valid": "2416",
+                "line-rate": "0.7599337748344371",
+                "lines-covered": "1836"
+            },
+            "Repository_106": {
+                "lines-valid": "52",
+                "line-rate": "0.38461538461538464",
+                "lines-covered": "20"
+            },
+            "Repository_107": {
+                "lines-valid": "1252",
+                "line-rate": "0.8706070287539937",
+                "lines-covered": "1090"
+            },
+            "Repository_108": {
+                "lines-valid": "8",
+                "line-rate": "1.0",
+                "lines-covered": "8"
+            },
+            "Repository_109": {
+                "lines-valid": "1073",
+                "line-rate": "0.85927306617",
+                "lines-covered": "922"
+            }
+        }
+    },
+    "Component_055": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_110": {
+                "lines-valid": "260",
+                "line-rate": "0.907692307692",
+                "lines-covered": "236"
+            },
+            "Repository_111": {
+                "lines-valid": "117",
+                "line-rate": "0.91452991453",
+                "lines-covered": "107"
+            }
+        }
+    },
+    "Component_056": {
+        "isComponent": true,
+        "bugs": "10",
+        "reposCoverage": {
+            "Repository_112": {
+                "lines-valid": "842",
+                "line-rate": "0.8218527315914489",
+                "lines-covered": "692"
+            },
+            "Repository_113": {
+                "lines-valid": "365",
+                "line-rate": "0.720547945205",
+                "lines-covered": "263"
+            }
+        }
+    },
+    "Component_057": {
+        "isComponent": true,
+        "bugs": "152",
+        "reposCoverage": {
+            "Repository_114": {
+                "lines-valid": "112213",
+                "line-rate": "0.00913441401620133",
+                "lines-covered": "1025"
+            },
+            "Repository_115": {
+                "lines-valid": "152741",
+                "line-rate": "0.0",
+                "lines-covered": "0"
+            },
+            "Repository_116": {
+                "lines-valid": "1853",
+                "line-rate": "0.862385321101",
+                "lines-covered": "1598"
+            },
+            "Repository_117": {
+                "lines-valid": "24535",
+                "line-rate": "0.823150601182",
+                "lines-covered": "20196"
+            },
+            "Repository_118": {
+                "lines-valid": "829",
+                "line-rate": "0.8697225572979493",
+                "lines-covered": "721"
+            },
+            "Repository_119": {
+                "lines-valid": "910",
+                "line-rate": "0.876923076923",
+                "lines-covered": "798"
+            },
+            "Repository_120": {
+                "lines-valid": "30",
+                "line-rate": "1.0",
+                "lines-covered": "30"
+            },
+            "Repository_121": {
+                "lines-valid": "350",
+                "line-rate": "0.8628571428571429",
+                "lines-covered": "302"
+            },
+            "Repository_122": {
+                "lines-valid": "4",
+                "line-rate": "1.0",
+                "lines-covered": "4"
+            },
+            "Repository_123": {
+                "lines-valid": "542",
+                "line-rate": "0.714022140221",
+                "lines-covered": "387"
+            },
+            "Repository_124": {
+                "lines-valid": "689",
+                "line-rate": "0.462989840348",
+                "lines-covered": "319"
+            },
+            "Repository_125": {
+                "lines-valid": "312",
+                "line-rate": "0.849358974359",
+                "lines-covered": "265"
+            }
+        }
+    },
+    "Component_058": {
+        "isComponent": true,
+        "bugs": "1",
+        "reposCoverage": {
+            "Repository_126": {
+                "lines-valid": "167",
+                "line-rate": "0.88622754491",
+                "lines-covered": "148"
+            },
+            "Repository_127": {
+                "lines-valid": "155",
+                "line-rate": "0.683870967742",
+                "lines-covered": "106"
+            },
+            "Repository_128": {
+                "lines-valid": "2507",
+                "line-rate": "0.464698843238931",
+                "lines-covered": "1165"
+            },
+            "Repository_129": {
+                "lines-valid": "264",
+                "line-rate": "0.886363636364",
+                "lines-covered": "234"
+            },
+            "Repository_130": {
+                "lines-valid": "717",
+                "line-rate": "0.799163179916318",
+                "lines-covered": "573"
+            },
+            "Repository_131": {
+                "lines-valid": "9",
+                "line-rate": "0.888888888889",
+                "lines-covered": "8"
+            },
+            "Repository_132": {
+                "lines-valid": "179",
+                "line-rate": "0.653631284916",
+                "lines-covered": "117"
+            },
+            "Repository_133": {
+                "lines-valid": "256",
+                "line-rate": "0.734375",
+                "lines-covered": "188"
+            },
+            "Repository_134": {
+                "lines-valid": "210",
+                "line-rate": "0.452380952381",
+                "lines-covered": "95"
+            },
+            "Repository_135": {
+                "lines-valid": "462",
+                "line-rate": "0.627705627706",
+                "lines-covered": "290"
+            },
+            "Repository_136": {
+                "lines-valid": "357",
+                "line-rate": "0.607843137255",
+                "lines-covered": "217"
+            },
+            "Repository_137": {
+                "lines-valid": "332",
+                "line-rate": "0.734939759036",
+                "lines-covered": "244"
+            },
+            "Repository_138": {
+                "lines-valid": "156",
+                "line-rate": "0.666666666667",
+                "lines-covered": "104"
+            },
+            "Repository_139": {
+                "lines-valid": "236",
+                "line-rate": "0.766949152542",
+                "lines-covered": "181"
+            },
+            "Repository_140": {
+                "lines-valid": "156",
+                "line-rate": "0.666666666667",
+                "lines-covered": "104"
+            },
+            "Repository_141": {
+                "lines-valid": "122",
+                "line-rate": "0.639344262295",
+                "lines-covered": "78"
+            },
+            "Repository_142": {
+                "lines-valid": "407",
+                "line-rate": "0.619164619165",
+                "lines-covered": "252"
+            },
+            "Repository_143": {
+                "lines-valid": "163",
+                "line-rate": "0.993865030675",
+                "lines-covered": "162"
+            },
+            "Repository_144": {
+                "lines-valid": "266",
+                "line-rate": "0.793233082707",
+                "lines-covered": "211"
+            }
+        }
+    },
+    "Component_059": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {
+            "Repository_145": {
+                "lines-valid": "4051",
+                "line-rate": "0.782275981239",
+                "lines-covered": "3169"
+            }
+        }
+    },
+    "Component_060": {
+        "isComponent": true,
+        "bugs": "13",
+        "reposCoverage": {
+            "Repository_146": {
+                "lines-valid": "231",
+                "line-rate": "0.9177489177489178",
+                "lines-covered": "212"
+            },
+            "Repository_147": {
+                "lines-valid": "3",
+                "line-rate": "1.0",
+                "lines-covered": "3"
+            },
+            "Repository_148": {
+                "lines-valid": "546",
+                "line-rate": "0.681318681319",
+                "lines-covered": "372"
+            },
+            "Repository_149": {
+                "lines-valid": "3195",
+                "line-rate": "0.842879499218",
+                "lines-covered": "2693"
+            }
+        }
+    },
+    "Component_061": {
+        "isComponent": true,
+        "bugs": "1",
+        "reposCoverage": {
+            "Repository_150": {
+                "lines-valid": "390",
+                "line-rate": "0.858974358974",
+                "lines-covered": "335"
+            },
+            "Repository_151": {
+                "lines-valid": "563",
+                "line-rate": "0.8845470692717584",
+                "lines-covered": "498"
+            }
+        }
+    },
+    "Component_062": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {
+            "Repository_152": {
+                "lines-valid": "757",
+                "line-rate": "0.7807133421400264",
+                "lines-covered": "591"
+            }
+        }
+    },
+    "Component_063": {
+        "isComponent": true,
+        "bugs": "10",
+        "reposCoverage": {
+            "Repository_153": {
+                "lines-valid": "91",
+                "line-rate": "0.857142857143",
+                "lines-covered": "78"
+            },
+            "Repository_154": {
+                "lines-valid": "897",
+                "line-rate": "0.879598662207",
+                "lines-covered": "789"
+            },
+            "Repository_155": {
+                "lines-valid": "102",
+                "line-rate": "0.813725490196",
+                "lines-covered": "83"
+            }
+        }
+    },
+    "Component_064": {
+        "isComponent": true,
+        "bugs": "6",
+        "reposCoverage": {
+            "Repository_156": {
+                "lines-valid": "393",
+                "line-rate": "0.849872773537",
+                "lines-covered": "334"
+            },
+            "Repository_157": {
+                "lines-valid": "712",
+                "line-rate": "0.9536516853932584",
+                "lines-covered": "679"
+            },
+            "Repository_158": {
+                "lines-valid": "4",
+                "line-rate": "1.0",
+                "lines-covered": "4"
+            },
+            "Repository_159": {
+                "lines-valid": "592",
+                "line-rate": "0.763513513514",
+                "lines-covered": "452"
+            },
+            "Repository_160": {
+                "lines-valid": "51",
+                "line-rate": "0.980392156863",
+                "lines-covered": "50"
+            },
+            "Repository_161": {
+                "lines-valid": "696",
+                "line-rate": "0.9439655172413793",
+                "lines-covered": "657"
+            },
+            "Repository_162": {
+                "lines-valid": "475",
+                "line-rate": "0.9431578947368421",
+                "lines-covered": "448"
+            }
+        }
+    },
+    "Component_065": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {
+            "Repository_163": {
+                "lines-valid": "1013",
+                "line-rate": "0.936821322804",
+                "lines-covered": "949"
+            },
+            "Repository_164": {
+                "lines-valid": "178",
+                "line-rate": "0.404494382022",
+                "lines-covered": "72"
+            }
+        }
+    },
+    "Component_066": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_165": {
+                "lines-valid": "470",
+                "line-rate": "0.912765957447",
+                "lines-covered": "429"
+            },
+            "Repository_166": {
+                "lines-valid": "1660",
+                "line-rate": "0.7740963855421686",
+                "lines-covered": "1285"
+            }
+        }
+    },
+    "Component_067": {
+        "isComponent": true,
+        "bugs": "4",
+        "reposCoverage": {
+            "Repository_167": {
+                "lines-valid": "12",
+                "line-rate": "1.0",
+                "lines-covered": "12"
+            },
+            "Repository_168": {
+                "lines-valid": "1",
+                "line-rate": "1.0",
+                "lines-covered": "1"
+            },
+            "Repository_169": {
+                "lines-valid": "54",
+                "line-rate": "1.0",
+                "lines-covered": "54"
+            },
+            "Repository_170": {
+                "lines-valid": "1828",
+                "line-rate": "0.852297592998",
+                "lines-covered": "1558"
+            },
+            "Repository_171": {
+                "lines-valid": "412",
+                "line-rate": "0.953883495146",
+                "lines-covered": "393"
+            },
+            "Repository_172": {
+                "lines-valid": "1120",
+                "line-rate": "0.8857142857142857",
+                "lines-covered": "992"
+            }
+        }
+    },
+    "Component_068": {
+        "isComponent": true,
+        "bugs": "9",
+        "reposCoverage": {
+            "Repository_173": {
+                "lines-valid": "1916",
+                "line-rate": "0.7865344467640919",
+                "lines-covered": "1507"
+            }
+        }
+    },
+    "Component_069": {
+        "isComponent": true,
+        "bugs": "1",
+        "reposCoverage": {
+            "Repository_174": {
+                "lines-valid": "448",
+                "line-rate": "0.772321428571",
+                "lines-covered": "346"
+            },
+            "Repository_175": {
+                "lines-valid": "39",
+                "line-rate": "0.615384615385",
+                "lines-covered": "24"
+            },
+            "Repository_176": {
+                "lines-valid": "185",
+                "line-rate": "0.8918918918918919",
+                "lines-covered": "165"
+            },
+            "Repository_177": {
+                "lines-valid": "266",
+                "line-rate": "0.563909774436",
+                "lines-covered": "150"
+            },
+            "Repository_178": {
+                "lines-valid": "3",
+                "line-rate": "1.0",
+                "lines-covered": "3"
+            }
+        }
+    },
+    "Component_070": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_179": {
+                "lines-valid": "538",
+                "line-rate": "0.845724907063197",
+                "lines-covered": "455"
+            },
+            "Repository_180": {
+                "lines-valid": "997",
+                "line-rate": "0.9247743229689067",
+                "lines-covered": "922"
+            }
+        }
+    },
+    "Component_071": {
+        "isComponent": true,
+        "bugs": "6",
+        "reposCoverage": {
+            "Repository_181": {
+                "lines-valid": "8",
+                "line-rate": "1.0",
+                "lines-covered": "8"
+            },
+            "Repository_182": {
+                "lines-valid": "36",
+                "line-rate": "0.638888888889",
+                "lines-covered": "23"
+            },
+            "Repository_183": {
+                "lines-valid": "29",
+                "line-rate": "0.51724137931",
+                "lines-covered": "15"
+            },
+            "Repository_184": {
+                "lines-valid": "100",
+                "line-rate": "0.15",
+                "lines-covered": "15"
+            },
+            "Repository_185": {
+                "lines-valid": "54",
+                "line-rate": "0.277777777778",
+                "lines-covered": "15"
+            }
+        }
+    },
+    "Component_072": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {
+            "Repository_186": {
+                "lines-valid": "532",
+                "line-rate": "0.8872180451127819",
+                "lines-covered": "472"
+            },
+            "Repository_187": {
+                "lines-valid": "1318",
+                "line-rate": "0.875569044006",
+                "lines-covered": "1154"
+            },
+            "Repository_188": {
+                "lines-valid": "1196",
+                "line-rate": "0.6588628762541806",
+                "lines-covered": "788"
+            },
+            "Repository_189": {
+                "lines-valid": "3",
+                "line-rate": "1.0",
+                "lines-covered": "3"
+            },
+            "Repository_190": {
+                "lines-valid": "452",
+                "line-rate": "0.590707964602",
+                "lines-covered": "267"
+            }
+        }
+    },
+    "Component_073": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_191": {
+                "lines-valid": "784",
+                "line-rate": "0.65306122449",
+                "lines-covered": "512"
+            }
+        }
+    },
+    "Component_074": {
+        "isComponent": true,
+        "bugs": "23",
+        "reposCoverage": {
+            "Repository_192": {
+                "lines-valid": "1529",
+                "line-rate": "0.8672334859385219",
+                "lines-covered": "1326"
+            }
+        }
+    },
+    "Component_075": {
+        "isComponent": true,
+        "bugs": "4",
+        "reposCoverage": {
+            "Repository_193": {
+                "lines-valid": "1073",
+                "line-rate": "0.835973904939",
+                "lines-covered": "897"
+            },
+            "Repository_194": {
+                "lines-valid": "227",
+                "line-rate": "0.7797356828193832",
+                "lines-covered": "177"
+            }
+        }
+    },
+    "Component_076": {
+        "isComponent": true,
+        "bugs": "7",
+        "reposCoverage": {
+            "Repository_195": {
+                "lines-valid": "757",
+                "line-rate": "0.7212681638044914",
+                "lines-covered": "546"
+            }
+        }
+    },
+    "Component_077": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_196": {
+                "lines-valid": "195",
+                "line-rate": "0.8",
+                "lines-covered": "156"
+            },
+            "Repository_197": {
+                "lines-valid": "149",
+                "line-rate": "0.9261744966442953",
+                "lines-covered": "138"
+            },
+            "Repository_198": {
+                "lines-valid": "2",
+                "line-rate": "1.0",
+                "lines-covered": "2"
+            },
+            "Repository_199": {
+                "lines-valid": "139",
+                "line-rate": "0.94964028777",
+                "lines-covered": "132"
+            }
+        }
+    },
+    "Component_078": {
+        "isComponent": true,
+        "bugs": "3",
+        "reposCoverage": {
+            "Repository_200": {
+                "lines-valid": "211",
+                "line-rate": "0.92890",
+                "lines-covered": "196"
+            },
+            "Repository_201": {
+                "lines-valid": "913",
+                "line-rate": "0.888280394304",
+                "lines-covered": "811"
+            }
+        }
+    },
+    "Component_079": {
+        "isComponent": true,
+        "bugs": "13",
+        "reposCoverage": {
+            "Repository_202": {
+                "lines-valid": "583",
+                "line-rate": "0.387650085763",
+                "lines-covered": "226"
+            },
+            "Repository_203": {
+                "lines-valid": "1157",
+                "line-rate": "0.818496110631",
+                "lines-covered": "947"
+            },
+            "Repository_204": {
+                "lines-valid": "496",
+                "line-rate": "0.8306451612903226",
+                "lines-covered": "412"
+            },
+            "Repository_205": {
+                "lines-valid": "2",
+                "line-rate": "1.0",
+                "lines-covered": "2"
+            },
+            "Repository_206": {
+                "lines-valid": "36",
+                "line-rate": "0.0",
+                "lines-covered": "0"
+            },
+            "Repository_207": {
+                "lines-valid": "825",
+                "line-rate": "0.712727272727",
+                "lines-covered": "588"
+            },
+            "Repository_208": {
+                "lines-valid": "1927",
+                "line-rate": "0.324857291126",
+                "lines-covered": "626"
+            }
+        }
+    },
+    "Component_080": {
+        "isComponent": true,
+        "bugs": "12",
+        "reposCoverage": {
+            "Repository_209": {
+                "lines-valid": "2922",
+                "line-rate": "0.901779603012",
+                "lines-covered": "2635"
+            },
+            "Repository_210": {
+                "lines-valid": "2493",
+                "line-rate": "0.8239069394304052",
+                "lines-covered": "2054"
+            },
+            "Repository_211": {
+                "lines-valid": "718",
+                "line-rate": "0.811977715877",
+                "lines-covered": "583"
+            },
+            "Repository_212": {
+                "lines-valid": "1810",
+                "line-rate": "0.8116022099447514",
+                "lines-covered": "1469"
+            }
+        }
+    },
+    "Component_081": {
+        "isComponent": true,
+        "bugs": "10",
+        "reposCoverage": {
+            "Repository_213": {
+                "lines-valid": "965",
+                "line-rate": "0.9253886010362694",
+                "lines-covered": "893"
+            },
+            "Repository_214": {
+                "lines-valid": "10",
+                "line-rate": "1.0",
+                "lines-covered": "10"
+            },
+            "Repository_215": {
+                "lines-valid": "1409",
+                "line-rate": "0.831795599716",
+                "lines-covered": "1172"
+            },
+            "Repository_216": {
+                "lines-valid": "807",
+                "line-rate": "0.9070631970260223",
+                "lines-covered": "732"
+            },
+            "Repository_217": {
+                "lines-valid": "1289",
+                "line-rate": "0.9449185415050426",
+                "lines-covered": "1218"
+            }
+        }
+    },
+    "Component_082": {
+        "isComponent": true,
+        "bugs": "9",
+        "reposCoverage": {
+            "Repository_218": {
+                "lines-valid": "1010",
+                "line-rate": "0.8524752475247525",
+                "lines-covered": "861"
+            }
+        }
+    },
+    "Component_083": {
+        "isComponent": true,
+        "bugs": "1",
+        "reposCoverage": {
+            "Repository_219": {
+                "lines-valid": "2330",
+                "line-rate": "0.87339055794",
+                "lines-covered": "2035"
+            },
+            "Repository_220": {
+                "lines-valid": "2312",
+                "line-rate": "0.8866782006920415",
+                "lines-covered": "2050"
+            },
+            "Repository_221": {
+                "lines-valid": "1660",
+                "line-rate": "0.8927710843373494",
+                "lines-covered": "1482"
+            }
+        }
+    },
+    "Component_084": {
+        "isComponent": true,
+        "bugs": "2",
+        "reposCoverage": {
+            "Repository_222": {
+                "lines-valid": "347",
+                "line-rate": "0.8789625360230547",
+                "lines-covered": "305"
+            }
+        }
+    },
+    "Component_085": {
+        "isComponent": true,
+        "bugs": "0",
+        "reposCoverage": {
+            "Repository_223": {
+                "lines-valid": "261",
+                "line-rate": "0.869731800766",
+                "lines-covered": "227"
+            }
+        }
+    },
+    "System repos": {
+        "isComponent": false,
+        "reposCoverage": {
+            "Repository_224": {
+                "lines-valid": "93",
+                "line-rate": "0.817204301075",
+                "lines-covered": "76"
+            },
+            "Repository_225": {
+                "lines-valid": "587",
+                "line-rate": "0.996592844974",
+                "lines-covered": "585"
+            },
+            "Repository_226": {
+                "lines-valid": "104",
+                "line-rate": "0.817307692308",
+                "lines-covered": "85"
+            },
+            "Repository_227": {
+                "lines-valid": "849",
+                "line-rate": "0.891637220259",
+                "lines-covered": "757"
+            },
+            "Repository_228": {
+                "lines-valid": "1675",
+                "line-rate": "0.80597",
+                "lines-covered": "1350"
+            },
+            "Repository_229": {
+                "lines-valid": "28",
+                "line-rate": "1.0",
+                "lines-covered": "28"
+            },
+            "Repository_230": {
+                "lines-valid": "322",
+                "line-rate": "0.872670807453",
+                "lines-covered": "281"
+            },
+            "Repository_231": {
+                "lines-valid": "243",
+                "line-rate": "0.5761316872427984",
+                "lines-covered": "140"
+            },
+            "Repository_232": {
+                "lines-valid": "4",
+                "line-rate": "1.0",
+                "lines-covered": "4"
+            },
+            "Repository_233": {
+                "lines-valid": "1216",
+                "line-rate": "0.671875",
+                "lines-covered": "817"
+            },
+            "Repository_234": {
+                "lines-valid": "228",
+                "line-rate": "0.960526315789",
+                "lines-covered": "219"
+            },
+            "Repository_235": {
+                "lines-valid": "367",
+                "line-rate": "0.25340599455040874",
+                "lines-covered": "93"
+            },
+            "Repository_236": {
+                "lines-valid": "35",
+                "line-rate": "0.942857142857",
+                "lines-covered": "33"
+            },
+            "Repository_237": {
+                "lines-valid": "599",
+                "line-rate": "0.884808013356",
+                "lines-covered": "530"
+            },
+            "Repository_238": {
+                "lines-valid": "96",
+                "line-rate": "0.958333333333",
+                "lines-covered": "92"
+            },
+            "Repository_239": {
+                "lines-valid": "605",
+                "line-rate": "0.9305785123966942",
+                "lines-covered": "563"
+            },
+            "Repository_240": {
+                "lines-valid": "4",
+                "line-rate": "1.0",
+                "lines-covered": "4"
+            },
+            "Repository_241": {
+                "lines-valid": "2346",
+                "line-rate": "0.858908780904",
+                "lines-covered": "2015"
+            },
+            "Repository_242": {
+                "lines-valid": "1487",
+                "line-rate": "0.748486886348",
+                "lines-covered": "1113"
+            },
+            "Repository_243": {
+                "lines-valid": "496",
+                "line-rate": "0.8508064516129032",
+                "lines-covered": "422"
+            },
+            "Repository_244": {
+                "lines-valid": "218",
+                "line-rate": "0.0871559633028",
+                "lines-covered": "19"
+            },
+            "Repository_245": {
+                "lines-valid": "487",
+                "line-rate": "0.7535934291581109",
+                "lines-covered": "367"
+            },
+            "Repository_246": {
+                "lines-valid": "1498",
+                "line-rate": "0.6268357810413885",
+                "lines-covered": "939"
+            },
+            "Repository_247": {
+                "lines-valid": "46",
+                "line-rate": "0.739130434783",
+                "lines-covered": "34"
+            },
+            "Repository_248": {
+                "lines-valid": "1679",
+                "line-rate": "0.899940440739",
+                "lines-covered": "1511"
+            },
+            "Repository_249": {
+                "lines-valid": "5137",
+                "line-rate": "0.9040295892544287",
+                "lines-covered": "4644"
+            },
+            "Repository_250": {
+                "lines-valid": "157",
+                "line-rate": "0.0",
+                "lines-covered": "0"
+            },
+            "Repository_251": {
+                "lines-valid": "269",
+                "line-rate": "0.657992565056",
+                "lines-covered": "177"
+            },
+            "Repository_252": {
+                "lines-valid": "1494",
+                "line-rate": "0.763721552878",
+                "lines-covered": "1141"
+            },
+            "Repository_253": {
+                "lines-valid": "67",
+                "line-rate": "0.776119402985",
+                "lines-covered": "52"
+            },
+            "Repository_254": {
+                "lines-valid": "1512",
+                "line-rate": "0.7837301587301587",
+                "lines-covered": "1185"
+            },
+            "Repository_255": {
+                "lines-valid": "1719",
+                "line-rate": "0.6969168121000582",
+                "lines-covered": "1198"
+            },
+            "Repository_256": {
+                "lines-valid": "291",
+                "line-rate": "0.718213058419",
+                "lines-covered": "209"
+            },
+            "Repository_257": {
+                "lines-valid": "276",
+                "line-rate": "0.5652173913043478",
+                "lines-covered": "156"
+            },
+            "Repository_258": {
+                "lines-valid": "13",
+                "line-rate": "0.538461538462",
+                "lines-covered": "7"
+            },
+            "Repository_259": {
+                "lines-valid": "397",
+                "line-rate": "0.264483627204",
+                "lines-covered": "105"
+            },
+            "Repository_260": {
+                "lines-valid": "440",
+                "line-rate": "0.977272727273",
+                "lines-covered": "430"
+            },
+            "Repository_261": {
+                "lines-valid": "638",
+                "line-rate": "0.990595611285",
+                "lines-covered": "632"
+            },
+            "Repository_262": {
+                "lines-valid": "930",
+                "line-rate": "0.9032258064516129",
+                "lines-covered": "840"
+            },
+            "Repository_263": {
+                "lines-valid": "7",
+                "line-rate": "1.0",
+                "lines-covered": "7"
+            },
+            "Repository_264": {
+                "lines-valid": "548",
+                "line-rate": "0.906934306569",
+                "lines-covered": "497"
+            },
+            "Repository_265": {
+                "lines-valid": "994",
+                "line-rate": "0.8501006036217303",
+                "lines-covered": "845"
+            },
+            "Repository_266": {
+                "lines-valid": "865",
+                "line-rate": "0.576878612717",
+                "lines-covered": "499"
+            },
+            "Repository_267": {
+                "lines-valid": "569",
+                "line-rate": "0.390158172232",
+                "lines-covered": "222"
+            },
+            "Repository_268": {
+                "lines-valid": "435",
+                "line-rate": "0.427586206897",
+                "lines-covered": "186"
+            },
+            "Repository_269": {
+                "lines-valid": "585",
+                "line-rate": "0.4",
+                "lines-covered": "234"
+            },
+            "Repository_270": {
+                "lines-valid": "699",
+                "line-rate": "0.496423462089",
+                "lines-covered": "347"
+            },
+            "Repository_271": {
+                "lines-valid": "333",
+                "line-rate": "0.126126126126",
+                "lines-covered": "42"
+            },
+            "Repository_272": {
+                "lines-valid": "623",
+                "line-rate": "0.630818619583",
+                "lines-covered": "393"
+            },
+            "Repository_273": {
+                "lines-valid": "716",
+                "line-rate": "0.5",
+                "lines-covered": "358"
+            },
+            "Repository_274": {
+                "lines-valid": "1007",
+                "line-rate": "0.299900695134",
+                "lines-covered": "302"
+            },
+            "Repository_275": {
+                "lines-valid": "368",
+                "line-rate": "0.861413043478",
+                "lines-covered": "317"
+            },
+            "Repository_276": {
+                "lines-valid": "433",
+                "line-rate": "0.972286374134",
+                "lines-covered": "421"
+            },
+            "Repository_277": {
+                "lines-valid": "439",
+                "line-rate": "0.79271070615",
+                "lines-covered": "348"
+            },
+            "Repository_278": {
+                "lines-valid": "471",
+                "line-rate": "0.832271762208",
+                "lines-covered": "392"
+            },
+            "Repository_279": {
+                "lines-valid": "234",
+                "line-rate": "0.807692307692",
+                "lines-covered": "189"
+            },
+            "Repository_280": {
+                "lines-valid": "345",
+                "line-rate": "0.6",
+                "lines-covered": "207"
+            },
+            "Repository_281": {
+                "lines-valid": "4719",
+                "line-rate": "0.9232888323797415",
+                "lines-covered": "4357"
+            },
+            "Repository_282": {
+                "lines-valid": "4159",
+                "line-rate": "0.9343592209665785",
+                "lines-covered": "3886"
+            },
+            "Repository_283": {
+                "lines-valid": "1047",
+                "line-rate": "0.8643744030563515",
+                "lines-covered": "905"
+            },
+            "Repository_284": {
+                "lines-valid": "100",
+                "line-rate": "0.88",
+                "lines-covered": "88"
+            },
+            "Repository_285": {
+                "lines-valid": "45",
+                "line-rate": "1.0",
+                "lines-covered": "45"
+            },
+            "Repository_286": {
+                "lines-valid": "101",
+                "line-rate": "0.356435643564",
+                "lines-covered": "36"
+            },
+            "Repository_287": {
+                "lines-valid": "85",
+                "line-rate": "0.329411764706",
+                "lines-covered": "28"
+            },
+            "Repository_288": {
+                "lines-valid": "19",
+                "line-rate": "0.789473684211",
+                "lines-covered": "15"
+            },
+            "Repository_289": {
+                "lines-valid": "19",
+                "line-rate": "0.789473684211",
+                "lines-covered": "15"
+            },
+            "Repository_290": {
+                "lines-valid": "35",
+                "line-rate": "0.828571428571",
+                "lines-covered": "29"
+            },
+            "Repository_291": {
+                "lines-valid": "193",
+                "line-rate": "0.538860103627",
+                "lines-covered": "104"
+            },
+            "Repository_292": {
+                "lines-valid": "55",
+                "line-rate": "0.909090909091",
+                "lines-covered": "50"
+            },
+            "Repository_293": {
+                "lines-valid": "59",
+                "line-rate": "0.830508474576",
+                "lines-covered": "49"
+            },
+            "Repository_294": {
+                "lines-valid": "27",
+                "line-rate": "0.851851851852",
+                "lines-covered": "23"
+            },
+            "Repository_295": {
+                "lines-valid": "19",
+                "line-rate": "0.789473684211",
+                "lines-covered": "15"
+            },
+            "Repository_296": {
+                "lines-valid": "116",
+                "line-rate": "0.379310344828",
+                "lines-covered": "44"
+            },
+            "Repository_297": {
+                "lines-valid": "122",
+                "line-rate": "0.581967213115",
+                "lines-covered": "71"
+            }
+        }
+    },
+    "Not In Field": {
+        "isComponent": false,
+        "reposCoverage": {
+            "Repository_298": {
+                "lines-valid": "2",
+                "line-rate": "1.0",
+                "lines-covered": "2"
+            },
+            "Repository_299": {
+                "lines-valid": "260",
+                "line-rate": "0.8769230769230769",
+                "lines-covered": "228"
+            },
+            "Repository_300": {
+                "lines-valid": "170",
+                "line-rate": "0.988235294118",
+                "lines-covered": "168"
+            },
+            "Repository_301": {
+                "lines-valid": "522",
+                "line-rate": "0.886973180077",
+                "lines-covered": "463"
+            },
+            "Repository_302": {
+                "lines-valid": "251",
+                "line-rate": "0.932270916335",
+                "lines-covered": "234"
+            },
+            "Repository_303": {
+                "lines-valid": "166",
+                "line-rate": "0.927710843373494",
+                "lines-covered": "154"
+            },
+            "Repository_304": {
+                "lines-valid": "368",
+                "line-rate": "0.8505434782608695",
+                "lines-covered": "313"
+            },
+            "Repository_305": {
+                "lines-valid": "2",
+                "line-rate": "1.0",
+                "lines-covered": "2"
+            },
+            "Repository_306": {
+                "lines-valid": "278",
+                "line-rate": "0.687050359712",
+                "lines-covered": "191"
+            },
+            "Repository_307": {
+                "lines-valid": "52",
+                "line-rate": "0.9615384615384616",
+                "lines-covered": "50"
+            },
+            "Repository_308": {
+                "lines-valid": "4",
+                "line-rate": "1.0",
+                "lines-covered": "4"
+            },
+            "Repository_309": {
+                "lines-valid": "41",
+                "line-rate": "1.0",
+                "lines-covered": "41"
+            },
+            "Repository_310": {
+                "lines-valid": "85",
+                "line-rate": "0.870588235294",
+                "lines-covered": "74"
+            },
+            "Repository_311": {
+                "lines-valid": "374",
+                "line-rate": "0.687165775401",
+                "lines-covered": "257"
+            },
+            "Repository_312": {
+                "lines-valid": "58",
+                "line-rate": "1.0",
+                "lines-covered": "58"
+            },
+            "Repository_313": {
+                "lines-valid": "309",
+                "line-rate": "0.7799352750809061",
+                "lines-covered": "241"
+            },
+            "Repository_314": {
+                "lines-valid": "297",
+                "line-rate": "0.969696969697",
+                "lines-covered": "288"
+            },
+            "Repository_315": {
+                "lines-valid": "2146",
+                "line-rate": "0.965051258155",
+                "lines-covered": "2071"
+            },
+            "Repository_316": {
+                "lines-valid": "40",
+                "line-rate": "1.0",
+                "lines-covered": "40"
+            }
+        }
+    }
+}
