@@ -1,5 +1,5 @@
 pdflatex article.tex && \
-pdflatex article.tex && \
 bibtex article.aux && \
 pdflatex article.tex && \
+bibtex article.aux && \
 pdflatex article.tex

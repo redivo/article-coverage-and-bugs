@@ -10,6 +10,7 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{setspace,lipsum}
+\usepackage[toc,page]{appendix}
 
 \sloppy
 
@@ -174,42 +175,140 @@ O artigo está dividido seis sessões, são elas:
 
 
 \section{Fundamentação Teórica e Ferramentas}
-Blablabla
+
+Esta sessão contém o referencial teórico relativo aos principais conceitos envolvidos no presente
+estudo.
+Além disso, serão descritas as principais ferramentas utilizadas durante as fases coleta,
+sanitização, triagem e análise dos dados utilizados no estudo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Testes de Software}
-Blablabla
+
+A etapa de teste de \textit{software} consiste em verificar que um \textit{software} funciona de
+acordo com os requisitos, buscando por defeitos no \textit{software} em teste
+\cite{engSwSommerville}.
+Tais testes pode ser manuais ou automáticos.
+
+Segundo \cite{engSwSommerville}, nos testes manuais o testador executa o programa manualmente,
+injetando alguns dados, e compara o resultado com o que ele espera que seja o resultado correto.
+Já nos testes automáticos, ou automatizados, os casos de teste são codificados em um programa
+responsável pela execução dos testes.
+Esse programa é injeta os dados de entrada no \textit{software} testado e verifica se os resultados
+estão de acordo com o esperado.
+
+Neste estudo nos debruçaremos sobre uma parcela dos testes automáticos do caso em questão, pois são
+esses testes que são capazes de fornecer os dados que iremos utilizar. A sessão
+\ref{Unidade de Análise} trará mais detalhes sobre os testes utilizados neste estudo.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Cobertura de Código}
-Blablabla
+
+O fato de um teste automático de \textit{software} não encontrar defeitos não implica em o
+\textit{software} não ter defeitos.
+O desenvolvedor do teste pode não ter implementado testes suficientes para todos os casos possíveis,
+o que pode fazer com que existam defeitos não encontrados pelos testes \cite{engSwSommerville}.
+
+Existem diversas formas de tentar medir a qualidade de um teste, isto é, o quão bem este teste
+consegue cobrir o \textit{software} que está sendo testado.
+Uma dessas formas é a cobertura de código.
+
+Segundo a definição de \cite{tddBook}, ``cobertura de código é a métrica que nos diz a quantidade de
+código que está testada e a quantidade de código onde nenhum teste o exercita".
+Essa ``quantidade de código'' pode ser visualizada de diversas formas, como cobertura de linhas,
+cobertura de ramos de execução, ou \textit{branches}, cobertura de métodos, entre outras.
+Neste estudo iremos utilizar como métrica a cobertura de linhas de código, visto que no projeto em
+estudo os dados de cobertura são reportados neste formato.
+
+As métricas de cobertura de código podem ser extraídas utilizando diversas ferramentas, de acordo
+com a tecnologia adotada no projeto.
+O projeto do caso de estudo é implementado em sua maioria utilizando a linguagem C++, o
+Google Test \cite{googleTest} como \textit{framework} de testes Google Test \cite{googleTest} e
+a cobertura de código é calculada utilizando gcov \cite{gcov}.
+
+Uma vez que uma alta taxa de cobertura de linhas código indica que o programa testado está, em
+grande parte, coberto por testes automáticos, então pode-se pensar que o critério de cobertura de
+código pode ser uma métrica de qualidade do \textit{software} testado, e não apenas qualidade do
+código.
+É nesse contexto que o presente estudo utilizará as métricas de cobertura de código para verificar
+se, de fato, existe uma correlação que confirme tal suposição.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Integração Contínua}
-Blablabla
+\subsection{Regressão Linear e Correlação}
+
+Ao decorrer da análise dos dados deste estudo será necessária uma análise estatística para respoder
+a questão de pesquisa proposta.
+Para tal, faremos o uso de algumas ferramentas estatísticas, tais como regressão linear e índice de
+correlação.
+
+No presente estudo teremos como principais os dados de (1) quantidade de falhas reportadas e (2)
+taxa de cobertura de código.
+Para verificarmos se existe alguma tendência entre os valores podemos utilizar a
+\textbf{regressão linear}.
+
+Segundo \cite{openIntroStat}, modelos de regressão linear podem ser usados para previsões com base
+em dados de duas variáveis numéricas. A Figura~\ref{fig:lin_reg_example} mostra um exemplo de
+regressão linear, onde a tendência é de que os valores do eixo \textbf{y} subam à medida que os
+valores do eixo \textbf{x} sobem.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.3\textwidth]{lin_reg_example.png}
+    \caption{Exemplo de regressão linear. Fonte: \cite{openIntroStat}}
+    \label{fig:lin_reg_example}
+\end{figure}
+
+Outra ferramenta que iremos utilizar neste artigo é o cálculo de correlação.
+Segundo \cite{openIntroStat}, a correlação (\textit{R}) é uma medida com valor entre -1 e 1 que
+indica o quão forte é a tendência linear entre as variáveis numéricas estudadas.
+Quanto mais próximo de -1 for \textit{R}, maior é a força de correlação negativa.
+Quanto mais próximo de 1 for \textit{R}, maior é a força de correlação positiva.
+Por fim, quando mais próximo de 0 for \textit{R}, menor é a força de correlação entre os valores
+estudados. A Figura~\ref{fig:correlation_example} mostra oito exemplos de correlação.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.7\textwidth]{correlation_example.png}
+    \caption{Exemplo correlação entre variáveis. Fonte: \cite{openIntroStat}}
+    \label{fig:correlation_example}
+\end{figure}
+
+Com essas ferramentas estatísticas podemos verificar se existe alguma tendência entre os dados
+estudados e, caso exista, qual a força da correlação entre elas.
+É importante salientar que as tendencias e correlações calculadas não implicam em causalidade,
+apenas nos dão insumos para uma análise mais criteriosa.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Ferramentas}
-Blablabla
 
-\subsubsection{Bugzilla}
-Blablabla
+Diversas ferramentas foram utilizadas durante a obtenção, triagem e análise dos dados estudados
+neste artigo.
 
-\subsubsection{GoogleTest}
-Blablabla
+O Bugzilla \cite{bugzilla} é um sistema de gerenciamento de defeitos que possibilita a organização,
+categorização e discussão de defeitos reportados.
+O projeto do qual os dados foram coletados utiliza o Bugzilla como sistema de gerenciamento de
+defeitos. Nele existe um campo chamado ``\textit{Component}'' que é utilizado para indicar a qual
+funcionalidade, do ponto de vista do usuário, aquele defeito é relativo, que será utilizado para
+categorização dos defeitos neste presente estudo.
 
-\subsubsection{Gcov}
-Blablabla
+Os resultados de cobertura de código, no projeto estudado, são calculados pelo gcov \cite{gcov}, que
+se trata de uma ferramente para geração de dados de cobertura de código para ser usada em conjunto
+com o compilador \textbf{GCC} \cite{gcc}.
 
-\subsubsection{Máquinas Virtuais}
-Blablabla
+No projeto estudado, os testes, incluindo geração de dados de cobertura de código, são executados
+automaticamente pelo Jenkins \cite{jenkins} (ferramenta para automatizações de integração contínua)
+toda a vez que um novo \textit{commit} é submetido para revisão ou para o \textit{branch} principal.
+Além dos resultados dos testes (sucesso ou falha) também são publicizados os dados de cobertura de
+código calculados pelo gcov.
 
-\subsubsection{Integração contínua com Gerrit e Jenkins}
-Blablabla
+Na parte de triagem e análise dos dados, alguns \textit{scripts} em Python foram criados e estão
+descritos em [REFERENCIAR APENDICES]. Nestes \textit{scripts} fora utilizadas as bibliotecas
+(1) Plotly \cite{plotly}, uma biblioteca Python para geração de gráficos e (2) NumPy \cite{numpy},
+uma biblioteca Python para auxílio em computação numérica.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -236,7 +335,7 @@ Blablabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Unidade de Análise}
+\subsection{Unidade de Análise} \label{Unidade de Análise}
 Blablabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,13 +398,14 @@ Blablabla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-As referências bibliográficas devem ser únicas e uniformes. Recomendamos que as referências aos nomes dos autores estejam entre chaves, ex.: \cite{knuth:84}.
-As referências bibliográficas devem ser únicas e uniformes. Recomendamos que as referências aos nomes dos autores estejam entre chaves, ex.: \cite{boulic:91}.
-As referências bibliográficas devem ser únicas e uniformes. Recomendamos que as referências aos nomes dos autores estejam entre chaves, ex.: \cite{smith:99}.
-As referências devem ser listadas usando fonte de 12 pontos, com 6 pontos de espaço entre cada uma. A primeira linha de cada referência não deve ser recuada, enquanto as linhas subsequentes devem possuir recuo de 0,5cm.
-
 \bibliographystyle{sbc}
 \bibliography{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
 
 \end{document}
