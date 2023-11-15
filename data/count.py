@@ -7,10 +7,6 @@ import os
 # Global vars
 script_dir = os.path.dirname(os.path.realpath(__file__))
 in_file = script_dir + '/obfuscated_data.json'
-out_file_sys_repo = 'system_repos.csv'
-out_file_zero_bugs = 'zero_bugs_comp.csv'
-out_file_with_bugs = 'with_bugs_comp.csv'
-out_file_generic = 'generic_comp.csv'
 
 ####################################################################################################
 

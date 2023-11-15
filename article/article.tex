@@ -56,7 +56,7 @@ Software testing is an important step in software development cycle. This step a
 the code works according to the specification.
 Code coverage is a metric that tries to measure the test quality by indicating the percentage of
 code that were used during test execution.
-This paper aims to research the correlation between code coverage rate and software quality,
+This article aims to research the correlation between code coverage rate and software quality,
 measured by reported faults.
 To do that it was done a case study using the features of an operational system and the results
 indicate that there is a correlation between code coverage rate and software quality.
@@ -65,15 +65,15 @@ indicate that there is a correlation between code coverage rate and software qua
 
 \begin{resumo}
 
-O teste de software é uma importante etapa no processo de desenvolvimento de software. Essa etapa
-visa garantir que o software funciona de acordo com as especificações.
+O teste de \textit{software} é uma importante etapa no processo de desenvolvimento de \textit{software}. Essa etapa
+visa garantir que o \textit{software} funciona de acordo com as especificações.
 A cobertura de código é uma métricas que se propõe a medir a qualidade de um teste. Ela consiste em
 prover uma taxa percentual que indica a porcentagem de código executadas nos testes.
 O presente artigo visa estudar se existe ou não correlação entre a cobertura de código e a
-qualidade do software, medida em quantidade de falhas reportadas.
+qualidade do \textit{software}, medida em quantidade de falhas reportadas.
 Para tal, foi feito um estudo de caso utilizando as funcionalidades de um sistema operacional,
 chegando em um resultado que indica a existência de correlação entre cobertura de ódigo e
-qualidade de software.
+qualidade de \textit{software}.
 
 
 \end{resumo}
@@ -85,7 +85,87 @@ qualidade de software.
 
 
 \section{Introdução}
-Blablabla
+
+A etapa de teste de \textit{software} é uma etapa importante no processo de desenvolvimento de
+\textit{software} e está cada vez mais presente no cotidiano das equipes de desenvolvimento de
+\textit{software}.
+Essa etapa visa garantir a funcionalidade de um dado \textit{software}, podendo ser feita utilizando
+diversos métodos e em diversos níveis, de acordo com a finalidade do teste.
+Contudo, o desenvolvimento de testes implica em um impacto financeiro no projeto, uma vez que muitas
+horas e profissionais são demandados para a escrita de testes.
+
+A cobertura de código é uma métrica que indica a porcentagem de código que está sendo coberta pelos
+testes executados.
+Essa métrica ajuda a medir a qualidade dos casos de teste em questão e também pode servir como uma
+métrica que indica quando podemos parar de escrever testes, ou seja, quando já temos uma quantidade
+suficiente de testes para cobrir um determinado código, com a finalidade de redução de custos.
+Contudo, a decisão pela parada da escrita de testes pode impactar na qualidade do \textit{software}
+final, uma vez que alguns casos de uso podem ficar descoberto pelos testes.
+Por esse motivo é imprescindível que tal decisão seja tomada baseada em dados sólidos, a fim de
+evitar esforços excessivos no desenvolvimento de teste, porém garantindo a qualidade do
+\textit{software}.
+Segundo \cite{coverageAtGoogle}, a adoção da análise de cobertura de código vem crescendo ao longo
+dos anos e tem uma boa avaliação de seus usuários quanto à sua efetividade, o que reafirma a
+necessidade de que se tenha um bom conhecimento sobre a efetividade de tal métrica para medir
+qualidade de teste e de \textit{software}.
+
+Diversos estudos tentam verificar se existe, de fato, uma correlação entre cobertura de testes e
+qualidade de \textit{software}, tais como \cite{coverageMetaAnalysis}, \cite{unitTestedCrash} e
+\cite{coverageLargeScaleStudy}.
+Os resultados obtidos por esses estudos são controversos entre si.
+\cite{coverageMetaAnalysis} traz uma revisão sistemática de diversos artigos publicados sobre o
+assunto e aponta algumas possíveis vulnerabilidades metodológicas nos artigos estudados, o que
+sugere que mais estudos podem ser feitos para tentar delinear melhor a relação entre cobertura de
+código e qualidade de \textit{software}.
+
+Nesse sentido, o presente artigo tem por objetivo verificar se existe uma correlação entre cobertura
+de código e qualidade de \textit{software}, que serão medidas a com métricas de cobertura de linhas
+e número de falhar reportadas, respectivamente.
+Para tal, o estudo tem o objetivo de fazer um estudo de caso, conforme descrito em
+\cite{metodosPesquisa}, em um projeto de sistema operacional embarcado desenvolvido por uma empresa
+brasileira, observando as métricas supracitadas e usando métodos estatísticos para identificar a
+correlação entre cobertura de código e qualidade de \textit{software}.
+Nesse contexto, as seguintes etapas serão desenvolvidas:
+
+\begin{itemize}
+    \item Coletar dados de cobertura de código (por repositório) e falhas reportadas do projeto (por
+          funcionalidade);
+
+    \item Sanitizar dados, excluindo dados inválidos para a pesquisa;
+
+    \item Relacionar os repositórios com as funcionalidades;
+
+    \item Fazer análise estatística dos dados coletados.
+\end{itemize}
+
+Os resultados da presente pesquisa contribuem para uma maior clareza sobre a correlação entre
+cobertura de código e qualidade de \textit{software}, o que pode ajudar a balizar decisões de
+alocação de recursos humanos na atividade de escrita de testes de \textit{software}.
+Além disso, os resultados obtidos podem ser usados como base acadêmica na área de Engenharia de
+Software para um melhor entendimento dessa correlação, além de produzir insumos para estudos futuros
+nesse mesmo contexto.
+
+O artigo está dividido seis sessões, são elas:
+\begin{enumerate}
+    \item Introdução: tem por objetivo fornecer uma visão geral da presente pesquisa, além da
+          motivação e etapas desenvolvidas;
+
+    \item Fundamentação Teórica e Ferramentas: apresenta um embasamento teórico dos assuntos
+          abortados no artigo, além de listar as principais ferramentas utilizadas na coleta,
+          triagem e análise dos dados;
+
+    \item Trabalhos Relacionados: revisita alguns trabalhos recentes relacionados ao tema da
+          presente pesquisa;
+
+    \item Metodologia de Pesquisa: apresenta a metodologia utilizada no desenvolvimento do estudo
+          proposto;
+
+    \item Resultados: detalha os resultados obtidos da análise dos dados;
+
+    \item Considerações Finais: faz um resumo dos resultados, vulnerabilidades da pesquisa, além de
+          indicar possíveis estudos complementares.
+\end{enumerate}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,7 +173,7 @@ Blablabla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Fundamentação Teórica}
+\section{Fundamentação Teórica e Ferramentas}
 Blablabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,11 +184,6 @@ Blablabla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Cobertura de Código}
-Blablabla
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsection{Test Driven Development -- TDD}
 Blablabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
