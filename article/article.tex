@@ -119,9 +119,10 @@ assunto e aponta algumas possíveis vulnerabilidades metodológicas nos artigos 
 sugere que mais estudos podem ser feitos para tentar delinear melhor a relação entre cobertura de
 código e qualidade de \textit{software}.
 
-Nesse sentido, o presente artigo tem por objetivo verificar se existe uma correlação entre cobertura
-de código e qualidade de \textit{software}, que serão medidas a com métricas de cobertura de linhas
-e número de falhar reportadas, respectivamente.
+Nesse sentido, o presente artigo tem por objetivo responder a seguinte questão de pesquisa:
+existe correlação entre cobertura de código e qualidade de \textit{software} de um sistema
+operacional embarcado, sendo cobertura de linhas a métrica de cobertura de código e número de falhar
+reportadas a métrica de qualidade de \textit{software}?
 Para tal, o estudo tem o objetivo de fazer um estudo de caso, conforme descrito em
 \cite{metodosPesquisa}, em um projeto de sistema operacional embarcado desenvolvido por uma empresa
 brasileira, observando as métricas supracitadas e usando métodos estatísticos para identificar a
@@ -218,7 +219,7 @@ Uma dessas formas é a cobertura de código.
 Segundo a definição de \cite{tddBook}, ``cobertura de código é a métrica que nos diz a quantidade de
 código que está testada e a quantidade de código onde nenhum teste o exercita".
 Essa ``quantidade de código'' pode ser visualizada de diversas formas, como cobertura de linhas,
-cobertura de ramos de execução, ou \textit{branches}, cobertura de métodos, entre outras.
+cobertura de decisão, ou \textit{decision coverage}, em inglês, cobertura de métodos, entre outras.
 Neste estudo iremos utilizar como métrica a cobertura de linhas de código, visto que no projeto em
 estudo os dados de cobertura são reportados neste formato.
 
@@ -315,9 +316,84 @@ uma biblioteca Python para auxílio em computação numérica.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \section{Trabalhos Relacionados}
-Blablabla
+
+Em \cite{unitTestedCrash} os autores se propõe um estudo sobre a relação entre cobertura de código
+a ocorrência de falhas, tentando traçar uma correlação entre os dois valores.
+Como estudo de caso foram usados reportes de falhas em campo do projeto Eclipse.
+O estudo coletou mais de 2 milhões de incidentes reportados e, após triagem de dados os autores
+tinham em mãos mais de 126 mil reportes únicos do tipo \textit{stack trace}, que consiste em um tipo
+de reporte de erro que contém informações como arquivo e linha de onde ocorreu a falha.
+
+Em paralelo foram coletados dados da análise de cobertura de código do projeto em questão.
+Como principal métrica de cobertura de código para a comparação foi utilizado a métrica de métodos
+cobertos, que consiste em relacionar a quantidade de métodos existentes e quantos desses são
+invocados nos testes.
+
+Foi feita uma análise dos dados relacionando as falhas reportadas e a cobertura de código e a Tabela
+\ref{tab:FalhasMetodosTeste} mostra os dados obtidos.
+Do total de métodos analisados, 93,6\% não são testados 6,4\% dos testes são testados.
+Analisando apenas os métodos que não possuem reportes de falhas relacionados essa proporção é de
+93,5\% de métodos não testados, para 6,5\% de métodos testados.
+Já quando analisamos métodos que possuem reportes de falhas relacionados essa proporção fica em
+94,1\% de métodos não testados, para 5,9\% de métodos testados.
+
+\begin{table}[ht]
+\centering
+\caption{Falhas de Métodos. Fonte: \cite{unitTestedCrash}}
+\label{tab:FalhasMetodosTeste}
+\begin{tabular}{|l|c|c|c|}
+\hline
+\multirow{2}{*}{Falha Reportada?} & \multicolumn{2}{c|}{Possui teste?} & \multirow{2}{*}{Total} \\ \cline{2-3}
+                                  & Não   & Sim                        &       \\ \hline
+Não                               & 7816  & 541                        & 8357  \\ \hline
+Sim                               & 1097  &  69                        & 1166  \\ \hline
+Total                             & 8913  & 619                        & 9523  \\ \hline
+\end{tabular}
+\end{table}
+
+Com esse resultado o estudo conclui que não é possível afirmar que existe uma correlação entre
+cobertura de código e uma menor quantidade de ocorrência de falhas. Os valores encontrados variam
+marginalmente, apresentando um baixo valor de correlação.
+
+Complementarmente, o artigo traz alguns itens a serem levados em conta.
+Um deles é que o resultado foi utilizando apenas um projeto e tal projeto tem grandes proporções.
+Os autores argumentam que o resultado não pode ser generalizado e pode vir a se diferente em outros
+tamanhos de projeto.
+
+O artigo \cite{coverageMetaAnalysis} traz uma revisão sistemática de outros trabalhos que analisam
+uma possível correlação entre cobertura de código e efetividade de um conjunto de testes.
+Para tal, os autores fizeram uma busca utilizando a ferramenta de busca Scopus para a seleção dos
+trabalhos a serem estudados a fim de responder três questões de pesquisa:
+\begin{enumerate}
+    \item Quais evidências existem sobre a correlação entre cobertura de código e efetividade dos
+          testes?
+
+    \item Quais fatores impactam nessa relação?
+
+    \item Qual métrica de cobertura de código é melhor para predizer a efetividade dos testes?
+\end{enumerate}
+
+O estudo descreve os termos de busca utilizados, além de duas etapas de filtragem de estudos que
+foram necessárias para obter um material mais conciso para a revisão sistemática.
+Após a primeira busca eles encontraram 427 resultados para a busca e, após os filtros retaram 33
+estudos para serem analisados.
+
+Segundo os autores, alguns estudos prévios apontavam que existe uma forte correlação entre cobertura
+de código e efetividade dos testes.
+Por outro lado alguns estudos indicavam que essa correlação era baixa ou até nula.
+
+Como resultado desse artigo os autores argumentam que uma possível causa da não convergência dos
+resultados dos estudos seja a falta de padronização entre os estudos, uma vez que os diversos
+estudos revisados possuem abordagens diferentes de análise, além de casos de uso bem distintos entre
+eles.
+Para obter melhores resultados os autores recomendam atenção em alguns pontos que podem prejudicar
+os resultados de estudos, tais como descartar projetos muito pequenos ou com uma cobertura
+excessivamente baixa.
+Outro ponto levantado pelos autores é uma lista de fatores que podem interferir na relação entre
+cobertura de código e efetividade dos testes, como porcentagem de cobertura, testes que exercitem
+tanto casos normais, quanto casos de exceção, tamanho do conjunto de testes, natureza das falhas,
+complexidade do código, entre outros.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -326,7 +402,7 @@ Blablabla
 
 
 \section{Metodologia de Pesquisa}
-Blablabla
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
