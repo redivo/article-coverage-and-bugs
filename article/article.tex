@@ -189,14 +189,32 @@ sanitização, triagem e análise dos dados utilizados no estudo.
 A etapa de teste de \textit{software} consiste em verificar que um \textit{software} funciona de
 acordo com os requisitos, buscando por defeitos no \textit{software} em teste
 \cite{engSwSommerville}.
-Tais testes pode ser manuais ou automáticos.
+Podemos utilizar a definição de defeito descrita em \cite{introTeste}, que descreve como ``um passo,
+processo ou definição de dados incorretos''.
 
+Tais testes podem ser manuais ou automáticos.
 Segundo \cite{engSwSommerville}, nos testes manuais o testador executa o programa manualmente,
 injetando alguns dados, e compara o resultado com o que ele espera que seja o resultado correto.
 Já nos testes automáticos, ou automatizados, os casos de teste são codificados em um programa
 responsável pela execução dos testes.
 Esse programa é injeta os dados de entrada no \textit{software} testado e verifica se os resultados
 estão de acordo com o esperado.
+
+Dentro do contexto de teste de \textit{software} podemos subdividir os testes em diversas
+categorias. Ao decorrer do presente trabalho, veremos duas categorias principais: testes funcionais
+e testes estruturais.
+Testes funcionais (ou de caixa-preta) caracterizam-se por testes onde não consideramos aspectos
+internos do programa a ser testado e é avaliado mais do ponto de vista do usuário \cite{introTeste}.
+Já testes estruturais (ou de caixa-branca) são testes baseados na implementação do programa, levando
+em conta laços de execução, condicionais, definições e usos de variáveis, entre outros
+\cite{introTeste}.
+
+Uma outra categorização de testes importante de ser mencionada é a categorização por granularidade.
+Em \cite{engSwSommerville} o autor divide os testes em 3 níveis de granularidade:
+(1) teste unitário, onde é testada a menor parte viável de um programa,
+(2) teste de componente, onde o teste integra diversas unidades de um programa e, por fim,
+(3) teste de sistema, onde o sistema é testado como um todo, englobando alguns ou todos os
+componente.
 
 Neste estudo nos debruçaremos sobre uma parcela dos testes automáticos do caso em questão, pois são
 esses testes que são capazes de fornecer os dados que iremos utilizar. A sessão
@@ -403,21 +421,131 @@ complexidade do código, entre outros.
 
 \section{Metodologia de Pesquisa}
 
+Essa pesquisa utilizou o método de estudo de caso e analisou os resultados por uma perspectiva
+quantitativa.
+
+Segundo \cite{estudoDeCasoYin}, ``você poderia utilizar o método de estudo de caso quando
+deliberadamente quisesse lidar com condições contextuais - acreditando que elas poderiam ser
+altamente pertinentes ao seu fenômeno de estudo''.
+Nesse sentido o presente estudo utilizará como caso um sistema operacional embarcado em operação
+desde 2015 em conjunto com suas métricas de cobertura de código e quantidade falhas encontradas.
+
+Com base nos dados coletados, será feita uma análise quantitativa que, segundo
+a definição de \cite{projetoDePesquisa}, utiliza raciocínio de causa e efeito, observação de dados,
+teste de teorias, coleta de dados, entre outros instrumentos.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Delineamento de Pesquisa}
-Blablabla
+
+A presente pesquisa é de caráter quantitativo, visto que se pretende a traçar uma correlação entre
+duas variáveis numéricas quantitativas -- percentual de cobertura de código e quantidade de falhas
+reportadas.
+Para descobrir de existe tal relação, os números encontrados serão submetidos a análises
+estatísticas.
+
+Para a coleta de dados, será feita uma pesquisa exploratória em um estudo de caso de um projeto
+de sistema operacional.
+Esse modelo de pesquisa é amplamente utilizado (\cite{coverageMetaAnalysis}, \cite{unitTestedCrash}
+e \cite{coverageLargeScaleStudy}) em estudos do tipo, uma vez que a coleta de dados é precisa e de
+fácil acesso, além de trazer uma representação muito próxima à realidade do caso estudado.
+
+Apesar de a pesquisa ter um caráter quantitativo em seu objetivo principal, a utilização de métodos
+qualitativos foram necessários em etapas intermediárias da pesquisa.
+Durante a triagem dos dados obtidos, mas especificamente da classificação dos repositórios, foi
+necessária a utilização da técnica de entrevistas para viabilizar tal classificação, uma vez que
+esta não estava documentada.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Unidade de Análise} \label{Unidade de Análise}
-Blablabla
+
+A pesquisa ocorreu em uma empresa brasileira que projeta e desenvolve \textit{hardware} e
+\textit{software}.
+O enfoque do presente estudo será em um projeto específico de sistema operacional, abarcando todas
+as funcionalidades desenvolvidas pela empresa dentro deste sistema operacional.
+
+O sistema conta com 85 funcionalidades de usuário cadastradas e divididas em 316 repositórios
+\textit{Git} ativos.
+Uma funcionalidade de usuário, no contexto do presente artigo, é uma característica ou função
+exercida pelo sistema operacional que seja percebida pelo usuário.
+Desta forma, funções internas ao sistema operacional que não geram funcionalidade do ponto de vista
+do usuário não são consideradas funcionalidade de usuário.
+Cada funcionalidade pode ser implementada por 1 ou mais repositórios e cada repositório pode atender
+0 ou mais funcionalidades de usuário. Um exemplo dessa representação pode ser visto na Figura
+\ref{fig:features_repos}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.7\textwidth]{features_repos.png}
+    \caption{Exemplo de relação entre repositórios de funcionalidades}
+    \label{fig:features_repos}
+\end{figure}
+
+No contexto do projeto estudado, os testes de \textit{software} são divididos em duas categorias, de
+acordo com o ambiente onde eles são executados.
+
+A primeira categoria são os testes executados em ambientes de máquinas virtuais, ou
+\textit{Virtual Machines} (VMs), em servidores especializados.
+Essa categoria executa testes funcionais e estruturais de granularidade unitária e de componente,
+além de calcular os dados de cobertura de código.
+Esses testes são executados em dois momentos:
+(1) sempre que um dado código é submetido para revisão, disparado pela submissão do código e
+(2) diariamente, disparado por uma tarefa agendada do Jenkins.
+
+A segunda categoria é a de testes executado no equipamento destino.
+Nessa etapa existem vários equipamentos que terão seu sistema operacional atualizado com a versão
+sobre teste e será executada uma bateria de testes a fim de testar as funcionalidades utilizando
+os equipamentos reais e não mais máquinas virtuais.
+Essa categoria de testes executa testes funcionais de granularidade de sistema, contendo o sistema
+operacional com todos os componentes.
+
+A Figura \ref{fig:pipeline_tests} mostra um resumo das etapas do desenvolvimento de software do
+projeto em questão, enfatizando os momentos onde os testes ocorrem.
+Analisando a figura, podemos perceber que os testes executados em VMs e disparados pela submissão
+para revisão executam com base no código em revisão, já os testes periódicos disparados por tarefa
+agendada o Jenkins executam com base no topo do repositório.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{pipeline_tests.png}
+    \caption{Pipeline resumido da integração com enfoque na execução dos testes}
+    \label{fig:pipeline_tests}
+\end{figure}
+
+Outro ponto importante a salientar é o contexto dos dados de cobertura de código.
+Os dados gerados são específicos por repositório, ou seja, temos dados de cobertura de código dos
+316 repositórios separadamente.
+
+Uma vez que os testes em ambiente de máquinas virtuais são os testes que produzem dados de cobertura
+de código, são esses testes que serão utilizados durante o presente estudo, deixando de fora os
+testes executados nos equipamentos destino.
+Os dados utilizados no estudo compreendem aos dados obtidos do topo dos repositórios, através da
+execução periódica disparada pelo Jenkins.
+
+Sobre a linguagem de programação adotada pelo projeto, a esmagadora maioria do código é escrito nas
+linguagens C e C++.
+A coleta de dados de cobertura de código foi feita em todos os repositórios que reportam cobertura
+de códigos C e C++, sendo descartados códigos auxiliares escritos em outras linguagens, como Python
+e Shell.
+
+A coleta de dados de falhas reportadas compreende a todas as falhas relacionadas com o projeto
+estudado e que não tenham sido corrigidas até o momento da pesquisa.
+Isso inclui tanto falhas que ocorreram em campo, quanto falhas identificadas dentro da empresa, seja
+por testes em equipamentos destino, testes de aceitação manual ou uso interno.
+A decisão considerar apenas as falhas que não foram corrigidas se deu devido ao fato de que ao
+considerar o conjunto de todas as falhas, estaríamos tendo interferência do histórico, o que poderia
+interferir o resultado do estudo, uma vez que os dados de cobertura de código são relativos ao
+momento atual.
+E, por fim, a decisão de contabilizar todas as falhas, e não apenas as de campo, se deu devido à
+compreensão de que os defeitos encontrados internamente não são menos relevantes, ou menos válidos
+para o presente estudo, do que defeitos encontrados em campo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Coleta de Dados}
-Blablabla
+
+Esta sessão
 
 \subsubsection{Falhas Reportadas}
 Blablabla
