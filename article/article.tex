@@ -3,7 +3,6 @@
 \usepackage{titling}
 \usepackage{sbc-template}
 \usepackage{graphicx,url}
-
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 
@@ -545,17 +544,181 @@ para o presente estudo, do que defeitos encontrados em campo.
 
 \subsection{Coleta de Dados}
 
-Esta sessão
+O presente estudo se baseia em dados de duas naturezas distintas: (1) dados de falhas reportadas e
+(2) dados de cobertura se código.
+Ambos os dados foram coletados no dia 28/10/2023, representando o estado atual do projeto, tanto
+do ponto de vista das falhas reportadas, quanto do ponto de vista da cobertura de código.
+Uma vez que os dados coletados representam o estado o projeto na data de coleta, estes não podem
+ser analisados sob uma óptica de evolução temporal do projeto, mas sim sob uma perspectiva de
+``fotografia'' do projeto na data de coleta.
 
-\subsubsection{Falhas Reportadas}
-Blablabla
+Apesar de ambos os dados terem sido coletados na mesma data, tais coletas foram feitas de formas
+distintas, as quais serão apresentas nas sessões \ref{sec:falhasReportadas} e \ref{sec:cobertura}.
 
-\subsubsection{Cobertura de Código}
-Blablabla
+\subsubsection{Falhas Reportadas} \label{sec:falhasReportadas}
+
+As falhas reportadas compreendem à quantidade de todas as falhas encontradas tanto externamente
+(por clientes) quando internamente (por colaboradores).
+O projeto estudado utiliza a ferramenta Bugzilla como ferramente gerenciadora de falhas tanto para
+falhas descobertas internamente, quanto para falhas descobertas externamente, o que nos permite
+acesso à toda a base de dados de falhas do projeto.
+Contudo, o mesmo serviço do Bugzilla é utilizado na empresa para reportar falhas de outros projetos
+e esse detalhe precisou ser levado em consideração no momento da formulação da busca.
+
+O Bugzilla possui uma ferramenta de busca onde é possível listar bugs de acordo com um determinado
+filtro de busca e a saída dessa busca pode ser de dois tipos: (1) HTML, onde é exibida uma interface
+web contendo os resultados ou
+(2) um arquivo do tipo CSV contendo uma linha para cada resultado encontrado, sendo as colunas
+configuráveis via requisição HTML.
+O formato escolhido foi o de arquivo CSV pois facilita a automação da triagem de dados.
+
+A busca criada para selecionar a lista de falhas reportadas relacionadas ao projeto e que ainda não
+forram solucionadas utilizou filtragem por dois campos do Bugzilla:
+
+\begin{itemize}
+    \item \textbf{Status}: Compreende ao estado atual do bug, que pode assumir diversos valores e
+          se propõe a informar em qual fase de sua correção ele está, compreendendo desde as fases
+          mais iniciais, como \textit{UNCONFIRMED}, que informa que não foi feita uma análise
+          inicial, até as fases finais, como \textit{CLOSED}, onde o problema já foi resolvido e
+          a solução foi aceita pelas equipes responsáveis pela aceitação.
+          O termo escolhido para o filtro desse campo foi o de
+          \textbf{``status!=(\textit{RESOLVED} OR \textit{CLOSED})''}.
+          Ambos \textit{RESOLVED} e \textit{CLOSED} representam falhas reportadas que já tiveram sua
+          correção integrada ao sistema operacional, porém \textit{RESOLVED} é um passo anterior,
+          onde os desenvolvedores já fizeram as implementações, testes e integração, porém ainda
+          não foi dado o aceite da correção, enquanto \textit{CLOSED} é o estado onde o aceite foi
+          concedido.
+          Essa escolha foi feita pois no fluxo de trabalho definido na empresa estudada as falhas
+          são marcadas como \textit{CLOSED} apenas no fechamento de uma dada versão, sendo que elas
+          podem já ter sido corrigidas, logo considerar ambos os termos nos traz uma fidelidade
+          maior sobre os dados do projeto;
+
+    \item \textbf{Project}: Compreende ao projeto em que foi encontrado esse problema. Existe um
+          campo \textit{Project} específico para o projeto estudado, o qual vai ser utilizado na
+          busca. Sendo assim, temos que o termo da busca de projeto é
+          \textbf{``project==PROJETO''}, sendo PROJETO o nome que representa o projeto de sistema
+          operacional estudado, mas não será divulgado por questões de sigilo empresarial.
+\end{itemize}
+
+Unindo os dois termos de busca, um que seleciona o estado da falha e o outro que seleciona o projeto
+relativo à falha, temos o seguinte termo de busca:
+\textbf{``(status!=(\textit{RESOLVED} OR \textit{CLOSED})) AND (project==PROJETO)''}.
+Tal termo de busca tem por objetivo selecionar todas as falhas reportadas que ainda não tem solução
+e que foram encontradas no projeto estudado.
+
+Como resultado, o Bugzilla gera arquivo no formato CSV contendo 2 colunas:
+(1) campo \textit{bugId}, que se trata de um número identificador do reporte de falha e
+(2) campo \textit{component}, que informa em qual funcionalidade de usuário a falha foi encontrada.
+O primeiro não terá utilidade no presente estudo, mas é um campo obrigatório nos reportes do
+Bugzilla, já o segundo será utilizado para relacionar a quantidade de falhas reportadas com os
+índices de cobertura de código.
+
+Com os dados obtidos é possível fazer a contagem de falhas reportadas por funcionalidade de cliente
+e tal triagem dos dados será detalhada na sessão \ref{sec:triagem}.
+Os dados resultantes da coleta de falhas reportadas não podem ser exibidos na íntegra por questões
+de sigilo empresarial, porém foram compilados e anonimizados e serão exibidos na sessão
+\ref{sec:resultados}.
+
+\subsubsection{Cobertura de Código} \label{sec:cobertura}
+
+A cobertura de código compreende à uma medida que indica a relação de quantidade de código testado
+e código não testado.
+O projeto estudado calcula tais dados utilizando a ferramenta gcov e executando os testes escritos
+com auxílio do \textit{framework} Google Test, utilizado para desenvolvimento de testes de código
+utilizando as linguagens C e C++.
+
+Os dados de cobertura de código estavam inicialmente sendo disponibilizados através do
+\textit{plugin} Cobertura \cite{jenkinsCobertura}, disponível do Jenkins
+(Figura \ref{fig:pluginCobertura}), e as métricas de cobertura exportadas para o projeto são:
+\begin{itemize}
+    \item \textbf{Cobertura de Linhas}: Corresponde à quantidade de linhas de código testadas em
+          relação ao total de linhas de código válidas do repositório;
+
+    \item \textbf{Cobertura de Arquivos}: Corresponde ao total de arquivos contendo código executado
+          nos testes em relação ao total de arquivos C e C++ do repositório;
+
+    \item \textbf{Cobertura de Classes}: Corresponde ao total de classes acessadas nos testes em
+          relação ao total de classes C e C++ do repositório;
+
+    \item \textbf{Cobertura de Métodos}: Corresponde ao total de métodos chamados na execução dos
+          testes em relação ao total de métodos C e C++ contidos no repositório.
+          Um detalhe sobre este campo é que funções em códigos não orientados a objetos também são
+          contabilizadas como métodos no contexto nesse reporte.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{cobertura.jpeg}
+    \caption{Exemplo de exibição do \textit{plugin} Cobertura}
+    \label{fig:pluginCobertura}
+\end{figure}
+
+Dentre todas métricas disponíveis a métrica de Cobertura de Linhas é a mais adequada.
+Segundo \cite{coverageMetaAnalysis}, métricas mais genéricas, como cobertura de arquivos ou
+cobertura de classes, são menos efetivas para relacionar a qualidade de código, ainda que tenham
+validade.
+No artigo os autores recomendam a utilização da métrica de Cobertura de Decisão, porém tal métrica
+não está disponível atualmente no projeto e não pode ser utilizada.
+Em vista disso, a métrica considerada mais adequada foi a de Cobertura de Linhas.
+
+O \textit{plugin} Cobertura exibe dados utilizando uma interface web, o que dificulta a coleta de
+dados, uma vez que seria necessário coletar manualmente os dados de cobertura de código dos 316
+repositórios.
+Para facilitar a coleta, o \textit{script} de geração de dados para o \textit{plugin} Cobertura
+foi alterado a fim de gerar dados no formato de arquivos JSON, além do formato original, destinado
+ao \textit{plugin} Cobertura.
+Como resultado, o \textit{script} passou a gerar um arquivo JSON onde contendo uma lista de
+repositórios e seus respectivos dados de cobertura de código, conforme mostra a Figura
+\ref{fig:formatoJsonCoverage}.
+Tal \textit{script} não pode ser exibido no presente artigo devido a questões relativas a sigilo
+empresarial.
+
+\begin{figure}[ht]
+\caption{Exemplo de formatação do arquivo JSON gerado após alteração do \textit{script} de
+geração de dados de cobertura de código.}
+\label{fig:formatoJsonCoverage}
+\begin{verbatim}
+{
+    "Nome do Repositório": {
+        "lines-valid": <número de linhas válidas>,
+        "line-rate": <taxa de cobertura>,
+        "lines-covered": <número de linhas cobertas>
+    },
+    {
+        ...
+    }
+}
+\end{verbatim}
+\end{figure}
+
+Dessa forma teremos como resultado um arquivo JSON contendo todos os 316 repositórios e, para cada
+um deles, seus respectivos dados de linhas válidas, linhas cobertas e taxa de cobertura.
+Os dados de linhas válidas correspondem ao total de linhas de código C e C++, excluindo linhas que
+não possuem execução, como linhas em branco, linhas de comentário e linhas de declarações de
+métodos, por exemplo. Número de linhas cobertas corresponde ao total de linhas válidas que foram
+executadas em pelo menos 1 teste. Por fim, a taxa de cobertura corresponde à divisão das linhas
+cobertas pelas linhas válidas, conforme a Figura \ref{fig:formulaTaxaDeCobertura}.
+
+\begin{figure}[ht]
+\caption{Fórmula de cálculo de taxa de cobertura.}
+\label{fig:formulaTaxaDeCobertura}
+    \[ taxaDeCobertura = \frac{linhasValidas}{linhasTotais} \]
+\end{figure}
+
+Uma vez que os dados de cobertura de código foram exportados via JSON, eles passaram a estar
+disponíveis através do Jenkins.
+Dessa forma é foi possível coletar os dados de cobertura por repositório através de
+\textit{download} dos arquivos.
+Cada repositório exporta seu dados diariamente, conforme descrito na sessão
+\ref{Unidade de Análise}, e esses dados foram coletados através de requisições \textbf{wget}
+em um terminal Linux com acesso ao Jenkins, sendo feita 1 requisição para cada um dos 316
+repositórios.
+Ao final, os dados foram organizados, de acordo com o descrito na sessão \ref{sec:triagem}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Análise e Triagem de dados}
+\subsection{Análise e Triagem de dados} \label{sec:triagem}
 Blablabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -569,7 +732,7 @@ Blablabla
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Resultados}
+\section{Resultados} \label{sec:resultados}
 Blablabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
