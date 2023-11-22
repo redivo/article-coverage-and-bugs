@@ -6,6 +6,8 @@ import os
 import plotly.graph_objects as go
 import plotly.express as px
 import math
+import numpy as np
+from scipy import stats
 
 # Global vars
 script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -18,10 +20,20 @@ out_file_generic = 'generic_comp.csv'
 ####################################################################################################
 
 def generate_chart(title, x, x_title, y, y_title, sizes):
-    fig = px.scatter(x=x, y=y, size=sizes, trendline="ols")
+    df = {
+        x_title: x,
+        y_title: y,
+        "Legenda": "Repositórios"
+    }
+
+    # Calculate Pearson correlation
+    correlation = stats.pearsonr(x, y)[0]
+    print("Pearson Correlation R=" + str(correlation))
+
+    # Generate chart
+    fig = px.scatter(df, x_title, y=y_title, size=sizes,
+                     trendline="ols")
     fig.update_layout(title_text = title, title_font_size=24)
-    fig.update_xaxes(title_text = x_title)
-    fig.update_yaxes(title_text = y_title)
 
     fig.show()
 
@@ -171,7 +183,7 @@ def with_bugs_report(output_type):
         # Fill for chart
         chart_x.append((covered/total) * 100)
         chart_y.append(data[item]['bugs'])
-        chart_size.append(math.sqrt(total)/3)
+        chart_size.append(math.sqrt(total))
 
     if output_type == 'csv':
         # Write file
@@ -221,7 +233,7 @@ def generic_report(output_type):
         # Fill for chart
         chart_x.append((covered/total) * 100)
         chart_y.append(data[item]['bugs'])
-        chart_size.append(math.sqrt(total)/3)
+        chart_size.append(math.sqrt(total))
 
     if output_type == 'csv':
         # Write file
