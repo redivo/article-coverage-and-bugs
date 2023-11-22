@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import sys
 import argparse
 import json
 import os
@@ -16,6 +17,7 @@ out_file_sys_repo = 'system_repos.csv'
 out_file_zero_bugs = 'zero_bugs_comp.csv'
 out_file_with_bugs = 'with_bugs_comp.csv'
 out_file_generic = 'generic_comp.csv'
+out_file_component = 'component.csv'
 
 ####################################################################################################
 
@@ -248,6 +250,40 @@ def generic_report(output_type):
 
 ####################################################################################################
 
+def component_report():
+    # Initialize body
+    csv_body = "Component,Bugs,Repos,Lines\n"
+    csv_body = "Component,Bugs,Repos,Lines\n"
+    chart_x = []
+    chart_y = []
+    chart_size = []
+
+    # Get data
+    data = get_json_data()
+
+    # Parse data
+    for item in data:
+        # Skip not component items
+        if not data[item]['isComponent']:
+            continue
+
+        # Get number of repositories
+        n_repos = len(data[item]['reposCoverage'])
+
+        # Sum lines of repos
+        lines = 0
+        for repo in data[item]['reposCoverage']:
+            lines += data[item]['reposCoverage'][repo]['lines-valid']
+
+        # Fill for CSV
+        csv_body += "{0},{1},{2},{3}\n".format(item, data[item]['bugs'], n_repos, lines)
+
+    # Write file
+    with open(script_dir + '/'  + out_file_component, 'w') as f:
+        f.write(csv_body)
+
+####################################################################################################
+
 ###################
 # Argument parser #
 ###################
@@ -263,15 +299,19 @@ group_input.add_argument('-s', '--system-repos-report', action='store_true',
                               'Output file is ' + out_file_sys_repo)
 
 group_input.add_argument('-z', '--zero-bugs-report', action='store_true',
-                         help='Generate a report of valid components without bugs.'
+                         help='Generate a report of valid components without bugs. '
                               'Output file is ' + out_file_zero_bugs)
 
 group_input.add_argument('-b', '--with-bugs-report', action='store_true',
-                         help='Generate a report of valid components with bugs.'
+                         help='Generate a report of valid components with bugs. '
                               'Output file is ' + out_file_with_bugs)
 
 group_input.add_argument('-g', '--generic-report', action='store_true',
-                         help='Generate a report a report containing all valid components.'
+                         help='Generate a report a report containing all valid components. '
+                              'Output file is ' + out_file_generic)
+
+group_input.add_argument('-c', '--component', action='store_true',
+                         help='Generate a component report containing all components. '
                               'Output file is ' + out_file_generic)
 
 args = parser.parse_args()
@@ -288,6 +328,13 @@ elif args.zero_bugs_report:
 
 elif args.with_bugs_report:
     with_bugs_report(args.output)
+
+elif args.component:
+    # It does not generate chart
+    if args.output == "chart":
+        print('ERROR: component report does not generate chart')
+        sys.exit(1)
+    component_report()
 
 else:
     generic_report(args.output)
