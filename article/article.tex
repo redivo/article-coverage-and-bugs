@@ -325,8 +325,8 @@ código calculados pelo gcov.
 
 Na parte de triagem e análise dos dados, alguns \textit{scripts} em Python foram criados e estão
 descritos em [REFERENCIAR APENDICES]. Nestes \textit{scripts} fora utilizadas as bibliotecas
-(1) Plotly \cite{plotly}, uma biblioteca Python para geração de gráficos e (2) NumPy \cite{numpy},
-uma biblioteca Python para auxílio em computação numérica.
+(1) Plotly \cite{plotly}, uma biblioteca Python para geração de gráficos e (2) SciPy \cite{scipy},
+uma biblioteca Python para auxílio de cálculos matemáticos e estatísticos.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -613,6 +613,15 @@ O primeiro não terá utilidade no presente estudo, mas é um campo obrigatório
 Bugzilla, já o segundo será utilizado para relacionar a quantidade de falhas reportadas com os
 índices de cobertura de código.
 
+Além do reporte de falhas reportadas no Bugzilla foi necessário obter a lista de todos os valores
+possíveis do campo \textit{component}, o qual representa o conjunto de funcionalidade de usuário
+disponíveis no sistema.
+Essa lista é necessária para conhecermos todas as funcionalidades de usuário, um vez que a
+funcionalidade pode não ter nenhuma falha reportada e, dessa forma, não apareceria no reporte de
+falhas reportadas e ainda não corrigidas.
+Essa lista foi utilizada para a estrita de um \textit{script}, o qual será descrito na sessão
+\ref{sec:triagem}.
+
 Com os dados obtidos é possível fazer a contagem de falhas reportadas por funcionalidade de cliente
 e tal triagem dos dados será detalhada na sessão \ref{sec:triagem}.
 Os dados resultantes da coleta de falhas reportadas não podem ser exibidos na íntegra por questões
@@ -684,9 +693,7 @@ geração de dados de cobertura de código.}
         "line-rate": <taxa de cobertura>,
         "lines-covered": <número de linhas cobertas>
     },
-    {
-        ...
-    }
+    ...
 }
 \end{verbatim}
 \end{figure}
@@ -702,7 +709,7 @@ cobertas pelas linhas válidas, conforme a Figura \ref{fig:formulaTaxaDeCobertur
 \begin{figure}[ht]
 \caption{Fórmula de cálculo de taxa de cobertura.}
 \label{fig:formulaTaxaDeCobertura}
-    \[ taxaDeCobertura = \frac{linhasValidas}{linhasTotais} \]
+    \[ taxaDeCobertura = \frac{linhasCobertas}{linhasTotais} \]
 \end{figure}
 
 Uma vez que os dados de cobertura de código foram exportados via JSON, eles passaram a estar
@@ -718,8 +725,244 @@ Ao final, os dados foram organizados, de acordo com o descrito na sessão \ref{s
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Análise e Triagem de dados} \label{sec:triagem}
-Blablabla
+\subsection{Triagem e Análise de dados} \label{sec:triagem}
+
+Antes de os dados serem analisados foi necessário um trabalho de triagem de dados, em especial da
+porção de dados que compreende os dados de cobertura de código, a fim de organizá-los e
+classificá-los.
+Após a coleta, temos como insumo três dados distintos:
+(1) um arquivo contendo dados de falhas reportadas,
+(2) uma lista de funcionalidades de usuários cadastradas no Bugzilla e
+(3) um arquivo contendo os dados de cobertura de código.
+
+Os dados de falhas reportadas foram exportados em um arquivo CSV contendo a primeira linhas como
+título das colunas e as demais sendo uma linha para cada falha reportada, com a filtragem de acordo
+com o descrito na sessão \ref{sec:falhasReportadas}.
+Em conjunto com a lista de funcionalidades de usuário foi criado um \textit{script} com o intuito
+de contabilizar a quantidade de falhas reportadas em cada funcionalidade de usuário.
+O \textit{script} está descrito no Apêndice [REFERENCIAR APENDICES] e produz um arquivo JSON
+contendo uma lista de funcionalidades de usuário e, para cada uma delas, a quantidade de falhas
+reportadas, contabilizadas através do arquivo CSV gerado pelo reporte do Bugzilla. Caso alguma
+funcionalidade da lista de funcionalidades de usuário não tenha nenhuma falha associada no arquivo
+CSV o valor de falhas reportadas para tal funcionalidade é considerado 0.
+
+A Figura \ref{fig:formatoJsonBugs} mostra um exemplo da formatação do arquivo JSON gerada pelo
+\textit{script} de contagem de falhas reportadas.
+Na estrutura o campo \textbf{isComponent} indica se o elemento da lista é um \textit{component},
+ou seja, se o elemento da lista é uma funcionalidade de usuário.
+A necessidade desse campo será discutida mais adiante na presente sessão.
+O outro campo presente na estrutura gerada é o campo \textbf{bugs}, o que indica a quantidade de
+\textit{bugs} relativos àquele \textit{component}, isto é, a quantidade de falhas reportadas
+relativas àquela funcionalidade de usuário.
+Como resultado dessa primeira triagem obtivemos um arquivo no formado JSON contendo uma lista de
+todas as funcionalidades de usuário e, dentro de cada elemento dessa lista, a informação de quantas
+falhas reportadas estão relacionadas à dada funcionalidade.
+
+\begin{figure}[ht]
+\caption{Exemplo de formatação do arquivo JSON gerado após alteração do \textit{script} de contagem
+de falhas reportadas, descrito em [REFERENCIAR APENDICES].}
+\label{fig:formatoJsonBugs}
+\begin{verbatim}
+{
+    "Nome da funcionalidade" : {
+        "isComponent": true,
+        "bugs": <number>
+    },
+    ...
+}
+\end{verbatim}
+\end{figure}
+
+Nesse ponto, temos de um lado a lista de funcionalidades e seus respectivos números de falhas
+reportadas e de outro lado temos a lista de repositórios e seus respectivos dados de cobertura
+de código.
+O próximo passo foi relacionar os repositórios e as funcionalidades.
+Para tal, foram feitas entrevistas com os líderes técnicos de todas as equipes.
+A técnica de entrevista consiste em uma coleta de dados onde o entrevistador toma o entrevistado
+como fonte de informação \cite{metodosPesquisaSocial}.
+Uma vez que as informações de relacionamento entre repositórios e funcionalidade não estão
+documentadas e em certos casos podem ser difusas, isto é, um repositório pode servir a mais de uma
+funcionalidade de usuário, a entrevista com os líderes técnicos foi uma solução que atendeu as
+necessidades da presente pesquisa.
+
+O modelo de entrevista escolhido foi o modelo de entrevista focalizada que, de acordo com a
+definição de \cite{metodosPesquisaSocial}, é uma entrevista pouco estruturada, onde o entrevistador
+foca em um tema, no caso do estudo foi a relação entre repositórios e funcionalidades de usuário,
+e permite que o entrevistado fale livremente, porém tentando manter o foco no tema definido.
+As entrevistas foram feitas individualmente com 5 líderes técnicos, cobrindo todos os repositórios.
+Para cada um deles a entrevista começou com o seguinte questionamento:
+
+\begin{center}
+\textit{Dado esses repositórios, a qual funcionalidade de usuários cada um deles pertence?}
+\end{center}
+
+Como resultado das entrevistas obtivemos os dados de funcionalidades de usuário e os dados de
+cobertura de código unidos em um único arquivo em formato JSON, conforme o exemplo exibido na
+Figura \ref{fig:formatoJsonFinal}.
+Essa união foi feita manualmente durante as entrevistas.
+Os campos \textbf{isComponent}, \textbf{bugs}, \textbf{lines-valid}, \textbf{line-rate},
+\textbf{lines-covered} continuam com o mesmo significado dos passos anteriores, porém aqui podemos
+ver um novo campo: \textbf{reposCoverage}.
+O campo \textbf{reposCoverage} é um elemento que contém uma lista com todos os repositórios
+referentes à funcionalidade no qual este elemento está inserido, bem como os dados de cobertura de
+código destes repositórios.
+Além disso, foram criados outros agrupamentos de repositórios que não fazem referência a uma
+funcionalidade específica e, por esse motivo, foram marcadas como \textbf{false} no campo
+\textbf{isComponent}.
+Essa marcação facilita a compilação de dados feita por alguns \textit{scripts} que serão detalhados
+adiante nesta mesma sessão.
+
+\begin{figure}[ht]
+\caption{Exemplo de formatação do arquivo JSON junção manual dos dados de falhas reportadas por
+funcionalidade e dados de cobertura de código por repositório.}
+\label{fig:formatoJsonFinal}
+\begin{verbatim}
+{
+    "Nome da funcionalidade" : {
+        "isComponent": true,
+        "bugs": <number>,
+        "reposCoverage": {
+            "nome-do-repositório-x": {
+                "lines-valid": <number>,
+                "line-rate": <number>,
+                "lines-covered": <number>
+            },
+            ...
+        }
+    },
+    "Outras divisões": {
+        "isComponent": false,
+        "reposCoverage": {
+            "nome-do-repositório-y": {
+                "lines-valid": <number>,
+                "line-rate": <number>,
+                "lines-covered": <number>
+            },
+            ...
+        }
+    },
+    ...
+}
+\end{verbatim}
+\end{figure}
+
+Após a integração dos dados, tivemos repositórios sendo classificados de 3 formas diferentes:
+\begin{itemize}
+    \item \textbf{Repositórios que não estão em campo}:
+          são repositórios que não foram entreges no sistema operaciona, ou foram obsoletados em
+          algum momento. Tais repositórios foram agrupados em uma divisão chamada
+          \textbf{\textit{Not In Field}}, que reúne os repositórios que ainda não estão ou não estão
+          mais sendo utilizados e, por esse motivo, não possuem falhas reportadas relativas a eles.
+          Esses repositórios foram desconsiderados nas análises estatísticas;
+
+    \item \textbf{Repositórios de sistema}:
+          são repositórios que servem a mais de uma funcionalidade simultaneamente.
+          Estes foram agrupados em uma divisão chamada \textbf{\textit{System repos}}.
+          Uma vez que esses repositórios não foram relacionados a um funcionalidade específica, eles
+          foram descartados de grande parte das análises estatísticas, mas não todas, sendo usado em
+          alguns cálculos de média e mediana;
+
+    \item \textbf{Repositórios de funcionalidade}:
+          são repositórios que servem a apenas uma funcionalidade de usuário, sendo colocados dentro
+          do elemento referente a sua funcionalidade.
+\end{itemize}
+
+O último passo referente ao tratamento inicial dos dados, antes da análise dos mesmo, foi a
+a ofuscação de dados.
+Os dados originais contém os nomes reais das funcionalidades e repositórios e eles foram ofuscados
+por questões de sigilo empresarias.
+O \textit{script} responsável pela ofuscação de dados está descrito no Apêndice [REFERENCIAR APENDICES]
+e ele é responsável por receber como entrada o arquivo JSON com nomes originais e gerar um novo
+arquivo JSON com nomes genéricos, seguindo o seguinte padrão:
+\textbf{Component\_\textless número\textgreater} e
+\textbf{Repository\_\textless número\textgreater}.
+Além das questões de sigilo empresarial, a ofuscação dos dados permite-nos uma análise de dados
+excluindo vieses, uma vez que não é possível distinguir funcionalidades e repositórios.
+
+O passo seguinte à triagem de dados foi a análise dos mesmos.
+Tendo como base um arquivo JSON contendo todos os dados de falhas reportadas divididas por
+funcionalidade e seus respectivos repositórios contendo dados de cobertura de código, foi possível
+analisar os dados e gerar os resultados estatísticos.
+
+Como objetivo principal deste estudo temos a seguinte questão de pesquisa:
+``Existe correlação entre cobertura de código e qualidade de \textit{software} de um sistema
+operacional embarcado, sendo cobertura de linhas a métrica de cobertura de código e número de falhar
+reportadas a métrica de qualidade de \textit{software}?'' e para respondê-la podemos recorrer a
+cálculos estatísticos.
+Nesse sentido, o primeiro passo foi gerar um gráfico de bolhas (veja exemplo na
+Figura \ref{fig:bubble_example}) com o eixo x sendo a taxa de cobertura de código, o eixo y a
+quantidade de falhas reportadas e cada bolha sendo uma funcionalidade, onde o tamanho da bolha
+indica a quantidade de linhas de código, representando o tamanho, em linhas da funcionalidade.
+Esse tipo de gráfico permite termos uma visualização gráfica inicial dos dados.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{bubble_example.png}
+    \caption{Exemplo de gráfico de bolhas \cite{plotly}.}
+    \label{fig:bubble_example}
+\end{figure}
+
+De forma complementar, foi utilizado uma linha de regressão linear adicional ao gráfico de bolhas
+(veja exemplo na Figura \ref{fig:lin_reg_example}).
+Segundo \cite{openIntroStat}, modelos de regressão linear podem ser usados para previsões com base
+em dados de duas variáveis numéricas.
+No caso estudado as variáveis são taxa de cobertura de código e número de falhas reportadas.
+Para a geração do gráfico contendo as bolhas e a linha de regressão linear foi utilizado a
+biblioteca Plotly en sua versão para a linguagem Python \cite{plotly}.
+Através dessa biblioteca é possível gerar os gráficos de forma fácil utilizando o método de Mínimos
+Quadrados Ordinários, ou \textit{Ordinary Least Squares} (OLS), em inglês.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{linear_regression_example.png}
+    \caption{Exemplo de gráfico de bolhas com linha de regressão linear \cite{plotly}.}
+    \label{fig:lin_reg_example}
+\end{figure}
+
+A geração dos gráficos foi feita através do \textit{script} descrito no Apêndice [REFERENCIAR APENDICES].
+Note que, como exibido na Figura \ref{fig:formatoJsonFinal}, o JSON possui os dados de cobertura de
+código por repositório, porém precisamos dos dados por funcionalidade.
+Para resolver essa questão, o \textit{script} gerador do gráfico também faz um pré-processamento
+dos dados, somando os dados de cobertura de código de todos os repositórios de uma mesma
+funcionalidade (veja fórmula na Figura \ref{fig:formulaTaxaDeCoberturaComponent}), obtendo assim os
+dados de cobertura de código de uma funcionalidade.
+
+\begin{figure}[ht]
+\caption{Fórmula de cálculo de taxa de cobertura de uma funcionalidade de usuário.}
+\label{fig:formulaTaxaDeCoberturaComponent}
+\begin{center}
+    $taxaDeCoberturaFuncionalidade = {\sum_{i=a}^{N} linhasCobertas_i \over \sum_{i=a}^{N} linhasTotais_i}$, sendo
+    \textbf{a} e \textbf{N} o primeiro e último repositório referente à funcionalidade, respectivamente
+\end{center}
+\end{figure}
+
+Com o gráfico de bolhas e regressão linear já é possível concluir se existe ou não correlação entre
+as variáveis estudadas, porém ainda não é possível quantificar a força dessa correlação.
+Para tal o script descrito no Apêndice [REFERENCIAR APENDICES] utiliza a biblioteca ScyPy
+\cite{scipy} para fazer o cálculo de correlação $R$ que, segundo \cite{scipy} segue a fórmula
+descrita na Figura \ref{fig:formulaCorrelacao}.
+Com o valor resultante do cálculo é possível mensurar se a correlação é fraca ou forte e se é
+positiva ou negativa \cite{openIntroStat}.
+
+\begin{figure}[ht]
+\caption{Fórmula da correlação de Pearson. Fonte: \cite{scipy}}
+\label{fig:formulaCorrelacao}
+\begin{center}
+    $R = {\sum(x - m_x)(y - m_y) \over \sqrt{\sum(x - m_x)^2 \sum(y - m_y)^2}}$
+\end{center}
+\end{figure}
+
+Por fim, alguns cálculos estatísticos auxiliares foram utilizados em algumas análises minoritárias,
+como o cálculos de média aritmétca (veja Figura \ref{fig:formulaMedia}) e mediana, a fim de capturar
+tendências de valores para grupos de repositórios.
+
+\begin{figure}[ht]
+\caption{Fórmula da média. Fonte: ENCONTRAR UMA FONTE}
+\label{fig:formulaMedia}
+\begin{center}
+    $M = {\sum_{i=1}^{N} x_i \over N}$
+\end{center}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
