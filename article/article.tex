@@ -967,7 +967,60 @@ tendências de valores para grupos de repositórios.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Limitações Apresentadas}
-Blablabla
+
+Nesta sessão serão apresentados alguns pontos de limitação e possíveis vulnerabilidades do presente
+estudo, a fim de ressaltar pontos de atenção durante a análise dos resultados obtidos.
+
+No estudo de caso apresentado neste artigo temos uma análise de 85 funcionalidades distribuídas em
+316 repositórios distintos.
+Ainda que o $N$ amostral tenha um tamanho relevante, ele apresenta algumas vulnerabilidades, as
+quais discutiremos neste parágrafo.
+Todo o código analisado data de diversos períodos, deste meados de 2013, quando o projeto começou a
+ser implementado até o ano de 2023, quando o presente estudo foi feito.
+Durante todo esse período o projeto contou com dezenas de equipes diferentes e centenas de
+desenvolvedores.
+Apesar da grande pluralidade de estilos de desenvolvimento, o projeto sempre esteve dentro da mesma
+empresa, com a mesma cultura de desenvolvimento, as mesmas linguagens de desenvolvimento e, por fim,
+atendendo um perfil de cliente que foi pouco modificado durante a vida do projeto.
+Estas constantes podem gerar um certo viés que imponha os resultados obtidos, sem que estes sejam
+genéricos o suficiente para que sejam comparáveis com outros projetos.
+Além disso, as falhas são reportadas por um perfil de usuário específico, o que pode fazer com que
+os valores de falhas reportadas não sejam comparáveis com os valores de outros projetos.
+A fim de minimizar essas limitações mais estudos são necessários, envolvendo projetos de tamanhos,
+perfis e tecnologias distintas.
+
+Outro ponto que pode ser considerado como uma limitação é a métrica de cobertura de código
+utilizada.
+Neste estudo utilizamos a métrica de cobertura de linhas de código, porém esta pode não ser a
+métrica mais adequada para a correlação entre cobertura de código e falhas reportadas.
+Existem outras métricas de cobertura de código, como cobertura de decisão, que poderiam ter sido
+utilizadas em conjunto com a métrica de cobertura de linhas, a fim de termos uma maior base de dados
+para análise, o que poderia gerar conclusões mais precisas a respeito da existência ou não da
+correlação e de qual a melhor métrica a se utilizar para mensurar tal correlação.
+
+Durante a triagem dos dados foi necessário traçar a relação entre repositórios e funcionalidades
+de usuário.
+Tal correlação pode ser bem difusa.
+Alguns repositórios podem servir a mais de uma funcionalidade em proporções diferentes, bem como
+podem existir funcionalidades de usuário muito semelhantes e a classificação das falhas pode ficar
+dificultada.
+Essas questões de classificação, tanto das falhas, quanto dos repositórios, são feitas por pessoas
+e, devido à característica difusa, podem ter sido classificadas de forma não adequada.
+Essas falhas de classificação podem gerar alterações tanto positivas, quanto negativas nos
+resultados, o que nos traz mais um ponto de atenção.
+Uma vez que as classificações são feitas qualitativamente, elas estão sujeitas a erro humano e podem
+representar uma menor precisão dos resultados.
+
+Tais limitações e vulnerabilidades não invalidam o resultado do estudo, porém indicam pontos que
+devem ser observado durante a leitura e interpretação dos resultados.
+De maneira geral, podemos compreender que os resultados observados são válidos no contexto do
+projeto estudado e durante o período observado, não sendo garantida uma generalização dos resultados
+para outros projetos.
+Apesar disso, os dados obtidos podem ser utilizados como indícios quando analisados em conjunto com
+mais pesquisas do mesmo tema, ou de pesquisas mais abrangentes.
+Além disso, é importante ressaltar que o presente artigo se propões a um estudo de
+\textbf{correlação} e, com as informações que temos no contexto estrito deste estudo, não é possível
+garantir uma correlação causal.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -976,6 +1029,7 @@ Blablabla
 
 
 \section{Resultados} \label{sec:resultados}
+
 Blablabla
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
