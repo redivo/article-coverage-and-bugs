@@ -35,7 +35,7 @@ def generate_chart(title, x, x_title, y, y_title, sizes):
     # Generate chart
     fig = px.scatter(df, x_title, y=y_title, size=sizes,
                      trendline="ols")
-    fig.update_layout(title_text = title, title_font_size=24)
+    fig.update_layout(title_text = title, title_font_size=18)
 
     fig.show()
 
