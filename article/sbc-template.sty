@@ -162,3 +162,19 @@
       \rightmargin\leftmargin}\item[\hskip\labelsep
                                     \bfseries\itshape Resumo.]\itshape}%
       {\endlist}
+
+
+
+\newcounter{apendice}
+\labelformat{apendice}{\Alph{apendice}}
+\newenvironment{apendice}[2][]
+{
+    \refstepcounter{apendice}\par\medskip
+
+    \clearpage
+    \begin{center}
+        \textbf{APÊNDICE \Alph{apendice} -- #2 }
+    \end{center}
+}
+{\medskip}
+
