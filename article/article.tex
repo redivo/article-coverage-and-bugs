@@ -72,7 +72,7 @@ prover uma taxa percentual que indica a porcentagem de código executadas nos te
 O presente artigo visa estudar se existe ou não correlação entre a cobertura de código e a
 qualidade do \textit{software}, medida em quantidade de falhas reportadas.
 Para tal, foi feito um estudo de caso utilizando as funcionalidades de um sistema operacional,
-chegando em um resultado que indica a existência de correlação entre cobertura de ódigo e
+chegando em um resultado que indica a existência de correlação entre cobertura de código e
 qualidade de \textit{software}.
 
 
@@ -268,7 +268,7 @@ se, de fato, existe uma correlação que confirme tal suposição.
 
 \subsection{Regressão Linear, Correlação e Valor-p}
 
-Ao decorrer da análise dos dados deste estudo será necessária uma análise estatística para respoder
+Ao decorrer da análise dos dados deste estudo será necessária uma análise estatística para responder
 a questão de pesquisa proposta.
 Para tal, faremos o uso de algumas ferramentas estatísticas, tais como regressão linear e
 coeficiente de correlação.
@@ -1020,7 +1020,7 @@ Com o valor resultante dos cálculos é possível mensurar a força e a validade
 \end{figure}
 
 Por fim, alguns cálculos estatísticos auxiliares foram utilizados em algumas análises minoritárias,
-como o cálculos de média aritmétca e mediana, a fim de capturar
+como o cálculos de média aritmética e mediana, a fim de capturar
 tendências de valores para grupos de repositórios.
 
 
@@ -1061,7 +1061,7 @@ dados de cobertura de código.
 
 A Figura \ref{fig:cc_bugs_geral} mostra um gráfico de bolhas que dispõe a relação entre taxa de
 cobertura de linhas (eixo $x$) e a quantidade de falhas reportada (eixo $y$).
-O tamanho das bolhas represeta a quantidade de linhas totais da funcionalidade, porém a proporção
+O tamanho das bolhas representa a quantidade de linhas totais da funcionalidade, porém a proporção
 não é linear.
 
 \begin{figure}[ht]
@@ -1072,17 +1072,17 @@ com pelo menos 1 repositório associado.}
     \label{fig:cc_bugs_geral}
 \end{figure}
 
-Em um primeiro momento é possível observar uma grande quantidade de funcionalidades no quadrande
+Em um primeiro momento é possível observar uma grande quantidade de funcionalidades no quadrante
 inferior direito, o que representa uma concentração de funcionalidades com alta cobertura de código
 e baixo número de falhas reportadas.
 À medida que a cobertura de código diminui, a variabilidade da quantidade de falhas reportadas tende
 a aumentar, formando uma espécie de cone que diminui sua variabilidade no eixo $y$ à medida que
 a cobertura de código, representada no eixo $x$ aumenta, tendendo a $y = 0$.
 
-A linha de tendência, calculada atravé da regressão linear por Mínimos Quadrados Ordinários,
+A linha de tendência, calculada através da regressão linear por Mínimos Quadrados Ordinários,
 também corrobora a tese de que existe uma correlação.
 A linha indica uma correlação negativa entre os valores de cobertura de código e falhas reportadas,
-isto é, a quantidade de falhas reportadas tende a ser menor à medida que acobertura de código
+isto é, a quantidade de falhas reportadas tende a ser menor à medida que a cobertura de código
 aumenta.
 Além da linha de tendência, o coeficiente de correlação também indica uma correlação sustentável.
 O coeficiente de correlação $R \approx 0,47$ mostra que a correlação não é nula ($R = 0$), mas
