@@ -29,8 +29,11 @@ def generate_chart(title, x, x_title, y, y_title, sizes):
     }
 
     # Calculate Pearson correlation
-    correlation = stats.pearsonr(x, y)[0]
+    pearson_result = stats.pearsonr(x, y)
+    correlation = pearson_result[0]
+    pvalue = pearson_result[1]
     print("Pearson Correlation R=" + str(correlation))
+    print("p-value={}%".format(str(pvalue*100)))
 
     # Generate chart
     fig = px.scatter(df, x_title, y=y_title, size=sizes,

@@ -5,12 +5,11 @@
 \usepackage{graphicx,url}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
-
+\usepackage{fancyvrb}
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{setspace,lipsum}
-\usepackage[toc,page]{appendix}
-
+\usepackage{listings}
 \sloppy
 
 \date{\today}
@@ -53,7 +52,7 @@ ministrada pela professora Josiane Brietzke Porto.}
 \begin{abstract}
 
 Software testing is an important step in software development cycle. This step aims to ensure that
-the code works according to the specification.
+the code works according to the specifications.
 Code coverage is a metric that tries to measure the test quality by indicating the percentage of
 code that were used during test execution.
 This article aims to research the correlation between code coverage rate and software quality,
@@ -65,8 +64,9 @@ indicate that there is a correlation between code coverage rate and software qua
 
 \begin{resumo}
 
-O teste de \textit{software} é uma importante etapa no processo de desenvolvimento de \textit{software}. Essa etapa
-visa garantir que o \textit{software} funciona de acordo com as especificações.
+O teste de \textit{software} é uma importante etapa no processo de desenvolvimento de
+\textit{software}.
+Essa etapa visa garantir que o \textit{software} funciona de acordo com as especificações.
 A cobertura de código é uma métricas que se propõe a medir a qualidade de um teste. Ela consiste em
 prover uma taxa percentual que indica a porcentagem de código executadas nos testes.
 O presente artigo visa estudar se existe ou não correlação entre a cobertura de código e a
@@ -91,8 +91,8 @@ A etapa de teste de \textit{software} é uma etapa importante no processo de des
 \textit{software}.
 Essa etapa visa garantir a funcionalidade de um dado \textit{software}, podendo ser feita utilizando
 diversos métodos e em diversos níveis, de acordo com a finalidade do teste.
-Contudo, o desenvolvimento de testes implica em um impacto financeiro no projeto, uma vez que muitas
-horas e profissionais são demandados para a escrita de testes.
+Contudo, o desenvolvimento de testes implica em um impacto na alocação de recursos do projeto,
+uma vez que muitas horas e profissionais são demandados para a escrita de testes.
 
 A cobertura de código é uma métrica que indica a porcentagem de código que está sendo coberta pelos
 testes executados.
@@ -120,9 +120,9 @@ código e qualidade de \textit{software}.
 
 Nesse sentido, o presente artigo tem por objetivo responder a seguinte questão de pesquisa:
 existe correlação entre cobertura de código e qualidade de \textit{software} de um sistema
-operacional embarcado, sendo cobertura de linhas a métrica de cobertura de código e número de falhar
+operacional embarcado, sendo cobertura de linhas a métrica de cobertura de código e número de falhas
 reportadas a métrica de qualidade de \textit{software}?
-Para tal, o estudo tem o objetivo de fazer um estudo de caso, conforme descrito em
+Para tal, o presente estudo tem o objetivo de fazer um estudo de caso, conforme descrito em
 \cite{metodosPesquisa}, em um projeto de sistema operacional embarcado desenvolvido por uma empresa
 brasileira, observando as métricas supracitadas e usando métodos estatísticos para identificar a
 correlação entre cobertura de código e qualidade de \textit{software}.
@@ -188,15 +188,24 @@ sanitização, triagem e análise dos dados utilizados no estudo.
 A etapa de teste de \textit{software} consiste em verificar que um \textit{software} funciona de
 acordo com os requisitos, buscando por defeitos no \textit{software} em teste
 \cite{engSwSommerville}.
-Podemos utilizar a definição de defeito descrita em \cite{introTeste}, que descreve como ``um passo,
-processo ou definição de dados incorretos''.
+
+Neste artigo iremos utilizar as definições descritas em \cite{introTeste} para os termos de
+``defeito'', ``erro'' e ``falha''.
+Segundo a definição do autor, o \textbf{defeito} é um ``passo, processo ou definição de dados
+incorretos''. O \textbf{erro} é um estado inconsistente do programa, que foi causado por um
+\textbf{defeito}.
+Por fim, temos a \textbf{falha}, que se caracteriza pela produção de um resultado diferente do
+esperado.
+Sendo assim, podemos dizer que um teste de \textit{software} visa por encontrar \textbf{defeitos}
+através a observação do comportamento de um programa e a busca de \textbf{falhas} de execução
+do mesmo.
 
 Tais testes podem ser manuais ou automáticos.
 Segundo \cite{engSwSommerville}, nos testes manuais o testador executa o programa manualmente,
 injetando alguns dados, e compara o resultado com o que ele espera que seja o resultado correto.
 Já nos testes automáticos, ou automatizados, os casos de teste são codificados em um programa
 responsável pela execução dos testes.
-Esse programa é injeta os dados de entrada no \textit{software} testado e verifica se os resultados
+Esse programa injeta os dados de entrada no \textit{software} testado e verifica se os resultados
 estão de acordo com o esperado.
 
 Dentro do contexto de teste de \textit{software} podemos subdividir os testes em diversas
@@ -214,6 +223,8 @@ Em \cite{engSwSommerville} o autor divide os testes em 3 níveis de granularidad
 (2) teste de componente, onde o teste integra diversas unidades de um programa e, por fim,
 (3) teste de sistema, onde o sistema é testado como um todo, englobando alguns ou todos os
 componente.
+
+
 
 Neste estudo nos debruçaremos sobre uma parcela dos testes automáticos do caso em questão, pois são
 esses testes que são capazes de fornecer os dados que iremos utilizar. A sessão
@@ -243,24 +254,24 @@ estudo os dados de cobertura são reportados neste formato.
 As métricas de cobertura de código podem ser extraídas utilizando diversas ferramentas, de acordo
 com a tecnologia adotada no projeto.
 O projeto do caso de estudo é implementado em sua maioria utilizando a linguagem C++, o
-Google Test \cite{googleTest} como \textit{framework} de testes Google Test \cite{googleTest} e
+Google Test \cite{googleTest} como \textit{framework} de testes e
 a cobertura de código é calculada utilizando gcov \cite{gcov}.
 
 Uma vez que uma alta taxa de cobertura de linhas código indica que o programa testado está, em
 grande parte, coberto por testes automáticos, então pode-se pensar que o critério de cobertura de
 código pode ser uma métrica de qualidade do \textit{software} testado, e não apenas qualidade do
-código.
+teste.
 É nesse contexto que o presente estudo utilizará as métricas de cobertura de código para verificar
 se, de fato, existe uma correlação que confirme tal suposição.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Regressão Linear e Correlação}
+\subsection{Regressão Linear, Correlação e Valor-p}
 
 Ao decorrer da análise dos dados deste estudo será necessária uma análise estatística para respoder
 a questão de pesquisa proposta.
-Para tal, faremos o uso de algumas ferramentas estatísticas, tais como regressão linear e índice de
-correlação.
+Para tal, faremos o uso de algumas ferramentas estatísticas, tais como regressão linear e
+coeficiente de correlação.
 
 No presente estudo teremos como principais os dados de (1) quantidade de falhas reportadas e (2)
 taxa de cobertura de código.
@@ -268,36 +279,67 @@ Para verificarmos se existe alguma tendência entre os valores podemos utilizar 
 \textbf{regressão linear}.
 
 Segundo \cite{openIntroStat}, modelos de regressão linear podem ser usados para previsões com base
-em dados de duas variáveis numéricas. A Figura~\ref{fig:lin_reg_example} mostra um exemplo de
-regressão linear, onde a tendência é de que os valores do eixo \textbf{y} subam à medida que os
-valores do eixo \textbf{x} sobem.
+em dados de duas variáveis numéricas. A Figura~\ref{fig:lin_reg_basic_example} mostra um exemplo de
+regressão linear, onde a tendência é de que os valores do eixo $y$ subam à medida que os
+valores do eixo $x$ sobem.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=.3\textwidth]{lin_reg_example.png}
     \caption{Exemplo de regressão linear. Fonte: \cite{openIntroStat}}
-    \label{fig:lin_reg_example}
+    \label{fig:lin_reg_basic_example}
 \end{figure}
 
-Outra ferramenta que iremos utilizar neste artigo é o cálculo de correlação.
-Segundo \cite{openIntroStat}, a correlação (\textit{R}) é uma medida com valor entre -1 e 1 que
+Outra ferramenta que iremos utilizar neste artigo é o cálculo de coeficiente de correlação.
+Segundo \cite{openIntroStat}, a correlação ($R$) é uma medida com valor entre -1 e 1 que
 indica o quão forte é a tendência linear entre as variáveis numéricas estudadas.
-Quanto mais próximo de -1 for \textit{R}, maior é a força de correlação negativa.
-Quanto mais próximo de 1 for \textit{R}, maior é a força de correlação positiva.
-Por fim, quando mais próximo de 0 for \textit{R}, menor é a força de correlação entre os valores
-estudados. A Figura~\ref{fig:correlation_example} mostra oito exemplos de correlação.
+Quanto mais próximo de -1 for $R$, maior é a força de correlação negativa.
+Quanto mais próximo de 1 for  $R$, maior é a força de correlação positiva.
+Por fim, quanto mais próximo de 0 for $R$, menor é a força de correlação entre os valores
+estudados. A Figura~\ref{fig:correlation_example} mostra oito exemplos de coeficiente de correlação
+$R$.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=.7\textwidth]{correlation_example.png}
-    \caption{Exemplo correlação entre variáveis. Fonte: \cite{openIntroStat}}
+    \caption{Exemplo coeficiente de correlação. Fonte: \cite{openIntroStat}}
     \label{fig:correlation_example}
 \end{figure}
 
+Um erro comum na compreensão do termo ``correlação negativa'' é interpretar que este termo indica a
+ausência da correlação.
+Contudo, tal termo exprime a ideia de uma correlação onde $y$ diminui à medida que $x$ aumenta.
+A Figura~\ref{fig:correlation_example} exprime muito bem esse conceito, mostrando casos de
+correlação positiva (quando $R = 1$), correlação negativa (quando $R = -1$) e, por fim, uma baixa
+força de correlação (quando $R = 0.08$).
+
+Além disso, o presente estudo utiliza o cálculo do $valor\mbox{-}p$ para estimar a probabilidade de que
+nossa hipótese de que existe correlação entre cobertura de código e número de falhas reportadas é
+verdadeira.
+Para explicar o conceito do $valor\mbox{-}p$, bem como seus complementares $H_0$ e $H_A$, podemos recorrer
+novamente às definições de \cite{openIntroStat}.
+Inicialmente vamos definir a hipótese nula ($H_0$) como a perspectiva cética, ou seja, $H_0$
+corresponde à hipótese de que não há correlação entre cobertura de código e número de falhas
+reportadas.
+Complementarmente podemos definir a hipótese alternativa ($H_A$), ou seja, $H_A$ corresponde à
+hipótese de que, sim, existe uma correlação entre cobertura de código e número de falhas reportadas.
+Já o $valor\mbox{-}p$ pode ser interpretado como uma ferramenta para medição da força da evidência
+mostrada pelos dados, sendo que quanto menor o $valor\mbox{-}p$, maior a probabilidade de que $H_0$
+seja rejeitada e, por consequência, $H_A$ seja provável a hipótese verdadeira.
+Como uma regra geral, o autor indica o valor de 5\% como base, ou seja, caso o $valor\mbox{-}p$ seja
+maior que 5\%, não podemos descartar $H_0$.
+
+Os valores de $R$ e $valor\mbox{-}p$ tem definições que podem dar a impressão de sobreposição de
+conceitos, porém tais valores indicam coisas diferentes.
+Enquanto o valor de $R$ indica o quão ajustado à linha de tendência são os valor da amostragem,
+o $valor\mbox{-}p$ indica a probabilidade de que $H_0$ seja verdadeira.
+
 Com essas ferramentas estatísticas podemos verificar se existe alguma tendência entre os dados
-estudados e, caso exista, qual a força da correlação entre elas.
+estudados e, caso exista, qual a força da correlação e probabilidade de que nossa hipótese seja
+verdadeira.
 É importante salientar que as tendencias e correlações calculadas não implicam em causalidade,
-apenas nos dão insumos para uma análise mais criteriosa.
+apenas nos dão insumos para uma análise mais criteriosa, além de nos darem indícios que sugerem tal
+causalidade, porém devem ser confirmadas em estudos futuros.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -314,8 +356,8 @@ funcionalidade, do ponto de vista do usuário, aquele defeito é relativo, que s
 categorização dos defeitos neste presente estudo.
 
 Os resultados de cobertura de código, no projeto estudado, são calculados pelo gcov \cite{gcov}, que
-se trata de uma ferramente para geração de dados de cobertura de código para ser usada em conjunto
-com o compilador \textbf{GCC} \cite{gcc}.
+se trata de uma ferramenta para geração de dados de cobertura de código para ser utilizada em conjunto
+com o compilador GCC \cite{gcc}.
 
 No projeto estudado, os testes, incluindo geração de dados de cobertura de código, são executados
 automaticamente pelo Jenkins \cite{jenkins} (ferramenta para automatizações de integração contínua)
@@ -324,7 +366,8 @@ Além dos resultados dos testes (sucesso ou falha) também são publicizados os 
 código calculados pelo gcov.
 
 Na parte de triagem e análise dos dados, alguns \textit{scripts} em Python foram criados e estão
-descritos em [REFERENCIAR APENDICES]. Nestes \textit{scripts} fora utilizadas as bibliotecas
+descritos em \url{https://github.com/redivo/article-coverage-and-defects/tree/master/data}.
+Nestes \textit{scripts} fora utilizadas as bibliotecas
 (1) Plotly \cite{plotly}, uma biblioteca Python para geração de gráficos e (2) SciPy \cite{scipy},
 uma biblioteca Python para auxílio de cálculos matemáticos e estatísticos.
 
@@ -335,8 +378,8 @@ uma biblioteca Python para auxílio de cálculos matemáticos e estatísticos.
 
 \section{Trabalhos Relacionados}
 
-Em \cite{unitTestedCrash} os autores se propõe um estudo sobre a relação entre cobertura de código
-a ocorrência de falhas, tentando traçar uma correlação entre os dois valores.
+Em \cite{unitTestedCrash} os autores propõe um estudo sobre a relação entre cobertura de código
+e a ocorrência de falhas, tentando traçar uma correlação entre os dois valores.
 Como estudo de caso foram usados reportes de falhas em campo do projeto Eclipse.
 O estudo coletou mais de 2 milhões de incidentes reportados e, após triagem de dados os autores
 tinham em mãos mais de 126 mil reportes únicos do tipo \textit{stack trace}, que consiste em um tipo
@@ -349,7 +392,7 @@ invocados nos testes.
 
 Foi feita uma análise dos dados relacionando as falhas reportadas e a cobertura de código e a Tabela
 \ref{tab:FalhasMetodosTeste} mostra os dados obtidos.
-Do total de métodos analisados, 93,6\% não são testados 6,4\% dos testes são testados.
+Do total de métodos analisados, 93,6\% não são testados e apenas 6,4\% dos métodos são testados.
 Analisando apenas os métodos que não possuem reportes de falhas relacionados essa proporção é de
 93,5\% de métodos não testados, para 6,5\% de métodos testados.
 Já quando analisamos métodos que possuem reportes de falhas relacionados essa proporção fica em
@@ -361,10 +404,10 @@ Já quando analisamos métodos que possuem reportes de falhas relacionados essa 
 \label{tab:FalhasMetodosTeste}
 \begin{tabular}{|l|c|c|c|}
 \hline
-\multirow{2}{*}{Falha Reportada?} & \multicolumn{2}{c|}{Possui teste?} & \multirow{2}{*}{Total} \\ \cline{2-3}
-                                  & Não   & Sim                        &       \\ \hline
+\multirow{2}{*}{\textbf{Falha Reportada?}} & \multicolumn{2}{c|}{\textbf{Possui teste?}} & \multirow{2}{*}{\textbf{Total}} \\ \cline{2-3}
+                                  & \textbf{Não}   & \textbf{Sim}                        &       \\ \hline
 Não                               & 7816  & 541                        & 8357  \\ \hline
-Sim                               & 1097  &  69                        & 1166  \\ \hline
+Sim                               & 1097  &  69                        & 1166  \\ \hline \hline
 Total                             & 8913  & 619                        & 9523  \\ \hline
 \end{tabular}
 \end{table}
@@ -374,7 +417,8 @@ cobertura de código e uma menor quantidade de ocorrência de falhas. Os valores
 marginalmente, apresentando um baixo valor de correlação.
 
 Complementarmente, o artigo traz alguns itens a serem levados em conta.
-Um deles é que o resultado foi utilizando apenas um projeto e tal projeto tem grandes proporções.
+Um deles é que o resultado foi obtido utilizando apenas um projeto e tal projeto tem grandes
+proporções.
 Os autores argumentam que o resultado não pode ser generalizado e pode vir a se diferente em outros
 tamanhos de projeto.
 
@@ -393,7 +437,7 @@ trabalhos a serem estudados a fim de responder três questões de pesquisa:
 
 O estudo descreve os termos de busca utilizados, além de duas etapas de filtragem de estudos que
 foram necessárias para obter um material mais conciso para a revisão sistemática.
-Após a primeira busca eles encontraram 427 resultados para a busca e, após os filtros retaram 33
+Após a primeira busca eles encontraram 427 resultados para a busca e, após os filtros restaram 33
 estudos para serem analisados.
 
 Segundo os autores, alguns estudos prévios apontavam que existe uma forte correlação entre cobertura
@@ -424,7 +468,7 @@ Essa pesquisa utilizou o método de estudo de caso e analisou os resultados por 
 quantitativa.
 
 Segundo \cite{estudoDeCasoYin}, ``você poderia utilizar o método de estudo de caso quando
-deliberadamente quisesse lidar com condições contextuais - acreditando que elas poderiam ser
+deliberadamente quisesse lidar com condições contextuais -- acreditando que elas poderiam ser
 altamente pertinentes ao seu fenômeno de estudo''.
 Nesse sentido o presente estudo utilizará como caso um sistema operacional embarcado em operação
 desde 2015 em conjunto com suas métricas de cobertura de código e quantidade falhas encontradas.
@@ -440,7 +484,7 @@ teste de teorias, coleta de dados, entre outros instrumentos.
 A presente pesquisa é de caráter quantitativo, visto que se pretende a traçar uma correlação entre
 duas variáveis numéricas quantitativas -- percentual de cobertura de código e quantidade de falhas
 reportadas.
-Para descobrir de existe tal relação, os números encontrados serão submetidos a análises
+Para descobrir se existe tal relação, os números encontrados serão submetidos a análises
 estatísticas.
 
 Para a coleta de dados, será feita uma pesquisa exploratória em um estudo de caso de um projeto
@@ -451,9 +495,17 @@ fácil acesso, além de trazer uma representação muito próxima à realidade d
 
 Apesar de a pesquisa ter um caráter quantitativo em seu objetivo principal, a utilização de métodos
 qualitativos foram necessários em etapas intermediárias da pesquisa.
-Durante a triagem dos dados obtidos, mas especificamente da classificação dos repositórios, foi
+Durante a triagem dos dados obtidos, mais especificamente da classificação dos repositórios, foi
 necessária a utilização da técnica de entrevistas para viabilizar tal classificação, uma vez que
 esta não estava documentada.
+Além disso, os resultados obtidos foram apresentados amplamente para o setor de pequisa e
+desenvolvimento da empresa fornecedora do caso de estudo, incluindo times de outros projetos que não
+o projeto estudado, a fim de que fosse feita uma revisão por pares que, segundo
+\cite{metodosPesquisa}, são outros pesquisadores que podem criticar as interpretações e conclusões
+apresentadas.
+Para coleta do parecer dos pares foi aberto um canal de comunicação via o aplicativo Microsoft
+Teams, que recebeu alguns questionamentos e ponderações que serão apresentadas na sessão
+\ref{sec:resultados}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -508,7 +560,7 @@ agendada o Jenkins executam com base no topo do repositório.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{pipeline_tests.png}
-    \caption{Pipeline resumido da integração com enfoque na execução dos testes}
+    \caption{\textit{Pipeline} resumido da integração com enfoque na execução dos testes}
     \label{fig:pipeline_tests}
 \end{figure}
 
@@ -532,7 +584,7 @@ A coleta de dados de falhas reportadas compreende a todas as falhas relacionadas
 estudado e que não tenham sido corrigidas até o momento da pesquisa.
 Isso inclui tanto falhas que ocorreram em campo, quanto falhas identificadas dentro da empresa, seja
 por testes em equipamentos destino, testes de aceitação manual ou uso interno.
-A decisão considerar apenas as falhas que não foram corrigidas se deu devido ao fato de que ao
+A decisão de considerar apenas as falhas que não foram corrigidas se deu devido ao fato de que ao
 considerar o conjunto de todas as falhas, estaríamos tendo interferência do histórico, o que poderia
 interferir o resultado do estudo, uma vez que os dados de cobertura de código são relativos ao
 momento atual.
@@ -559,7 +611,7 @@ distintas, as quais serão apresentas nas sessões \ref{sec:falhasReportadas} e 
 
 As falhas reportadas compreendem à quantidade de todas as falhas encontradas tanto externamente
 (por clientes) quando internamente (por colaboradores).
-O projeto estudado utiliza a ferramenta Bugzilla como ferramente gerenciadora de falhas tanto para
+O projeto estudado utiliza a ferramenta Bugzilla como ferramenta gerenciadora de falhas tanto para
 falhas descobertas internamente, quanto para falhas descobertas externamente, o que nos permite
 acesso à toda a base de dados de falhas do projeto.
 Contudo, o mesmo serviço do Bugzilla é utilizado na empresa para reportar falhas de outros projetos
@@ -569,7 +621,7 @@ O Bugzilla possui uma ferramenta de busca onde é possível listar bugs de acord
 filtro de busca e a saída dessa busca pode ser de dois tipos: (1) HTML, onde é exibida uma interface
 web contendo os resultados ou
 (2) um arquivo do tipo CSV contendo uma linha para cada resultado encontrado, sendo as colunas
-configuráveis via requisição HTML.
+configuráveis via requisição HTTP.
 O formato escolhido foi o de arquivo CSV pois facilita a automação da triagem de dados.
 
 A busca criada para selecionar a lista de falhas reportadas relacionadas ao projeto e que ainda não
@@ -594,7 +646,7 @@ forram solucionadas utilizou filtragem por dois campos do Bugzilla:
           maior sobre os dados do projeto;
 
     \item \textbf{Project}: Compreende ao projeto em que foi encontrado esse problema. Existe um
-          campo \textit{Project} específico para o projeto estudado, o qual vai ser utilizado na
+          valor de \textit{Project} específico para o projeto estudado, o qual vai ser utilizado na
           busca. Sendo assim, temos que o termo da busca de projeto é
           \textbf{``project==PROJETO''}, sendo PROJETO o nome que representa o projeto de sistema
           operacional estudado, mas não será divulgado por questões de sigilo empresarial.
@@ -616,7 +668,7 @@ Bugzilla, já o segundo será utilizado para relacionar a quantidade de falhas r
 Além do reporte de falhas reportadas no Bugzilla foi necessário obter a lista de todos os valores
 possíveis do campo \textit{component}, o qual representa o conjunto de funcionalidade de usuário
 disponíveis no sistema.
-Essa lista é necessária para conhecermos todas as funcionalidades de usuário, um vez que a
+Essa lista é necessária para conhecermos todas as funcionalidades de usuário, uma vez que a
 funcionalidade pode não ter nenhuma falha reportada e, dessa forma, não apareceria no reporte de
 falhas reportadas e ainda não corrigidas.
 Essa lista foi utilizada para a estrita de um \textit{script}, o qual será descrito na sessão
@@ -652,7 +704,7 @@ Os dados de cobertura de código estavam inicialmente sendo disponibilizados atr
     \item \textbf{Cobertura de Métodos}: Corresponde ao total de métodos chamados na execução dos
           testes em relação ao total de métodos C e C++ contidos no repositório.
           Um detalhe sobre este campo é que funções em códigos não orientados a objetos também são
-          contabilizadas como métodos no contexto nesse reporte.
+          contabilizadas como métodos no contexto desse reporte.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -662,7 +714,7 @@ Os dados de cobertura de código estavam inicialmente sendo disponibilizados atr
     \label{fig:pluginCobertura}
 \end{figure}
 
-Dentre todas métricas disponíveis a métrica de Cobertura de Linhas é a mais adequada.
+Dentre todas métricas disponíveis, a métrica de Cobertura de Linhas é a mais adequada.
 Segundo \cite{coverageMetaAnalysis}, métricas mais genéricas, como cobertura de arquivos ou
 cobertura de classes, são menos efetivas para relacionar a qualidade de código, ainda que tenham
 validade.
@@ -676,25 +728,27 @@ repositórios.
 Para facilitar a coleta, o \textit{script} de geração de dados para o \textit{plugin} Cobertura
 foi alterado a fim de gerar dados no formato de arquivos JSON, além do formato original, destinado
 ao \textit{plugin} Cobertura.
-Como resultado, o \textit{script} passou a gerar um arquivo JSON onde contendo uma lista de
-repositórios e seus respectivos dados de cobertura de código, conforme mostra a Figura
-\ref{fig:formatoJsonCoverage}.
+Como resultado, o \textit{script} passou a gerar uma série de arquivos JSON que foram compilados em
+apenas 1 arquivo JSON contendo uma lista de repositórios e seus respectivos dados de cobertura de
+código, conforme mostra a Figura \ref{fig:formatoJsonCoverage}.
 Tal \textit{script} não pode ser exibido no presente artigo devido a questões relativas a sigilo
 empresarial.
 
+
 \begin{figure}[ht]
-\caption{Exemplo de formatação do arquivo JSON gerado após alteração do \textit{script} de
-geração de dados de cobertura de código.}
+\caption{Exemplo de formatação do arquivo JSON gerado após a compilação dos dados de cobertura
+de código.}
 \label{fig:formatoJsonCoverage}
+\small
 \begin{verbatim}
-{
-    "Nome do Repositório": {
-        "lines-valid": <número de linhas válidas>,
-        "line-rate": <taxa de cobertura>,
-        "lines-covered": <número de linhas cobertas>
-    },
-    ...
-}
+    {
+        "Nome do Repositório": {
+            "lines-valid": <número de linhas válidas>,
+            "line-rate": <taxa de cobertura>,
+            "lines-covered": <número de linhas cobertas>
+        },
+        ...
+    }
 \end{verbatim}
 \end{figure}
 
@@ -709,7 +763,7 @@ cobertas pelas linhas válidas, conforme a Figura \ref{fig:formulaTaxaDeCobertur
 \begin{figure}[ht]
 \caption{Fórmula de cálculo de taxa de cobertura.}
 \label{fig:formulaTaxaDeCobertura}
-    \[ taxaDeCobertura = \frac{linhasCobertas}{linhasTotais} \]
+    \[ taxaDeCobertura = \frac{linhasCobertas}{linhasValidas} \]
 \end{figure}
 
 Uma vez que os dados de cobertura de código foram exportados via JSON, eles passaram a estar
@@ -728,27 +782,27 @@ Ao final, os dados foram organizados, de acordo com o descrito na sessão \ref{s
 \subsection{Triagem e Análise de dados} \label{sec:triagem}
 
 Antes de os dados serem analisados foi necessário um trabalho de triagem de dados, em especial da
-porção de dados que compreende os dados de cobertura de código, a fim de organizá-los e
+porção de dados que compreende aos dados de cobertura de código, a fim de organizá-los e
 classificá-los.
 Após a coleta, temos como insumo três dados distintos:
 (1) um arquivo contendo dados de falhas reportadas,
 (2) uma lista de funcionalidades de usuários cadastradas no Bugzilla e
-(3) um arquivo contendo os dados de cobertura de código.
+(3) um arquivo contendo os dados de cobertura de código por repositório Git.
 
 Os dados de falhas reportadas foram exportados em um arquivo CSV contendo a primeira linhas como
 título das colunas e as demais sendo uma linha para cada falha reportada, com a filtragem de acordo
 com o descrito na sessão \ref{sec:falhasReportadas}.
 Em conjunto com a lista de funcionalidades de usuário foi criado um \textit{script} com o intuito
 de contabilizar a quantidade de falhas reportadas em cada funcionalidade de usuário.
-O \textit{script} está descrito no Apêndice [REFERENCIAR APENDICES] e produz um arquivo JSON
+O \textit{script} produziu um arquivo JSON
 contendo uma lista de funcionalidades de usuário e, para cada uma delas, a quantidade de falhas
 reportadas, contabilizadas através do arquivo CSV gerado pelo reporte do Bugzilla. Caso alguma
 funcionalidade da lista de funcionalidades de usuário não tenha nenhuma falha associada no arquivo
 CSV o valor de falhas reportadas para tal funcionalidade é considerado 0.
 
-A Figura \ref{fig:formatoJsonBugs} mostra um exemplo da formatação do arquivo JSON gerada pelo
+A Figura \ref{fig:formatoJsonBugs} mostra um exemplo da formatação do arquivo JSON gerado pelo
 \textit{script} de contagem de falhas reportadas.
-Na estrutura o campo \textbf{isComponent} indica se o elemento da lista é um \textit{component},
+Na estrutura, o campo \textbf{isComponent} indica se o elemento da lista é um \textit{component},
 ou seja, se o elemento da lista é uma funcionalidade de usuário.
 A necessidade desse campo será discutida mais adiante na presente sessão.
 O outro campo presente na estrutura gerada é o campo \textbf{bugs}, o que indica a quantidade de
@@ -762,14 +816,15 @@ falhas reportadas estão relacionadas à dada funcionalidade.
 \caption{Exemplo de formatação do arquivo JSON gerado após alteração do \textit{script} de contagem
 de falhas reportadas, descrito em [REFERENCIAR APENDICES].}
 \label{fig:formatoJsonBugs}
+\small
 \begin{verbatim}
-{
-    "Nome da funcionalidade" : {
-        "isComponent": true,
-        "bugs": <number>
-    },
-    ...
-}
+    {
+        "Nome da funcionalidade" : {
+            "isComponent": true,
+            "bugs": <number>
+        },
+        ...
+    }
 \end{verbatim}
 \end{figure}
 
@@ -813,43 +868,44 @@ Essa marcação facilita a compilação de dados feita por alguns \textit{script
 adiante nesta mesma sessão.
 
 \begin{figure}[ht]
-\caption{Exemplo de formatação do arquivo JSON junção manual dos dados de falhas reportadas por
-funcionalidade e dados de cobertura de código por repositório.}
+\caption{Exemplo de formatação do arquivo JSON resultante da junção manual dos dados de falhas
+reportadas por funcionalidade e dados de cobertura de código por repositório.}
 \label{fig:formatoJsonFinal}
+\small
 \begin{verbatim}
-{
-    "Nome da funcionalidade" : {
-        "isComponent": true,
-        "bugs": <number>,
-        "reposCoverage": {
-            "nome-do-repositório-x": {
-                "lines-valid": <number>,
-                "line-rate": <number>,
-                "lines-covered": <number>
-            },
-            ...
-        }
-    },
-    "Outras divisões": {
-        "isComponent": false,
-        "reposCoverage": {
-            "nome-do-repositório-y": {
-                "lines-valid": <number>,
-                "line-rate": <number>,
-                "lines-covered": <number>
-            },
-            ...
-        }
-    },
-    ...
-}
+    {
+        "Nome da funcionalidade" : {
+            "isComponent": true,
+            "bugs": <number>,
+            "reposCoverage": {
+                "nome-do-repositório-x": {
+                    "lines-valid": <number>,
+                    "line-rate": <number>,
+                    "lines-covered": <number>
+                },
+                ...
+            }
+        },
+        "Outras divisões": {
+            "isComponent": false,
+            "reposCoverage": {
+                "nome-do-repositório-y": {
+                    "lines-valid": <number>,
+                    "line-rate": <number>,
+                    "lines-covered": <number>
+                },
+                ...
+            }
+        },
+        ...
+    }
 \end{verbatim}
 \end{figure}
 
 Após a integração dos dados, tivemos repositórios sendo classificados de 3 formas diferentes:
 \begin{itemize}
     \item \textbf{Repositórios que não estão em campo}:
-          são repositórios que não foram entreges no sistema operaciona, ou foram obsoletados em
+          são repositórios que não foram entregues no sistema operacional, ou foram obsoletados em
           algum momento. Tais repositórios foram agrupados em uma divisão chamada
           \textbf{\textit{Not In Field}}, que reúne os repositórios que ainda não estão ou não estão
           mais sendo utilizados e, por esse motivo, não possuem falhas reportadas relativas a eles.
@@ -858,9 +914,8 @@ Após a integração dos dados, tivemos repositórios sendo classificados de 3 f
     \item \textbf{Repositórios de sistema}:
           são repositórios que servem a mais de uma funcionalidade simultaneamente.
           Estes foram agrupados em uma divisão chamada \textbf{\textit{System repos}}.
-          Uma vez que esses repositórios não foram relacionados a um funcionalidade específica, eles
-          foram descartados de grande parte das análises estatísticas, mas não todas, sendo usado em
-          alguns cálculos de média e mediana;
+          Uma vez que esses repositórios não foram relacionados a uma funcionalidade específica, eles
+          foram descartados de grande parte das análises estatísticas;
 
     \item \textbf{Repositórios de funcionalidade}:
           são repositórios que servem a apenas uma funcionalidade de usuário, sendo colocados dentro
@@ -883,6 +938,8 @@ O passo seguinte à triagem de dados foi a análise dos mesmos.
 Tendo como base um arquivo JSON contendo todos os dados de falhas reportadas divididas por
 funcionalidade e seus respectivos repositórios contendo dados de cobertura de código, foi possível
 analisar os dados e gerar os resultados estatísticos.
+O arquivo na íntegra pode ser acessado através de
+\url{https://github.com/redivo/article-coverage-and-defects/blob/master/data/obfuscated_data.json}.
 
 Como objetivo principal deste estudo temos a seguinte questão de pesquisa:
 ``Existe correlação entre cobertura de código e qualidade de \textit{software} de um sistema
@@ -890,7 +947,7 @@ operacional embarcado, sendo cobertura de linhas a métrica de cobertura de cód
 reportadas a métrica de qualidade de \textit{software}?'' e para respondê-la podemos recorrer a
 cálculos estatísticos.
 Nesse sentido, o primeiro passo foi gerar um gráfico de bolhas (veja exemplo na
-Figura \ref{fig:bubble_example}) com o eixo x sendo a taxa de cobertura de código, o eixo y a
+Figura \ref{fig:bubble_example}) com o eixo $x$ sendo a taxa de cobertura de código, o eixo $y$ a
 quantidade de falhas reportadas e cada bolha sendo uma funcionalidade, onde o tamanho da bolha
 indica a quantidade de linhas de código, representando o tamanho, em linhas da funcionalidade.
 Esse tipo de gráfico permite termos uma visualização gráfica inicial dos dados.
@@ -898,7 +955,7 @@ Esse tipo de gráfico permite termos uma visualização gráfica inicial dos dad
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{bubble_example.png}
-    \caption{Exemplo de gráfico de bolhas \cite{plotly}.}
+    \caption{Exemplo de gráfico de bolhas. Fonte: \cite{plotly}.}
     \label{fig:bubble_example}
 \end{figure}
 
@@ -908,18 +965,19 @@ Segundo \cite{openIntroStat}, modelos de regressão linear podem ser usados para
 em dados de duas variáveis numéricas.
 No caso estudado as variáveis são taxa de cobertura de código e número de falhas reportadas.
 Para a geração do gráfico contendo as bolhas e a linha de regressão linear foi utilizado a
-biblioteca Plotly en sua versão para a linguagem Python \cite{plotly}.
+biblioteca Plotly em sua versão para a linguagem Python \cite{plotly}.
 Através dessa biblioteca é possível gerar os gráficos de forma fácil utilizando o método de Mínimos
 Quadrados Ordinários, ou \textit{Ordinary Least Squares} (OLS), em inglês.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth]{linear_regression_example.png}
-    \caption{Exemplo de gráfico de bolhas com linha de regressão linear \cite{plotly}.}
+    \caption{Exemplo de gráfico de bolhas com linha de regressão linear. Fonte: \cite{plotly}.}
     \label{fig:lin_reg_example}
 \end{figure}
 
-A geração dos gráficos foi feita através do \textit{script} descrito no Apêndice [REFERENCIAR APENDICES].
+A geração dos gráficos foi feita através do \textit{script} descrito em
+\url{https://github.com/redivo/article-coverage-and-defects/blob/master/data/digest_data.py}.
 Note que, como exibido na Figura \ref{fig:formatoJsonFinal}, o JSON possui os dados de cobertura de
 código por repositório, porém precisamos dos dados por funcionalidade.
 Para resolver essa questão, o \textit{script} gerador do gráfico também faz um pré-processamento
@@ -931,18 +989,18 @@ dados de cobertura de código de uma funcionalidade.
 \caption{Fórmula de cálculo de taxa de cobertura de uma funcionalidade de usuário.}
 \label{fig:formulaTaxaDeCoberturaComponent}
 \begin{center}
-    $taxaDeCoberturaFuncionalidade = {\sum_{i=a}^{N} linhasCobertas_i \over \sum_{i=a}^{N} linhasTotais_i}$, sendo
+    $taxaDeCoberturaFuncionalidade = {\sum_{i=a}^{N} linhasCobertas_i \over \sum_{i=a}^{N} linhasValidas_i}$, sendo
     \textbf{a} e \textbf{N} o primeiro e último repositório referente à funcionalidade, respectivamente
 \end{center}
 \end{figure}
 
 Com o gráfico de bolhas e regressão linear já é possível concluir se existe ou não correlação entre
 as variáveis estudadas, porém ainda não é possível quantificar a força dessa correlação.
-Para tal o script descrito no Apêndice [REFERENCIAR APENDICES] utiliza a biblioteca ScyPy
-\cite{scipy} para fazer o cálculo de correlação $R$ que, segundo \cite{scipy} segue a fórmula
-descrita na Figura \ref{fig:formulaCorrelacao}.
-Com o valor resultante do cálculo é possível mensurar se a correlação é fraca ou forte e se é
-positiva ou negativa \cite{openIntroStat}.
+Para tal o \textit{script} utiliza a biblioteca ScyPy
+\cite{scipy} para fazer o cálculo de correlação $R$, descrito na Figura \ref{fig:formulaCorrelacao},
+e $valor\mbox{-}p$, descrito na Figura \ref{fig:formulaValorP}.
+Com o valor resultante dos cálculos é possível mensurar a força e a validade da correlação encontrada
+\cite{openIntroStat}.
 
 \begin{figure}[ht]
 \caption{Fórmula da correlação de Pearson. Fonte: \cite{scipy}}
@@ -952,17 +1010,161 @@ positiva ou negativa \cite{openIntroStat}.
 \end{center}
 \end{figure}
 
-Por fim, alguns cálculos estatísticos auxiliares foram utilizados em algumas análises minoritárias,
-como o cálculos de média aritmétca (veja Figura \ref{fig:formulaMedia}) e mediana, a fim de capturar
-tendências de valores para grupos de repositórios.
-
 \begin{figure}[ht]
-\caption{Fórmula da média. Fonte: ENCONTRAR UMA FONTE}
-\label{fig:formulaMedia}
+\caption{Fórmula da correlação valor-p. Fonte: \cite{scipy}}
+\label{fig:formulaValorP}
 \begin{center}
-    $M = {\sum_{i=1}^{N} x_i \over N}$
+    $valor\mbox{-}p = { (1 - r^2)^{n/2-2} \over B({1 \over 2}, {n \over 2} - 1) }$,
+    sendo \textbf{n} o número amostral e \textbf{B} a função beta
 \end{center}
 \end{figure}
+
+Por fim, alguns cálculos estatísticos auxiliares foram utilizados em algumas análises minoritárias,
+como o cálculos de média aritmétca e mediana, a fim de capturar
+tendências de valores para grupos de repositórios.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Resultados} \label{sec:resultados}
+
+Esta sessão tem como objetivo apresentar os resultados obtidos no estudo.
+
+Todos os resultados descritos nesta sessão se baseiam no arquivo contido em
+\url{https://github.com/redivo/article-coverage-and-defects/blob/master/data/obfuscated_data.json},
+que consiste em um arquivo no formato JSON contendo todos os números de
+falhas reportadas e cobertura de código, bem como os relacionamentos entre repositórios e
+funcionalidades de usuário, conforme descrito na sessão \ref{sec:triagem}.
+
+Após a triagem dos dados coletados, podemos ver a lista de falhas reportadas por funcionalidade
+conforme descrito na tabela constante no Apêndice \ref{ap:funcCompleta}.
+
+Observando a tabela é possível perceber que as funcionalidade possuem um número variado de falhas
+reportadas e repositórios relacionados.
+Dado que o objetivo do presente estudo é traçar uma correlação entre cobertura de código de número
+de falhas reportadas, as funcionalidades que não possuem nenhum repositório relacionado foram
+descartadas, uma vez que são os repositórios que possuem os dados de cobertura de código.
+
+Os casos de funcionalidades sem repositórios relacionados ocorrem quando a funcionalidade é
+implementada utilizando apenas repositórios de sistema, ou seja, apenas repositórios quem atendem a
+mais de uma funcionalidade.
+Dessa forma não é possível atribuir a cobertura de código à funcionalidade, seguindo as regras
+estabelecidas na sessão de \ref{sec:triagem}.
+
+Após o descarte das funcionalidade sem repositórios, restaram 64 funcionalidades, conforme
+tabela constante no Apêndice \ref{ap:funcClean}.
+Apesar dos resultados filtrados, ainda é necessário relacionar os dados de funcionalidade com os
+dados de cobertura de código.
+
+A Figura \ref{fig:cc_bugs_geral} mostra um gráfico de bolhas que dispõe a relação entre taxa de
+cobertura de linhas (eixo $x$) e a quantidade de falhas reportada (eixo $y$).
+O tamanho das bolhas represeta a quantidade de linhas totais da funcionalidade, porém a proporção
+não é linear.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{cc_bugs_geral.png}
+    \caption{Cobertura de código versus falhas reportadas. Gráfico inclui todos as funcionalidades
+com pelo menos 1 repositório associado.}
+    \label{fig:cc_bugs_geral}
+\end{figure}
+
+Em um primeiro momento é possível observar uma grande quantidade de funcionalidades no quadrande
+inferior direito, o que representa uma concentração de funcionalidades com alta cobertura de código
+e baixo número de falhas reportadas.
+À medida que a cobertura de código diminui, a variabilidade da quantidade de falhas reportadas tende
+a aumentar, formando uma espécie de cone que diminui sua variabilidade no eixo $y$ à medida que
+a cobertura de código, representada no eixo $x$ aumenta, tendendo a $y = 0$.
+
+A linha de tendência, calculada atravé da regressão linear por Mínimos Quadrados Ordinários,
+também corrobora a tese de que existe uma correlação.
+A linha indica uma correlação negativa entre os valores de cobertura de código e falhas reportadas,
+isto é, a quantidade de falhas reportadas tende a ser menor à medida que acobertura de código
+aumenta.
+Além da linha de tendência, o coeficiente de correlação também indica uma correlação sustentável.
+O coeficiente de correlação $R \approx 0,47$ mostra que a correlação não é nula ($R = 0$), mas
+também não é perfeita ($R = -1$ ou $R = 1$), ficando no meio do caminho entre ambos.
+
+Como resultado da revisão por pares foi sugerido o cálculo do $valor\mbox{-}p$, que estima a
+probabilidade de que a hipótese de que existe correlação entre cobertura de código e falhas
+reportadas seja verdadeira.
+Podemos utilizar o valor de corte de 5\%, sugerido em \cite{openIntroStat}, e desta forma temos
+que $valor\mbox{-}p \approx 0.008\%$, corroborando com a hipótese de que existe correlação entre cobertura
+de código e falhas reportadas, podendo, desta forma, descartar a hipótese nula.
+
+Outro ponto de interessante de se notar são as duas funcionalidades com as maiores quantidades de
+falhas reportadas.
+Ambas as funcionalidades tem grande quantidade de código, indicado pelos tamanhos de suas
+respectivas bolhas, o que pode indicar que o tamanho da funcionalidade, medido em linhas de código,
+também possa vir a ser um indicativo de quantidade de falhas reportadas.
+Contudo, uma vez que o presente estudo não se destina a estudar a relação do tamanho de código com
+a quantidade de falhas reportadas, não vamos nos aprofundar nesse tema.
+
+Outra visualização possível é a cobertura de código versus falhas reportadas excluindo
+funcionalidades sem bugs reportados (Figura \ref{fig:cc_bugs_com_bugs}).
+O objetivo dessa visualização é incluir apenas funcionalidades que se tem certeza que foram
+utilizadas, uma vez que não é possível descobrir uma falha sem a utilização da funcionalidade.
+Observando a Figura \ref{fig:cc_bugs_com_bugs} podemos ver que a tendência permanece muito próxima
+à Figura \ref{fig:cc_bugs_geral}, mantendo uma inclinação próxima na linha de tendência e com um
+$R \approx 0,49$, valor muito próximo ao $R \approx 0,47$ da Figura \ref{fig:cc_bugs_geral}.
+Além disso, temos que $valor\mbox{-}p \approx 0.015\%$, valor ainda bem abaixo da linha de corte de
+5\%.
+Isso indica que ambas as visualizações são equivalentes, do ponto de vista estatístico.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{cc_bugs_com_bugs.png}
+    \caption{Cobertura de código versus falhas reportadas. Gráfico exclui funcionalidades sem
+falhas reportadas.}
+    \label{fig:cc_bugs_com_bugs}
+\end{figure}
+
+Analisando os dados da tabela constante no Apêndice \ref{ap:funcClean}, podemos separar as
+funcionalidades em dois grandes grupos:
+(1) o grupo das funcionalidade que contém falhas reportadas e
+(2) o grupo das funcionalidades que não contém falhas reportadas.
+Em termos de média e mediana destes grupos, temos os valores presentes na Tabela
+\ref{tab:mediasMedianasCC}.
+Apesar de uma análise bem mais simplificada do que as análises utilizando regressão linear, a
+análise de médias e medianas também nos dá subsídios para afirmar que existe uma correlação entre
+cobertura de código e falhas reportadas.
+O grupo de funcionalidades sem falhas tem 2,39\% a mais na média de cobertura de código e 4,49\% a
+mais quando se trata dos valores de mediana.
+
+\begin{table}[ht]
+\centering
+\caption{Médias e medianas das taxas de cobertura de código}
+\label{tab:mediasMedianasCC}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Grupo}                        & \textbf{Média} & \textbf{Mediana} \\ \hline
+Funcionalidades com falhas reportadas & 80,54\% & 83,40\%  \\ \hline
+Funcionalidades sem falhas reportadas & 82,93\% & 87,89\%  \\ \hline
+\end{tabular}
+\end{table}
+
+Apesar dessa última análise ser bem mais simplista do que a primeira, é mais um ponto de
+concordância corroborando para a existência de uma correlação negativa entre cobertura de código
+e falhas reportadas, isto é, quanto maior a taxa de cobertura de código menor é a tendência de
+falhas reportadas.
+
+Uma análise mais cuidadosa nos gráficos exibidos nas Figuras \ref{fig:cc_bugs_geral} e
+\ref{fig:cc_bugs_com_bugs} nos traz mais informações sobre a relação entre a cobertura de código e a
+quantidade de falhas reportadas.
+Apesar da clara tendência de correlação negativa, podemos notar que um baixo índice de cobertura de
+código não implica necessariamente em uma alta quantidade de falhas reportadas. Os resultados
+mostram algumas ocorrências de funcionalidades com menos de 60\% de cobertura de código e uma
+quantidade de falhas reportadas relativamente baixa.
+Complementarmente, temos pelo menos um exemplo de funcionalidade com mais de 80\% de cobertura de
+código e um número de falhas reportadas claramente maior que a maioria, o que nos mostra que uma
+alta cobertura de código não garante uma baixa quantidade de falhas reportadas.
+
+Dessa forma, podemos concluir que existem fortes indícios que nos levam a crer que uma alta taxa de
+cobertura de código influencia em uma baixa quantidade de falhas reportadas, porém uma alta taxa de
+cobertura de código, por si só, não é uma garantia de um baixo número de falhas reportadas, apesar
+de ser um bom índice que indica uma tendência de qualidade de \textit{software}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -970,13 +1172,15 @@ tendências de valores para grupos de repositórios.
 
 Nesta sessão serão apresentados alguns pontos de limitação e possíveis vulnerabilidades do presente
 estudo, a fim de ressaltar pontos de atenção durante a análise dos resultados obtidos.
+Tais limitações foram percebidas durante o desenvolvimento do estudo e/ou reportadas durante o
+processo de revisão por pares.
 
 No estudo de caso apresentado neste artigo temos uma análise de 85 funcionalidades distribuídas em
 316 repositórios distintos.
 Ainda que o $N$ amostral tenha um tamanho relevante, ele apresenta algumas vulnerabilidades, as
 quais discutiremos neste parágrafo.
 Todo o código analisado data de diversos períodos, deste meados de 2013, quando o projeto começou a
-ser implementado até o ano de 2023, quando o presente estudo foi feito.
+ser implementado até o ano de 2023, quando o presente estudo foi elaborado.
 Durante todo esse período o projeto contou com dezenas de equipes diferentes e centenas de
 desenvolvedores.
 Apesar da grande pluralidade de estilos de desenvolvimento, o projeto sempre esteve dentro da mesma
@@ -1020,7 +1224,7 @@ Essa abordagem deixa de fora alguns repositórios, o que pode impactar nos resul
 repositórios podem ser responsáveis por falhas das funcionalidades, mas não são contabilizados nas
 estatísticas de cobertura de código da funcionalidade.
 Para tornar a abordagem mais precisa, seria necessário obter mais informações sobre a influência
-de \textbf{repositórios de sistema} nas funcionalidades as quais eles interferem.
+de \textbf{repositórios de sistema} nas funcionalidades às quais eles interferem.
 
 Da perspectiva dos testes utilizados como base das informações de cobertura de código, podemos
 observar mais uma limitação metodológica.
@@ -1042,220 +1246,6 @@ Além disso, é importante ressaltar que o presente artigo se propões a um estu
 \textbf{correlação} e, com as informações que temos no contexto estrito deste estudo, não é possível
 garantir uma correlação causal.
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Resultados} \label{sec:resultados}
-
-Esta sessão tem como objetivo apresentar os resultados obtidos no estudo.
-
-Todos os resultados descritos nesta sessão se baseiam no arquivo contido no Apêndice
-[REFERENCIAR APENDICES], que consiste em um arquivo no formato JSON contendo todos os números de
-falhas reportadas e cobertura de código, bem como os relacionamentos entre repositórios e
-funcionalidades de usuário, conforme descrito na sessão \ref{sec:triagem}.
-
-Após a triagem dos dados coletados, podemos ver a lista de falhas reportadas por funcionalidade
-conforme descrito na Tabela \ref{tab:falhasReportadas}.
-
-%\begin{table}[ht]
-%\centering
-%\caption{Lista de funcionalidades, quantidade de falhas reportadas e quantidade de repositórios.}
-%\label{tab:falhasReportadas}
-%\begin{tabular}{|l|c|c||l|c|c|}
-%\hline
-%Funcionalidade      & Falhas & Repositórios & Funcionalidade      & Falhas & Repositórios \\ \hline
-%Funcionalidade\_001 & 7      & 2            & Funcionalidade\_044 & 6      & 1 \\ \hline
-%Funcionalidade\_002 & 0      & 0            & Funcionalidade\_045 & 2      & 1 \\ \hline
-%Funcionalidade\_003 & 0      & 0            & Funcionalidade\_046 & 6      & 2 \\ \hline
-%Funcionalidade\_004 & 0      & 0            & Funcionalidade\_047 & 26     & 4 \\ \hline
-%Funcionalidade\_005 & 0      & 0            & Funcionalidade\_048 & 5      & 2 \\ \hline
-%Funcionalidade\_006 & 0      & 0            & Funcionalidade\_049 & 12     & 3 \\ \hline
-%Funcionalidade\_007 & 0      & 0            & Funcionalidade\_050 & 4      & 2 \\ \hline
-%Funcionalidade\_008 & 0      & 1            & Funcionalidade\_051 & 2      & 2 \\ \hline
-%Funcionalidade\_009 & 0      & 0            & Funcionalidade\_052 & 2      & 1 \\ \hline
-%Funcionalidade\_010 & 4      & 0            & Funcionalidade\_053 & 7      & 5 \\ \hline
-%Funcionalidade\_011 & 108    & 26           & Funcionalidade\_054 & 22     & 7 \\ \hline
-%Funcionalidade\_012 & 8      & 0            & Funcionalidade\_055 & 2      & 2 \\ \hline
-%Funcionalidade\_013 & 1      & 0            & Funcionalidade\_056 & 10     & 2 \\ \hline
-%Funcionalidade\_014 & 14     & 0            & Funcionalidade\_057 & 152    & 12 \\ \hline
-%Funcionalidade\_015 & 2      & 0            & Funcionalidade\_058 & 1      & 19 \\ \hline
-%Funcionalidade\_016 & 2      & 0            & Funcionalidade\_059 & 3      & 1 \\ \hline
-%Funcionalidade\_017 & 6      & 0            & Funcionalidade\_060 & 13     & 4 \\ \hline
-%Funcionalidade\_018 & 4      & 5            & Funcionalidade\_061 & 1      & 2 \\ \hline
-%Funcionalidade\_019 & 36     & 3            & Funcionalidade\_062 & 3      & 1 \\ \hline
-%Funcionalidade\_020 & 47     & 3            & Funcionalidade\_063 & 10     & 3 \\ \hline
-%Funcionalidade\_021 & 1      & 1            & Funcionalidade\_064 & 6      & 7 \\ \hline
-%Funcionalidade\_022 & 3      & 0            & Funcionalidade\_065 & 3      & 2 \\ \hline
-%Funcionalidade\_023 & 23     & 0            & Funcionalidade\_066 & 2      & 2 \\ \hline
-%Funcionalidade\_024 & 9      & 0            & Funcionalidade\_067 & 4      & 6 \\ \hline
-%Funcionalidade\_025 & 2      & 0            & Funcionalidade\_068 & 9      & 1 \\ \hline
-%Funcionalidade\_026 & 2      & 0            & Funcionalidade\_069 & 1      & 5 \\ \hline
-%Funcionalidade\_027 & 3      & 0            & Funcionalidade\_070 & 2      & 2 \\ \hline
-%Funcionalidade\_028 & 0      & 8            & Funcionalidade\_071 & 6      & 5 \\ \hline
-%Funcionalidade\_029 & 0      & 1            & Funcionalidade\_072 & 3      & 5 \\ \hline
-%Funcionalidade\_030 & 0      & 2            & Funcionalidade\_073 & 2      & 1 \\ \hline
-%Funcionalidade\_031 & 0      & 4            & Funcionalidade\_074 & 23     & 1 \\ \hline
-%Funcionalidade\_032 & 0      & 1            & Funcionalidade\_075 & 4      & 2 \\ \hline
-%Funcionalidade\_033 & 0      & 4            & Funcionalidade\_076 & 7      & 1 \\ \hline
-%Funcionalidade\_034 & 0      & 2            & Funcionalidade\_077 & 2      & 4 \\ \hline
-%Funcionalidade\_035 & 2      & 0            & Funcionalidade\_078 & 3      & 2 \\ \hline
-%Funcionalidade\_036 & 0      & 2            & Funcionalidade\_079 & 13     & 7 \\ \hline
-%Funcionalidade\_037 & 12     & 1            & Funcionalidade\_080 & 12     & 4 \\ \hline
-%Funcionalidade\_038 & 5      & 3            & Funcionalidade\_081 & 10     & 5 \\ \hline
-%Funcionalidade\_039 & 1      & 2            & Funcionalidade\_082 & 9      & 1 \\ \hline
-%Funcionalidade\_040 & 7      & 2            & Funcionalidade\_083 & 1      & 3 \\ \hline
-%Funcionalidade\_041 & 16     & 2            & Funcionalidade\_084 & 2      & 1 \\ \hline
-%Funcionalidade\_042 & 3      & 2            & Funcionalidade\_085 & 0      & 1 \\ \hline
-%Funcionalidade\_043 & 5      & 2            & & & \\ \hline
-%\end{tabular}
-%\end{table}
-
-Observando a tabela é possível perceber que as funcionalidade possuem um número variado de falhas
-reportadas e repositórios repositórios relacionados.
-Dado que o objetivo do presente estudo é traçar uma correlação entre cobertura de código de número
-de falhas reportadas, as funcionalidades que não possuem nenhum repositório relacionado foram
-descartadas, uma vez que são os repositórios que possuem os dados de cobertura de código.
-
-Os casos de funcionalidades sem repositórios relacionados ocorrem quando a funcionalidade é
-implementada utilizando apenas repositórios de sistema, ou seja, apenas repositórios quem atendem a
-mais de uma funcionalidade.
-Dessa forma não é possível atribuir a cobertura de código à funcionalidade, seguindo as regras
-estabelecidas na sessão de \ref{sec:triagem}.
-
-Após o descarte das funcionalidade sem repositórios, restaram 64 funcionalidades, conforme
-Tabela \ref{tab:falhasReportadasClean}.
-Apenar dos resultados filtrados, ainda é necessário relacionar os dados de funcionalidade com os
-dados de cobertura de código.
-
-%\begin{table}[ht]
-%\centering
-%\caption{Lista de funcionalidades, quantidade de falhas reportadas e quantidade de repositórios.
-%Excluindo funcionalidade sem repositórios.}
-%\label{tab:falhasReportadasClean}
-%\begin{tabular}{|l|c|c||l|c|c|}
-%\hline
-%Funcionalidade      & Falhas & Repositórios & Funcionalidade      & Falhas & Repositórios \\ \hline
-%Funcionalidade\_001 &   7    & 2            & Funcionalidade\_054 &  22    & 7 \\ \hline
-%Funcionalidade\_008 &   0    & 1            & Funcionalidade\_055 &   2    & 2 \\ \hline
-%Funcionalidade\_011 & 108    & 26           & Funcionalidade\_056 &  10    & 2 \\ \hline
-%Funcionalidade\_018 &   4    & 5            & Funcionalidade\_057 & 152    & 1 \\ \hline
-%Funcionalidade\_019 &  36    & 3            & Funcionalidade\_058 &   1    & 19 \\ \hline
-%Funcionalidade\_020 &  47    & 3            & Funcionalidade\_059 &   3    & 1 \\ \hline
-%Funcionalidade\_021 &   1    & 1            & Funcionalidade\_060 &  13    & 4 \\ \hline
-%Funcionalidade\_028 &   0    & 8            & Funcionalidade\_061 &   1    & 2 \\ \hline
-%Funcionalidade\_029 &   0    & 1            & Funcionalidade\_062 &   3    & 1 \\ \hline
-%Funcionalidade\_030 &   0    & 2            & Funcionalidade\_063 &  10    & 3 \\ \hline
-%Funcionalidade\_031 &   0    & 4            & Funcionalidade\_064 &   6    & 7 \\ \hline
-%Funcionalidade\_032 &   0    & 1            & Funcionalidade\_065 &   3    & 2 \\ \hline
-%Funcionalidade\_033 &   0    & 4            & Funcionalidade\_066 &   2    & 2 \\ \hline
-%Funcionalidade\_034 &   0    & 2            & Funcionalidade\_067 &   4    & 6 \\ \hline
-%Funcionalidade\_036 &   0    & 2            & Funcionalidade\_068 &   9    & 1 \\ \hline
-%Funcionalidade\_037 &  12    & 1            & Funcionalidade\_069 &   1    & 5 \\ \hline
-%Funcionalidade\_038 &   5    & 3            & Funcionalidade\_070 &   2    & 2 \\ \hline
-%Funcionalidade\_039 &   1    & 2            & Funcionalidade\_071 &   6    & 5 \\ \hline
-%Funcionalidade\_040 &   7    & 2            & Funcionalidade\_072 &   3    & 5 \\ \hline
-%Funcionalidade\_041 &  16    & 2            & Funcionalidade\_073 &   2    & 1 \\ \hline
-%Funcionalidade\_042 &   3    & 2            & Funcionalidade\_074 &  23    & 1 \\ \hline
-%Funcionalidade\_043 &   5    & 2            & Funcionalidade\_075 &   4    & 2 \\ \hline
-%Funcionalidade\_044 &   6    & 1            & Funcionalidade\_076 &   7    & 1 \\ \hline
-%Funcionalidade\_045 &   2    & 1            & Funcionalidade\_077 &   2    & 4 \\ \hline
-%Funcionalidade\_046 &   6    & 2            & Funcionalidade\_078 &   3    & 2 \\ \hline
-%Funcionalidade\_047 &  26    & 4            & Funcionalidade\_079 &  13    & 7 \\ \hline
-%Funcionalidade\_048 &   5    & 2            & Funcionalidade\_080 &  12    & 4 \\ \hline
-%Funcionalidade\_049 &  12    & 3            & Funcionalidade\_081 &  10    & 5 \\ \hline
-%Funcionalidade\_050 &   4    & 2            & Funcionalidade\_082 &   9    & 1 \\ \hline
-%Funcionalidade\_051 &   2    & 2            & Funcionalidade\_083 &   1    & 3 \\ \hline
-%Funcionalidade\_052 &   2    & 1            & Funcionalidade\_084 &   2    & 1 \\ \hline
-%Funcionalidade\_053 &   7    & 5            & Funcionalidade\_085 &   0    & 1 \\ \hline
-%\end{tabular}
-%\end{table}
-
-A Figura \ref{fig:cc_bugs_geral} mostra um gráfico de bolhas que dispõe a relação entre taxa de
-cobertura de linhas (eixo $x$) e a quantidade de falhas reportada (eixo $y$).
-O tamanho das bolhas represeta a quantidade de linhas totais da funcionalidade, porém a proporção
-não é linear.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1.0\textwidth]{cc_bugs_geral.png}
-    \caption{Cobertura de código versus falhas reportadas. Gráfico inclui todos as funcionalidades
-com pelo menos 1 repositório associado.}
-    \label{fig:cc_bugs_geral}
-\end{figure}
-
-Em um primeiro momento é possível observar uma grande quantidade de funcionalidades no quadrande
-inferior direito, o que representa uma concentração de funcionalidades com alta cobertura de código
-e baixo número de falhas reportadas.
-À medida que a cobertura de código diminui, a variabilidade da quantidade de falhas reportadas tende
-a aumentar, formando uma espécie de cone que diminui sua variabilidade no eixo $y$ à medida que
-a cobertura de código, representada no eixo $x$ aumenta, tendendo a $y = 0$.
-
-A linha de tendência, calculada atravé da regressão linear por Mínimos Quadrados Ordinários,
-também corrobora a tese de que existe uma correlação.
-A linha indica uma correlação negativa entre os valores de cobertura de código e falhas reportadas,
-isto é, a quantidade de falhas reportadas tende a ser menor à medida que acobertura de código
-aumenta.
-Além da linha de tendência, o coeficiente de correlação também indica uma correlação sustentável.
-O coeficiente de correlação $R \approx 0,49$ mostra que a correlação não é nula ($R = 0$), mas
-também não é perfeita ($R = -1$ ou $R = 1$), ficando no meio do caminho entre ambos.
-
-Outro ponto de interessande de se notar são as duas funcionalidades com as maiores quantidades de
-falhas reportadas.
-Ambas as funcionalidades tem grande quantidade de código, indicado pelos tamanhos de suas
-respectivas bolhas, o que pode indicar que o tamanho da funcionalidade, medido em linhas de código,
-também possa vir a ser um indicativo de quantidade de falhas reportadas.
-Contudo, uma vez que o presente estudo não se destina a estudar a relação do tamanho de código com
-a quantidade de falhas reportadas, não vamos nos aprofundar nesse tema.
-
-Outra visualização possível é a cobertura de código versus falhas reportadas excluindo
-funcionalidades sem bugs reportados (Figura \ref{fig:cc_bugs_com_bugs}).
-O objetivo dessa visualizaçãoé incluir apenas funcionalidades que se tem certeza que foram
-utilizadas, uma vez que não é possível descobrir uma falha sem a utilização da funcionalidade.
-Observando a Figura \ref{fig:cc_bugs_com_bugs} podemos ver que a tendência permanece muito próxima
-à Figura \ref{fig:cc_bugs_geral}, mantendo uma inclinação próxima na linha de tendência e com um
-$R \approx 0,47$, valor muito próximo ao $R \approx 0,49$ da Figura \ref{fig:cc_bugs_geral}.
-Isso indica que ambas as visualizações são equivalentes, do ponto de vista estatístico.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1.0\textwidth]{cc_bugs_com_bugs.png}
-    \caption{Cobertura de código versus falhas reportadas. Gráfico exclui funcionalidades sem
-falhas reportadas.}
-    \label{fig:cc_bugs_com_bugs}
-\end{figure}
-
-Analisando os dados da Tabela [REFERENCIAR ALGUMA TABELA], podemos separar as funcionalidades em
-dois grandes grupos:
-(1) o grupo das funcionalidade que contém falhas reportadas e
-(2) o grupo das funcionalidades que não contém falhas reportadas.
-Em termos de média e mediana destes grupos, temos os valores presentes na Tabela
-\ref{tab:mediasMedianasCC}.
-Apesar de uma análise bem mais simplificada do que as análises utilizando regressão linear, a
-análise de médias e medianas também nos dá subsídios para afirmar que existe uma correlação entre
-cobertura de código e falhas reportadas.
-O grupo de funcionalidades sem falhas tem 2,39\% a mais na média de cobertura de código e 4,49\% a
-mais quando se trata dos valores de mediana.
-
-\begin{table}[ht]
-\centering
-\caption{Médias e medianas das taxas de cobertura de código}
-\label{tab:mediasMedianasCC}
-\begin{tabular}{|l|c|c|}
-\hline
-Grupo                                 & Média   & Mediana  \\ \hline
-Funcionalidades com falhas reportadas & 80,54\% & 83,40\%  \\ \hline
-Funcionalidades sem falhas reportadas & 82,93\% & 87,89\%  \\ \hline
-\end{tabular}
-\end{table}
-
-Apesar dessa última análise ser bem mais simplista do que a primeira, é mais um ponto de
-concordância corroborando para a existência de uma correlação negativa entre cobertura de código
-e falhas reportadas, isto é, quanto maior a taxa de cobertura de código menor é a tendência de
-falhas reportadas.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1265,12 +1255,12 @@ falhas reportadas.
 
 A etapa de teste de \textit{software} é uma etapa de extrema importância dentro do processo de
 desenvolvimento de \textit{software} de times e empresas no mundo inteiro.
-Essa etapa visa encontrar os defeitos de um sistema antes deste ser dado como pronto, a fim de
+Essa etapa visa encontrar os defeitos de um sistema antes destes serem dados como prontos, a fim de
 garantir a qualidade do \textit{software} desenvolvido.
 Contudo, as tarefas de planejamento e escrita de testes podem demandar recursos relevantes para
 os projetos.
 
-Como forma de mensuração da qualidade e abrangência dos testes existem diversas métricas usadas
+Como forma de mensuração da qualidade e abrangência dos testes existem diversas métricas utilizadas
 pelos desenvolvedores e uma delas é a cobertura de código.
 Tal métrica se propõe a mensurar a quantidade de código testado no universo de todo o código em
 questão, gerando um dado percentual.
@@ -1296,16 +1286,24 @@ cobertura de código aumenta.
 É importante salientar que tal correlação não implica em causalidade e o presente artigo não se
 propõe a investigar se há causalidade na correlação, contudo temos indícios para acreditar que tal
 causalidade existe.
+Os indícios se baseiam nos cálculos de coeficiente de correlação $R$ e $valor\mbox{-}p$.
+O primeiro indica a força de correlação dos dados estudados, ou seja, a aderência dos dados à linha
+de correlação traçada, enquanto o segundo indica, em linhas gerais, se a hipótese de correlação
+levantada no presente estudo pode ser considerada válida.
+Após a análise de todos os dados estatísticos foi observado que tais métricas corroboram para a
+hipótese de que, sim, existe uma correlação negativa entre a taxa de cobertura de código e o
+número de falhas reportadas.
 
 Os resultados encontrados se somam a um grande conjunto de trabalhos acadêmicos que investigam esse
 tema, contribuindo para o entendimento acadêmico na Engenharia de Software no que tange aos estudos
-de qualidade de \textit{software} e pode ser usado como insumo para estudo futuros.
+de qualidade de \textit{software} e pode ser utilizado como insumo para estudo futuros.
 Além disso, os resultados obtidos contribuem com a indústria de desenvolvimento de
 \textit{software}, uma vez que corroboram com a hipótese de que a taxa de cobertura de código pode,
-sob certas circunstâncias, ser usada como uma métrica de qualidade de software.
+sob certas circunstâncias, ser utilizada como uma métrica de qualidade de \textit{software}.
 
 Estudos futuros podem cobrir aspectos não cobertos pelo presente trabalho acadêmico a fim de gerar
-um conhecimento ainda mais completo sobre o tema.
+um conhecimento ainda mais completo sobre o tema e sanar alguns pontos que ficaram abertos no
+presente estudo.
 Nesse sentido, algumas sugestões de temas para estudos futuros são:
 \begin{itemize}
     \item Comparação de cobertura de linhas e cobertura de decisões como métrica de qualidade de
@@ -1318,11 +1316,11 @@ Nesse sentido, algumas sugestões de temas para estudos futuros são:
           embarcado utilizando cobertura de código gerada por testes em equipamentos.
 \end{itemize}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\clearpage
 \bibliographystyle{sbc}
 \bibliography{article}
 
@@ -1330,7 +1328,112 @@ Nesse sentido, algumas sugestões de temas para estudos futuros são:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
+% centralizado, negrito, 11,5
+
+
+\begin{apendice}{Tabela de funcionalidades, falhas e repositórios relacionados} \label{ap:funcCompleta}
+\begin{table}[ht]
+\small
+\centering
+\begin{tabular}{|l|c|c||l|c|c|}
+\hline
+\textbf{Funcionalidade} & \textbf{Falhas} & \textbf{Repositórios} & \textbf{Funcionalidade} & \textbf{Falhas} & \textbf{Repositórios} \\ \hline
+Funcionalidade\_001 & 7 & 2         & Funcionalidade\_044 & 6 & 1 \\ \hline
+Funcionalidade\_002 & 0 & 0         & Funcionalidade\_045 & 2 & 1 \\ \hline
+Funcionalidade\_003 & 0 & 0         & Funcionalidade\_046 & 6 & 2 \\ \hline
+Funcionalidade\_004 & 0 & 0         & Funcionalidade\_047 & 26 & 4 \\ \hline
+Funcionalidade\_005 & 0 & 0         & Funcionalidade\_048 & 5 & 2 \\ \hline
+Funcionalidade\_006 & 0 & 0         & Funcionalidade\_049 & 12 & 3 \\ \hline
+Funcionalidade\_007 & 0 & 0         & Funcionalidade\_050 & 4 & 2 \\ \hline
+Funcionalidade\_008 & 0 & 1         & Funcionalidade\_051 & 2 & 2 \\ \hline
+Funcionalidade\_009 & 0 & 0         & Funcionalidade\_052 & 2 & 1 \\ \hline
+Funcionalidade\_010 & 4 & 0         & Funcionalidade\_053 & 7 & 5 \\ \hline
+Funcionalidade\_011 & 108 & 26      & Funcionalidade\_054 & 22 & 7 \\ \hline
+Funcionalidade\_012 & 8 & 0         & Funcionalidade\_055 & 2 & 2 \\ \hline
+Funcionalidade\_013 & 1 & 0         & Funcionalidade\_056 & 10 & 2 \\ \hline
+Funcionalidade\_014 & 14 & 0        & Funcionalidade\_057 & 152 & 12 \\ \hline
+Funcionalidade\_015 & 2 & 0         & Funcionalidade\_058 & 1 & 19 \\ \hline
+Funcionalidade\_016 & 2 & 0         & Funcionalidade\_059 & 3 & 1 \\ \hline
+Funcionalidade\_017 & 6 & 0         & Funcionalidade\_060 & 13 & 4 \\ \hline
+Funcionalidade\_018 & 4 & 5         & Funcionalidade\_061 & 1 & 2 \\ \hline
+Funcionalidade\_019 & 36 & 3        & Funcionalidade\_062 & 3 & 1 \\ \hline
+Funcionalidade\_020 & 47 & 3        & Funcionalidade\_063 & 10 & 3 \\ \hline
+Funcionalidade\_021 & 1 & 1         & Funcionalidade\_064 & 6 & 7 \\ \hline
+Funcionalidade\_022 & 3 & 0         & Funcionalidade\_065 & 3 & 2 \\ \hline
+Funcionalidade\_023 & 23 & 0        & Funcionalidade\_066 & 2 & 2 \\ \hline
+Funcionalidade\_024 & 9 & 0         & Funcionalidade\_067 & 4 & 6 \\ \hline
+Funcionalidade\_025 & 2 & 0         & Funcionalidade\_068 & 9 & 1 \\ \hline
+Funcionalidade\_026 & 2 & 0         & Funcionalidade\_069 & 1 & 5 \\ \hline
+Funcionalidade\_027 & 3 & 0         & Funcionalidade\_070 & 2 & 2 \\ \hline
+Funcionalidade\_028 & 0 & 8         & Funcionalidade\_071 & 6 & 5 \\ \hline
+Funcionalidade\_029 & 0 & 1         & Funcionalidade\_072 & 3 & 5 \\ \hline
+Funcionalidade\_030 & 0 & 2         & Funcionalidade\_073 & 2 & 1 \\ \hline
+Funcionalidade\_031 & 0 & 4         & Funcionalidade\_074 & 23 & 1 \\ \hline
+Funcionalidade\_032 & 0 & 1         & Funcionalidade\_075 & 4 & 2 \\ \hline
+Funcionalidade\_033 & 0 & 4         & Funcionalidade\_076 & 7 & 1 \\ \hline
+Funcionalidade\_034 & 0 & 2         & Funcionalidade\_077 & 2 & 4 \\ \hline
+Funcionalidade\_035 & 2 & 0         & Funcionalidade\_078 & 3 & 2 \\ \hline
+Funcionalidade\_036 & 0 & 2         & Funcionalidade\_079 & 13 & 7 \\ \hline
+Funcionalidade\_037 & 12 & 1        & Funcionalidade\_080 & 12 & 4 \\ \hline
+Funcionalidade\_038 & 5 & 3         & Funcionalidade\_081 & 10 & 5 \\ \hline
+Funcionalidade\_039 & 1 & 2         & Funcionalidade\_082 & 9 & 1 \\ \hline
+Funcionalidade\_040 & 7 & 2         & Funcionalidade\_083 & 1 & 3 \\ \hline
+Funcionalidade\_041 & 16 & 2        & Funcionalidade\_084 & 2 & 1 \\ \hline
+Funcionalidade\_042 & 3 & 2         & Funcionalidade\_085 & 0 & 1 \\ \hline
+Funcionalidade\_043 & 5 & 2         &                     &   &   \\ \hline
+\end{tabular}
+\end{table}
+
+
+\end{apendice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{apendice}{Tabela de funcionalidades, falhas e repositórios relacionados, excluindo funcionalidades sem repositórios relacionadios} \label{ap:funcClean}
+
+\begin{table}[ht]
+\small
+\centering
+\begin{tabular}{|l|c|c||l|c|c|}
+\hline
+\textbf{Funcionalidade} & \textbf{Falhas} & \textbf{Repositórios} & \textbf{Funcionalidade} & \textbf{Falhas} & \textbf{Repositórios} \\ \hline
+Funcionalidade\_001 & 7 & 2     & Funcionalidade\_054 & 22 & 7 \\ \hline
+Funcionalidade\_008 & 0 & 1     & Funcionalidade\_055 & 2 & 2 \\ \hline
+Funcionalidade\_011 & 108 & 26  & Funcionalidade\_056 & 10 & 2 \\ \hline
+Funcionalidade\_018 & 4 & 5     & Funcionalidade\_057 & 152 & 12 \\ \hline
+Funcionalidade\_019 & 36 & 3    & Funcionalidade\_058 & 1 & 19 \\ \hline
+Funcionalidade\_020 & 47 & 3    & Funcionalidade\_059 & 3 & 1 \\ \hline
+Funcionalidade\_021 & 1 & 1     & Funcionalidade\_060 & 13 & 4 \\ \hline
+Funcionalidade\_028 & 0 & 8     & Funcionalidade\_061 & 1 & 2 \\ \hline
+Funcionalidade\_029 & 0 & 1     & Funcionalidade\_062 & 3 & 1 \\ \hline
+Funcionalidade\_030 & 0 & 2     & Funcionalidade\_063 & 10 & 3 \\ \hline
+Funcionalidade\_031 & 0 & 4     & Funcionalidade\_064 & 6 & 7 \\ \hline
+Funcionalidade\_032 & 0 & 1     & Funcionalidade\_065 & 3 & 2 \\ \hline
+Funcionalidade\_033 & 0 & 4     & Funcionalidade\_066 & 2 & 2 \\ \hline
+Funcionalidade\_034 & 0 & 2     & Funcionalidade\_067 & 4 & 6 \\ \hline
+Funcionalidade\_036 & 0 & 2     & Funcionalidade\_068 & 9 & 1 \\ \hline
+Funcionalidade\_037 & 12 & 1    & Funcionalidade\_069 & 1 & 5 \\ \hline
+Funcionalidade\_038 & 5 & 3     & Funcionalidade\_070 & 2 & 2 \\ \hline
+Funcionalidade\_039 & 1 & 2     & Funcionalidade\_071 & 6 & 5 \\ \hline
+Funcionalidade\_040 & 7 & 2     & Funcionalidade\_072 & 3 & 5 \\ \hline
+Funcionalidade\_041 & 16 & 2    & Funcionalidade\_073 & 2 & 1 \\ \hline
+Funcionalidade\_042 & 3 & 2     & Funcionalidade\_074 & 23 & 1 \\ \hline
+Funcionalidade\_043 & 5 & 2     & Funcionalidade\_075 & 4 & 2 \\ \hline
+Funcionalidade\_044 & 6 & 1     & Funcionalidade\_076 & 7 & 1 \\ \hline
+Funcionalidade\_045 & 2 & 1     & Funcionalidade\_077 & 2 & 4 \\ \hline
+Funcionalidade\_046 & 6 & 2     & Funcionalidade\_078 & 3 & 2 \\ \hline
+Funcionalidade\_047 & 26 & 4    & Funcionalidade\_079 & 13 & 7 \\ \hline
+Funcionalidade\_048 & 5 & 2     & Funcionalidade\_080 & 12 & 4 \\ \hline
+Funcionalidade\_049 & 12 & 3    & Funcionalidade\_081 & 10 & 5 \\ \hline
+Funcionalidade\_050 & 4 & 2     & Funcionalidade\_082 & 9 & 1 \\ \hline
+Funcionalidade\_051 & 2 & 2     & Funcionalidade\_083 & 1 & 3 \\ \hline
+Funcionalidade\_052 & 2 & 1     & Funcionalidade\_084 & 2 & 1 \\ \hline
+Funcionalidade\_053 & 7 & 5     & Funcionalidade\_085 & 0 & 1 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\end{apendice}
 
 
 \end{document}
