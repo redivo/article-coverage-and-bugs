@@ -366,7 +366,7 @@ Além dos resultados dos testes (sucesso ou falha) também são publicizados os 
 código calculados pelo gcov.
 
 Na parte de triagem e análise dos dados, alguns \textit{scripts} em Python foram criados e estão
-descritos em \url{https://github.com/redivo/article-coverage-and-defects/tree/master/data}.
+descritos em \url{https://github.com/redivo/article-coverage-and-bugs/tree/master/data}.
 Nestes \textit{scripts} fora utilizadas as bibliotecas
 (1) Plotly \cite{plotly}, uma biblioteca Python para geração de gráficos e (2) SciPy \cite{scipy},
 uma biblioteca Python para auxílio de cálculos matemáticos e estatísticos.
@@ -939,7 +939,7 @@ Tendo como base um arquivo JSON contendo todos os dados de falhas reportadas div
 funcionalidade e seus respectivos repositórios contendo dados de cobertura de código, foi possível
 analisar os dados e gerar os resultados estatísticos.
 O arquivo na íntegra pode ser acessado através de
-\url{https://github.com/redivo/article-coverage-and-defects/blob/master/data/obfuscated_data.json}.
+\url{https://github.com/redivo/article-coverage-and-bugs/blob/master/data/obfuscated_data.json}.
 
 Como objetivo principal deste estudo temos a seguinte questão de pesquisa:
 ``Existe correlação entre cobertura de código e qualidade de \textit{software} de um sistema
@@ -977,7 +977,7 @@ Quadrados Ordinários, ou \textit{Ordinary Least Squares} (OLS), em inglês.
 \end{figure}
 
 A geração dos gráficos foi feita através do \textit{script} descrito em
-\url{https://github.com/redivo/article-coverage-and-defects/blob/master/data/digest_data.py}.
+\url{https://github.com/redivo/article-coverage-and-bugs/blob/master/data/digest_data.py}.
 Note que, como exibido na Figura \ref{fig:formatoJsonFinal}, o JSON possui os dados de cobertura de
 código por repositório, porém precisamos dos dados por funcionalidade.
 Para resolver essa questão, o \textit{script} gerador do gráfico também faz um pré-processamento
@@ -1034,7 +1034,7 @@ tendências de valores para grupos de repositórios.
 Esta sessão tem como objetivo apresentar os resultados obtidos no estudo.
 
 Todos os resultados descritos nesta sessão se baseiam no arquivo contido em
-\url{https://github.com/redivo/article-coverage-and-defects/blob/master/data/obfuscated_data.json},
+\url{https://github.com/redivo/article-coverage-and-bugs/blob/master/data/obfuscated_data.json},
 que consiste em um arquivo no formato JSON contendo todos os números de
 falhas reportadas e cobertura de código, bem como os relacionamentos entre repositórios e
 funcionalidades de usuário, conforme descrito na sessão \ref{sec:triagem}.
