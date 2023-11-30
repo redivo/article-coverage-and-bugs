@@ -142,7 +142,7 @@ Nesse contexto, as seguintes etapas serão desenvolvidas:
 Os resultados da presente pesquisa contribuem para uma maior clareza sobre a correlação entre
 cobertura de código e qualidade de \textit{software}, o que pode ajudar a balizar decisões de
 alocação de recursos humanos na atividade de escrita de testes de \textit{software}.
-Além disso, os resultados obtidos podem ser usados como base acadêmica na área de Engenharia de
+Além disso, os resultados obtidos podem ser utilizados como base acadêmica na área de Engenharia de
 Software para um melhor entendimento dessa correlação, além de produzir insumos para estudos futuros
 nesse mesmo contexto.
 
@@ -167,6 +167,12 @@ O artigo está dividido seis sessões, são elas:
           indicar possíveis estudos complementares.
 \end{enumerate}
 
+Durante o desenvolvimento do presente trabalho foram criados e utilizados diversos \textit{scripts}
+para organização, triagem e visualização dos dados.
+Tais \textit{scripts}, bem como os dados utilizados como insumo da pesquisa, podem ser encontrados
+na íntegra em \url{https://github.com/redivo/article-coverage-and-bugs/}.
+Os dados publicados nesse repositório foram ofuscados a fim de manter o sigilo da empresa
+fornecedora do caso a ser estudado.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,8 +292,8 @@ valores do eixo $x$ sobem.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=.3\textwidth]{lin_reg_example.png}
-    \caption{Exemplo de regressão linear. Fonte: \cite{openIntroStat}}
     \label{fig:lin_reg_basic_example}
+    \caption{Exemplo de regressão linear. Fonte: \cite{openIntroStat}}
 \end{figure}
 
 Outra ferramenta que iremos utilizar neste artigo é o cálculo de coeficiente de correlação.
@@ -302,8 +308,8 @@ $R$.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=.7\textwidth]{correlation_example.png}
-    \caption{Exemplo coeficiente de correlação. Fonte: \cite{openIntroStat}}
     \label{fig:correlation_example}
+    \caption{Exemplo coeficiente de correlação. Fonte: \cite{openIntroStat}}
 \end{figure}
 
 Um erro comum na compreensão do termo ``correlação negativa'' é interpretar que este termo indica a
@@ -529,8 +535,8 @@ Cada funcionalidade pode ser implementada por 1 ou mais repositórios e cada rep
 \begin{figure}[ht]
     \centering
     \includegraphics[width=.7\textwidth]{features_repos.png}
-    \caption{Exemplo de relação entre repositórios de funcionalidades}
     \label{fig:features_repos}
+    \caption{Exemplo de relação entre repositórios de funcionalidades}
 \end{figure}
 
 No contexto do projeto estudado, os testes de \textit{software} são divididos em duas categorias, de
@@ -560,8 +566,8 @@ agendada o Jenkins executam com base no topo do repositório.
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{pipeline_tests.png}
-    \caption{\textit{Pipeline} resumido da integração com enfoque na execução dos testes}
     \label{fig:pipeline_tests}
+    \caption{\textit{Pipeline} resumido da integração com enfoque na execução dos testes}
 \end{figure}
 
 Outro ponto importante a salientar é o contexto dos dados de cobertura de código.
@@ -710,8 +716,8 @@ Os dados de cobertura de código estavam inicialmente sendo disponibilizados atr
 \begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{cobertura.jpeg}
-    \caption{Exemplo de exibição do \textit{plugin} Cobertura}
     \label{fig:pluginCobertura}
+    \caption{Exemplo de exibição do \textit{plugin} Cobertura}
 \end{figure}
 
 Dentre todas métricas disponíveis, a métrica de Cobertura de Linhas é a mais adequada.
@@ -736,8 +742,6 @@ empresarial.
 
 
 \begin{figure}[ht]
-\caption{Exemplo de formatação do arquivo JSON gerado após a compilação dos dados de cobertura
-de código.}
 \label{fig:formatoJsonCoverage}
 \small
 \begin{verbatim}
@@ -750,6 +754,9 @@ de código.}
         ...
     }
 \end{verbatim}
+
+\caption{Exemplo de formatação do arquivo JSON gerado após a compilação dos dados de cobertura
+de código.}
 \end{figure}
 
 Dessa forma teremos como resultado um arquivo JSON contendo todos os 316 repositórios e, para cada
@@ -761,9 +768,9 @@ executadas em pelo menos 1 teste. Por fim, a taxa de cobertura corresponde à di
 cobertas pelas linhas válidas, conforme a Figura \ref{fig:formulaTaxaDeCobertura}.
 
 \begin{figure}[ht]
-\caption{Fórmula de cálculo de taxa de cobertura.}
 \label{fig:formulaTaxaDeCobertura}
     \[ taxaDeCobertura = \frac{linhasCobertas}{linhasValidas} \]
+\caption{Fórmula de cálculo de taxa de cobertura.}
 \end{figure}
 
 Uma vez que os dados de cobertura de código foram exportados via JSON, eles passaram a estar
@@ -813,8 +820,6 @@ todas as funcionalidades de usuário e, dentro de cada elemento dessa lista, a i
 falhas reportadas estão relacionadas à dada funcionalidade.
 
 \begin{figure}[ht]
-\caption{Exemplo de formatação do arquivo JSON gerado após alteração do \textit{script} de contagem
-de falhas reportadas.}
 \label{fig:formatoJsonBugs}
 \small
 \begin{verbatim}
@@ -826,6 +831,8 @@ de falhas reportadas.}
         ...
     }
 \end{verbatim}
+\caption{Exemplo de formatação do arquivo JSON gerado após alteração do \textit{script} de contagem
+de falhas reportadas.}
 \end{figure}
 
 Nesse ponto, temos de um lado a lista de funcionalidades e seus respectivos números de falhas
@@ -868,8 +875,6 @@ Essa marcação facilita a compilação de dados feita por alguns \textit{script
 adiante nesta mesma sessão.
 
 \begin{figure}[ht]
-\caption{Exemplo de formatação do arquivo JSON resultante da junção manual dos dados de falhas
-reportadas por funcionalidade e dados de cobertura de código por repositório.}
 \label{fig:formatoJsonFinal}
 \small
 \begin{verbatim}
@@ -900,6 +905,8 @@ reportadas por funcionalidade e dados de cobertura de código por repositório.}
         ...
     }
 \end{verbatim}
+\caption{Exemplo de formatação do arquivo JSON resultante da junção manual dos dados de falhas
+reportadas por funcionalidade e dados de cobertura de código por repositório.}
 \end{figure}
 
 Após a integração dos dados, tivemos repositórios sendo classificados de 3 formas diferentes:
@@ -987,12 +994,12 @@ funcionalidade (veja fórmula na Figura \ref{fig:formulaTaxaDeCoberturaComponent
 dados de cobertura de código de uma funcionalidade.
 
 \begin{figure}[ht]
-\caption{Fórmula de cálculo de taxa de cobertura de uma funcionalidade de usuário.}
 \label{fig:formulaTaxaDeCoberturaComponent}
 \begin{center}
     $taxaDeCoberturaFuncionalidade = {\sum_{i=a}^{N} linhasCobertas_i \over \sum_{i=a}^{N} linhasValidas_i}$, sendo
     \textbf{a} e \textbf{N} o primeiro e último repositório referente à funcionalidade, respectivamente
 \end{center}
+\caption{Fórmula de cálculo de taxa de cobertura de uma funcionalidade de usuário.}
 \end{figure}
 
 Com o gráfico de bolhas e regressão linear já é possível concluir se existe ou não correlação entre
@@ -1004,20 +1011,20 @@ Com o valor resultante dos cálculos é possível mensurar a força e a validade
 \cite{openIntroStat}.
 
 \begin{figure}[ht]
-\caption{Fórmula da correlação de Pearson. Fonte: \cite{scipy}}
 \label{fig:formulaCorrelacao}
 \begin{center}
     $R = {\sum(x - m_x)(y - m_y) \over \sqrt{\sum(x - m_x)^2 \sum(y - m_y)^2}}$
 \end{center}
+\caption{Fórmula da correlação de Pearson. Fonte: \cite{scipy}}
 \end{figure}
 
 \begin{figure}[ht]
-\caption{Fórmula da correlação valor-p. Fonte: \cite{scipy}}
 \label{fig:formulaValorP}
 \begin{center}
     $valor\mbox{-}p = { (1 - r^2)^{n/2-2} \over B({1 \over 2}, {n \over 2} - 1) }$,
     sendo \textbf{n} o número amostral e \textbf{B} a função beta
 \end{center}
+\caption{Fórmula da correlação valor-p. Fonte: \cite{scipy}}
 \end{figure}
 
 Por fim, alguns cálculos estatísticos auxiliares foram utilizados em algumas análises minoritárias,
