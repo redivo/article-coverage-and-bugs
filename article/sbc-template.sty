@@ -123,6 +123,7 @@
 \newcommand{\authortag}[1]{$^{#1}$}
 
 \def\address#1{\gdef\@address{#1}}
+\def\email#1{\gdef\@email{#1}}
 
 \def\@maketitle{\newpage
  %\null % isso dava um espaco extra antes do title
@@ -133,10 +134,13 @@
   {\XVIPT\bf\@title\par}
    \vglue 6pt plus 3pt minus 3pt
   {\normalsize
-   \textbf{\begin{tabular}[t]{c}\inst{\instnum}\@author\end{tabular}}\par}
+   \textbf{\begin{tabular}[t]{c}\@author\inst{\instnum}\end{tabular}}\par}
    \vglue 6pt plus 3pt minus 3pt
   {\normalsize
    \begin{tabular}[t]{c}\inst{\instnum}\@address\end{tabular}\par}
+   \vglue 6pt plus 3pt minus 3pt
+  {\normalsize
+   \begin{tabular}[t]{c}\@email\end{tabular}\par}
    \vglue 6pt plus 3pt minus 3pt
    \end{center}\par
 }
